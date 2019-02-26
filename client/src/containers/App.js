@@ -7,7 +7,8 @@ import ResultsTable from "../components/ResultsTable/ResultsTable";
 import SearchPage from "../components/SearchPage/SearchPage";
 import AddItemPage from "../components/AddItemPage/AddItemPage";
 
-import classes from './App.module.css';
+import classes from "./App.module.css";
+
 
 //
 // Container of the structure of the application and state.
@@ -43,7 +44,6 @@ class App extends Component {
     console.log("[App.js] @render")
     return (
       <div className={classes.App}>
-          {/* Navbar */}
             <Router>
               <div>
                   <nav className={classes.Navbar}>
@@ -65,16 +65,48 @@ class App extends Component {
                           </li>
                       </ul>
                   </nav>
-                  <Route path="/" exact component={HomePage} />
-                  <Route path="/add" component={AddItemPage} />
-                  <Route path="/items" component={ResultsTable}/>
-                  <Route path="/export" component={ExportPage}/>
-                  <Route path="/search" component={SearchPage} />
+                  <Route path="/" exact component={HomePageComponent} />
+                  <Route path="/add" component={AddItemComponent} />
+                  <Route path="/items" component={ResultsTableComponent}/>
+                  <Route path="/export" component={ExportPageComponent}/>
+                  <Route path="/search" component={SearchPageComponent} />
               </div>
           </Router>
       </div>
     );
   }
 }
+
+
+const HomePageComponent = () => {
+    return (
+        <HomePage />
+    );
+};
+
+const AddItemComponent = () => {
+    return(
+            <AddItemPage />
+    );
+};
+
+const ResultsTableComponent = () => {
+  return(
+          <ResultsTable />
+  );
+};
+
+const SearchPageComponent = () => {
+  return(
+          <SearchPage />
+  );
+};
+
+const ExportPageComponent = () => {
+  return(
+          <ExportPage />
+  );
+};
+
 
 export default App;

@@ -32,7 +32,6 @@ MongoClient.connect('mongodb://sikoz:batata123@ds161894.mlab.com:61894/fcc-test-
 app.get('/items/all', (req, res) => {
   db.collection('items').find().toArray(function(err, results) {
     console.log(results)
-    // send HTML file populated with quotes here
     res.send(results);
   })
 });
