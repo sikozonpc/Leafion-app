@@ -6,6 +6,7 @@ import ExportPage from "../components/ExportPage/ExportPage";
 import ResultsTable from "../components/ResultsTable/ResultsTable";
 import SearchPage from "../components/SearchPage/SearchPage";
 import AddItemPage from "../components/AddItemPage/AddItemPage";
+import Footer from "../components/Footer/Footer";
 
 import classes from "./App.module.css";
 
@@ -25,11 +26,11 @@ class App extends Component {
     console.log("[App.js] @componentDidMount")
     fetch('/items/all')
       .then(res => {
-          console.log("[App.js] @componentDidMount | response:" + res);
+          console.log("[App.js] @componentDidMount | response:" , res);
           return res.json()
         })
       .then(db => { 
-          console.log("[App.js] @componentDidMount | db: " + db); 
+          console.log("[App.js] @componentDidMount | db: " , db); 
           this.setState( { items: db} )
         });
   }
@@ -40,10 +41,54 @@ class App extends Component {
     this.setState( {[name]: value} );
   }
 
+   // Convert items objects to an array to display
+ calculateResult = (items) => {
+    let result = []
+    for (let e in items) {
+        result.push( items[e] );
+    }
+    return result;
+  }
+
+  HomePageComponent = () => {
+    return (
+        <HomePage data={this.calculateResult(this.state.items)}/>
+    );
+  };
+
+ AddItemComponent = () => {
+    return(
+            <AddItemPage />
+    );
+  };
+
+ ResultsTableComponent = () => {
+    return(
+            <ResultsTable />
+    );
+  };
+
+ SearchPageComponent = () => {
+    return(
+            <SearchPage />
+    );
+  };
+
+ ExportPageComponent = () => {
+    return(
+            <ExportPage />
+    );
+  };
+
+
   render() {
-    console.log("[App.js] @render")
+    console.log("[App.js] @render");
     return (
       <div className={classes.App}>
+        <Button variant="contained" color="primary">
+        Hello World
+      </Button>
+          {/* NAVBAR  */}
             <Router>
               <div>
                   <nav className={classes.Navbar}>
@@ -65,48 +110,21 @@ class App extends Component {
                           </li>
                       </ul>
                   </nav>
-                  <Route path="/" exact component={HomePageComponent} />
-                  <Route path="/add" component={AddItemComponent} />
-                  <Route path="/items" component={ResultsTableComponent}/>
-                  <Route path="/export" component={ExportPageComponent}/>
-                  <Route path="/search" component={SearchPageComponent} />
+                  <Route path="/" exact component={this.HomePageComponent} />
+                  <Route path="/add" component={this.AddItemComponent} />
+                  <Route path="/items" component={this.ResultsTableComponent}/>
+                  <Route path="/export" component={this.ExportPageComponent}/>
+                  <Route path="/search" component={this.SearchPageComponent} />
               </div>
           </Router>
+
+          <Footer />
       </div>
     );
   }
 }
 
 
-const HomePageComponent = () => {
-    return (
-        <HomePage />
-    );
-};
-
-const AddItemComponent = () => {
-    return(
-            <AddItemPage />
-    );
-};
-
-const ResultsTableComponent = () => {
-  return(
-          <ResultsTable />
-  );
-};
-
-const SearchPageComponent = () => {
-  return(
-          <SearchPage />
-  );
-};
-
-const ExportPageComponent = () => {
-  return(
-          <ExportPage />
-  );
-};
 
 
 export default App;
