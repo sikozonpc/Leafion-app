@@ -1,6 +1,8 @@
 import React from 'react';
 
+import classes from "./HomePage.module.css";
 
+// Array containing alls months available for the map method
 const MONTHS = {
     "January": "jan","February": "feb","March": "mar","April": "apr", "May":"mai",
     "June": "jun", "July": "jul", "August": "aug", "September": "sep",
@@ -11,8 +13,8 @@ const homePage = (props) => {
     console.log("[HomePage.js] @render | props: " , props.data);
    
     return (
-        <div className="home">
-            <div className="table-main">
+        <div className={classes.Home}>
+            <div className={classes.TableMain}>
                 {Object.keys(MONTHS).map(m => {
                     return  <MonthItem 
                         key={m}
@@ -29,7 +31,7 @@ const homePage = (props) => {
 const MonthItem = (props) => {
 
     return(
-        <div className="item">
+        <div className={classes.Item}>
             <h2>{props.name}</h2>
             <h4><span style={{"color":"green"}}>Recebido</span> - Gasto</h4>
 

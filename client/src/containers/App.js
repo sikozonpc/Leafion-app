@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import HomePage from "../components/HomePage/HomePage";
-import ExportPage from "../components/ExportPage/ExportPage";
-import ResultsTable from "../components/ResultsTable/ResultsTable";
-import SearchPage from "../components/SearchPage/SearchPage";
-import AddItemPage from "../components/AddItemPage/AddItemPage";
 import Footer from "../components/Footer/Footer";
+import Navbar from "../components/Navbar/Navbar"; 
 
 import classes from "./App.module.css";
 
@@ -50,81 +45,21 @@ class App extends Component {
     return result;
   }
 
-  HomePageComponent = () => {
-    return (
-        <HomePage data={this.calculateResult(this.state.items)}/>
-    );
-  };
-
- AddItemComponent = () => {
-    return(
-            <AddItemPage />
-    );
-  };
-
- ResultsTableComponent = () => {
-    return(
-            <ResultsTable />
-    );
-  };
-
- SearchPageComponent = () => {
-    return(
-            <SearchPage />
-    );
-  };
-
- ExportPageComponent = () => {
-    return(
-            <ExportPage />
-    );
-  };
-
 
   render() {
     console.log("[App.js] @render");
+    // Because I am using router for the pages the Content is dynamically added by it
     return (
       <div className={classes.App}>
-        <Button variant="contained" color="primary">
-        Hello World
-      </Button>
-          {/* NAVBAR  */}
-            <Router>
-              <div>
-                  <nav className={classes.Navbar}>
-                  <Link to="/" className="logo">Contas / <span style={{ color: "#2EB946", fontSize: "1.2em" }}>2019</span></Link>
-                      <ul>
-                          <li>
-                              <label>Dosier</label>
-                              <input name="search" onChange={this.onChange} type="text" />
-                              <Link className="btn" to="Search">Procurar</Link>
-                          </li>
-                          <li>
-                              <Link to="/add" className="btn">Adicionar novo</Link>
-                          </li>
-                          <li>
-                              <Link to="/items" className="btn">Ver Registro</Link>
-                          </li>
-                          <li>
-                              <Link to="/export" className="btn inverted">Export Excel</Link>
-                          </li>
-                      </ul>
-                  </nav>
-                  <Route path="/" exact component={this.HomePageComponent} />
-                  <Route path="/add" component={this.AddItemComponent} />
-                  <Route path="/items" component={this.ResultsTableComponent}/>
-                  <Route path="/export" component={this.ExportPageComponent}/>
-                  <Route path="/search" component={this.SearchPageComponent} />
-              </div>
-          </Router>
-
+          <Navbar
+            onChange={() => this.onChangeHandler}
+            calculateResult={this.calculateResult}
+            items={this.state.items}/>
           <Footer />
       </div>
     );
   }
 }
-
-
 
 
 export default App;

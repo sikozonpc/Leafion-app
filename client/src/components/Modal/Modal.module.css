@@ -1,0 +1,18 @@
+.Modal {
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
+    min-width: 400px;
+    min-height: 200px;
+    position: fixed;
+    top: 30%;
+    left: 35%;
+    border: 1px solid #333;
+    padding: 20px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    z-index: 500;
+}
+
+.Modal h2 {
+    text-align: center;
+}
