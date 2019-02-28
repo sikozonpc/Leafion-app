@@ -1,0 +1,14 @@
+.Data {
+    margin-top: 35px;
+    width: 20%;
+    display: flex;
+    flex-flow: column;
+}
+.DataItem {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
+    border: 2px solid #ccc;
+}

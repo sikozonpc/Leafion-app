@@ -131,7 +131,7 @@ class AddItemPage extends React.Component {
                         <input name="dosier" 
                             type="text" 
                             
-                            value={this.state.dosier}
+                            value={this.state.dosier.toUpperCase()}
                             onChange={this.onChangeHandle} />
                     </div>
             

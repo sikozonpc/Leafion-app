@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import HomePage from "../HomePage/HomePage";
 import ExportPage from "../ExportPage/ExportPage";
-import ResultsTable from "../ResultsTable/ResultsTable";
+import RegistryPage from "../RegistryPage/RegistryPage";
 import SearchPage from "../SearchPage/SearchPage";
 import AddItemPage from "../AddItemPage/AddItemPage";
 
@@ -13,7 +13,7 @@ import classes from "./Navbar.module.css";
 
 const navbar = (props) => {
     // useState hook for the search result variable
-    let [searchResult, setSearchResult] = useState("");
+    let [searchResult, setSearchResult] = useState(null);
     
     return (
             <Router>
@@ -24,26 +24,35 @@ const navbar = (props) => {
                           <li>
                               <label>Dosier</label>
                               <input name="search" 
-                                onChange={(e) => setSearchResult(e.target.value) } 
+                                onChange={(e) => setSearchResult(e.target.value.toUpperCase()) } 
                                 type="text" />
-                              <Link className={classes.Btn} to="Search">Procurar</Link>
+                              <Link className="btn" to="Search">Procurar</Link>
                           </li>
                           <li>
-                              <Link to="/add" className={classes.Btn}>Adicionar novo</Link>
+                              <Link to="/add" className="btn">Adicionar novo</Link>
                           </li>
                           <li>
-                              <Link to="/items" className={classes.Btn}>Ver Registro</Link>
+                              <Link to="/items" className="btn">Ver Registro</Link>
                           </li>
                           <li>
-                              <Link to="/export" className={classes.Btn}>Export Excel</Link>
+                              <Link to="/export" className="btn inverted">Export Excel</Link>
                           </li>
                       </ul>
                   </nav>
-                  <Route path="/" exact component={() => <HomePage data={props.calculateResult(props.items)}/>} />
+                  <Route path="/" exact component={() => <HomePage 
+                                                            data={props.items}
+                                                            months={props.months}/>} />
                   <Route path="/add" component={() => <AddItemPage />} />
-                  <Route path="/items" component={() => <ResultsTable />}/>
+                  <Route path="/items" component={() => <RegistryPage 
+                                                            removeHandler={ props.removeHandler}
+                                                            data={props.items}
+                                                            months={props.months}
+                                                             />}/>
                   <Route path="/export" component={() => <ExportPage />}/>
-                  <Route path="/search" component={() => <SearchPage  />} />
+                  <Route path="/search" component={() => <SearchPage 
+                                                            data={props.items}
+                                                            search={searchResult}
+                                                            removeHandler={ props.removeHandler}/>} />
               </div>
           </Router>
     );

@@ -1,0 +1,48 @@
+.Wrapper {
+    background-color: rgb(41, 150, 61);
+    box-sizing: border-box;
+}
+
+
+
+.Grid {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+}
+
+.Table {
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    align-items: center;
+    padding-left: 20px;
+
+    width: 75%;
+    height: 80vh;
+    box-sizing: border-box;
+    background-color: rgb(41, 150, 61);
+}
+
+.Controls {
+    display: flex;
+    flex-flow: row;
+    background-color: rgb(41, 150, 61);
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.Controls button {
+    padding: 10px 20px;
+    color: #fff;
+    border: 0;
+    margin: 5px;
+    background-color: #333;
+}
+
+.firstElem {
+    color: #333 !important;
+    background-color: #fff !important;
+}

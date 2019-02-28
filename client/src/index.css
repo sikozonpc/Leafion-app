@@ -12,3 +12,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.btn {
+  text-decoration: none;
+  background: rgb(41, 150, 61);
+  color: white;
+  border: 0;
+  padding: 10px 20px 10px 20px;
+  margin: 10px;
+}
+
+.btn:hover {
+  background: rgb(20, 209, 55);
+}
+.btn-danger {
+  text-decoration: none;
+  color: white;
+  background: rgb(241, 85, 85);
+  border: 0;
+}
+.btn-danger:hover {
+  background: rgb(243, 74, 74);
+  transform: scale(1.1);
+}
+.inverted {
+  background-color: #444 !important;
+  color: white !important;
+}
+.inverted:hover {
+  background-color: #555 !important;
+  transform: scale(1.05);
+}
+
+
+
+@media screen and (max-width: 1070px){
+  .btn {
+    padding:5px 10px 5px 10px;
+    margin: 5px;
+  }
+}

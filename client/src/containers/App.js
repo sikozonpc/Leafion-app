@@ -11,8 +11,7 @@ import classes from "./App.module.css";
 //
 class App extends Component {
   state = {
-    items: {},
-    monthsCounter: 0
+    items: {}
   };
 
   // Api call to the API Server to get the database
@@ -29,6 +28,29 @@ class App extends Component {
         });
   }
 
+  // Responsible for removing an item from the db.
+  removeHandler = (e) => {
+    let nome = e.target.name;
+    console.log(nome);
+    
+    fetch('/items/remove', {
+        method: 'delete',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "id": nome
+        })
+      })
+      .then(res => {
+        if (res.ok) return res.json()
+      })
+      .then(data => {
+        console.log(data)})
+        
+      window.location.reload();
+}
+
   // Global onChangeHandler for state changes
   onChangeHandler = (event) =>{
     const [name, value] = event.target;
@@ -36,7 +58,7 @@ class App extends Component {
   }
 
    // Convert items objects to an array to display
- calculateResult = (items) => {
+ objectToArray = (items) => {
     let result = []
     for (let e in items) {
         result.push( items[e] );
@@ -52,13 +74,21 @@ class App extends Component {
       <div className={classes.App}>
           <Navbar
             onChange={() => this.onChangeHandler}
-            calculateResult={this.calculateResult}
-            items={this.state.items}/>
+            items={this.objectToArray(this.state.items)}
+            removeHandler={ this.removeHandler}
+            months={MONTHS}/>
           <Footer />
       </div>
     );
   }
 }
+
+// Array containing alls months available for the map method
+const MONTHS = {
+  "January": "jan","February": "feb","March": "mar","April": "apr", "May":"mai",
+  "June": "jun", "July": "jul", "August": "aug", "September": "sep",
+  "October": "oct", "November": "nov", "December": "dec"
+};
 
 
 export default App;
