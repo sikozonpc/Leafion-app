@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const fs = require("fs");
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
@@ -18,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 // START THE DB
 var db;
-MongoClient.connect('mongodb://sikoz:batata123@ds161894.mlab.com:61894/fcc-test-db', (err, client) => {
+MongoClient.connect('mongodb://sikoz:batata123@ds161894.mlab.com:61894/fcc-test-db', { useNewUrlParser: true },(err, client) => {
   if (err) return console.log(err)
 
   db = client.db('fcc-test-db') // whatever the database name is
