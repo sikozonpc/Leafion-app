@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import HomePage from "../HomePage/HomePage";
@@ -12,6 +12,9 @@ import classes from "./Navbar.module.css";
 
 
 const navbar = (props) => {
+    // useState hook for the search result variable
+    let [searchResult, setSearchResult] = useState("");
+    
     return (
             <Router>
               <div>
@@ -20,7 +23,9 @@ const navbar = (props) => {
                       <ul>
                           <li>
                               <label>Dosier</label>
-                              <input name="search" onChange={props.onChange} type="text" />
+                              <input name="search" 
+                                onChange={(e) => setSearchResult(e.target.value) } 
+                                type="text" />
                               <Link className={classes.Btn} to="Search">Procurar</Link>
                           </li>
                           <li>

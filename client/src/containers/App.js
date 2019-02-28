@@ -12,7 +12,6 @@ import classes from "./App.module.css";
 class App extends Component {
   state = {
     items: {},
-    search: "",
     monthsCounter: 0
   };
 
@@ -48,7 +47,7 @@ class App extends Component {
 
   render() {
     console.log("[App.js] @render");
-    // Because I am using router for the pages the Content is dynamically added by it
+    // Because I am using router for the pages the Content section is dynamically added by it
     return (
       <div className={classes.App}>
           <Navbar
