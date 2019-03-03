@@ -1,24 +1,22 @@
 .Table {
-    background-color: white;
     padding: 5px;
     margin-top: 20px;
     border-radius: 5px;
-    -webkit-box-shadow: 4px 4px 1px 1px rgba(0,0,0,0.15);
-    -moz-box-shadow: 4px 4px 1px 1px rgba(0,0,0,0.15);
-    box-shadow: 4px 4px 1px 1px rgba(0,0,0,0.15);
-    font-family: arial, sans-serif;
     color: #333;
     background-color: #fff;
+    width: 98%;
   }
   
+
   td, th {
-    border: 0;
+    border-bottom: 1px solid #D1D2D6;
     text-align: left;
     padding: 8px;
     color: #333;
   }
   
-  tr:nth-child(even) {
-    background-color: #f0f0f0;
-  
+
+  .trMain {
+    background-color: #F8F9FB;
   }
+ 

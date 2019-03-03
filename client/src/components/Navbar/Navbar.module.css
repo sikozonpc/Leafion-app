@@ -29,3 +29,19 @@
     margin-top: -10px;
 }
 
+.SearchBar {
+    border: 0 !important;
+    border-bottom: 2px solid #fff !important;
+    border-radius: 0 !important;
+    background-color: transparent;
+    color: #fff !important;
+    font-size: 1.2rem;
+}
+
+.Btn {
+    padding: 5px;
+    color: #fff;   
+}
+.SearchBox {
+    width: 400px;
+}

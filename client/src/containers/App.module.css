@@ -1,5 +1,38 @@
 .App {
-    Background-color: #f0f0f0;
+   
 }
 
 
+input[type=text] ,input[type=number], select, textarea {
+    border:0;
+    border-bottom: 1px solid #555;
+    width: 300px;
+    border-radius: 0;
+    outline: none;
+    margin: 8px 0;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+  input[type="number"]{
+    width: 150px;
+  }
+  input[type=text]:focus {
+    border-color: green;
+    box-shadow: 0 0 8px 0 green;
+
+  }
+  input[type=number]:focus {
+    border-color: green;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
+  }
+  select:focus {
+    border-color: green;
+    box-shadow: 0 0 8px 0 green;
+  }
+  
+  textarea:focus {
+    border-color: green;
+    box-shadow: 0 0 8px 0 green;
+  }
+  

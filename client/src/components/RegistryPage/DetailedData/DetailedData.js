@@ -17,9 +17,9 @@ const detailedData = (props) => {
    
     props.data.map(e => totalSpendings+= Number(e.post.gasto));
     props.data.map(e => totalEarned+= Number(e.post.recebido));
-    totalEarnedIVA =  totalEarned - (totalEarned * IVA).toFixed(2);
+    totalEarnedIVA =  (totalEarned - (totalEarned * IVA)).toFixed(2);
 
-    let total = totalSpendings- totalEarned;
+    let total = (totalEarned - totalSpendings ).toFixed(2);
 
     let totalStyles = total > 0 ? successStyles : dangerStyles;
     if(total === 0){
@@ -29,20 +29,20 @@ const detailedData = (props) => {
     return (
         <div className={classes.Data}>
                     <div className={classes.DataItem}>
-                        <h3>nº of Actions: <strong>{numActions}</strong></h3>
+                        <h3><i className="far fa-bookmark"></i> Actions: <strong>{numActions}</strong></h3>
                     </div>
                     <div className={classes.DataItem}>
-                        <h3>Total Spent:</h3>
+                        <h3><i className="fas fa-minus"></i> Total Spent:</h3>
                         <p><strong>{totalSpendings} €</strong></p>
                     </div>
                     <div className={classes.DataItem}>
-                        <h3>Total Earned:</h3>
+                        <h3><i className="fas fa-plus"></i> Total Earned:</h3>
                         <p><strong>{totalEarned} €</strong></p>
                         <p><i>+iva: ({totalEarnedIVA}) €</i></p>
                     </div>
                     <div className={classes.DataItem} style={totalStyles}>
                         <h3>Total:</h3>
-                        <p><strong>{totalSpendings} - {totalEarned} = {total} €</strong></p>
+                        <p><strong>{totalEarned} - {totalSpendings} = {total} €</strong></p>
                     </div>
                 </div>
     );
@@ -50,14 +50,12 @@ const detailedData = (props) => {
 
 
 const successStyles = {
-    "backgroundColor": "rgb(42, 156, 42)",
-    "color": "white",
-    "border": "1px solid #333"
+    "color": "rgb(42, 156, 42)",
+    "borderColor": "rgb(42, 156, 42)"
 };
 const dangerStyles = {
-    "backgroundColor": "rgb(233, 50, 50)",
-    "color": "white",
-    "border": "1px solid #333"
+    "color": "rgb(233, 50, 50)",
+    "borderColor": "rgb(233, 50, 50)"
 };
 
 

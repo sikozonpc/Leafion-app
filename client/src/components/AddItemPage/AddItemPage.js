@@ -1,20 +1,26 @@
 import React from "react";
+import DatePicker from "react-datepicker";
 
 import Modal from "../Modal/Modal";
 
 import classes from "./AddItemPage.module.css";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 
 class AddItemPage extends React.Component {
     state = {
         mes: "jan",
+        date: "",
         nome: "",
         descricao: "",
-        dia: "",
+        time: "",
         gasto: 0,
         recebido: 0 ,
         outros: "",
         dosier: "",
+        startDate: null,
+
         responseToPost: null,
         errors: {},
         show: false
@@ -28,12 +34,15 @@ class AddItemPage extends React.Component {
         // Nome
         if(!this.state.nome){
             formIsValid = false;
-            errors["nome"] = "vazio";
-            console.log("name error")
+            errors["NAME"] = "this field is required!";
+            console.log("ERROR: Name field is empty.");
         }
-        
+        if(!this.state.startDate){
+            formIsValid = false;
+            errors["DATE"] = "this field is required!";
+            console.log("ERROR: Date field is empty.");
+        }
          this.setState({errors: errors})
-         console.log(formIsValid);
     
          return formIsValid;
     }
@@ -41,6 +50,19 @@ class AddItemPage extends React.Component {
     onChangeHandle = (e) =>{
         const {name, value} = e.target;
         this.setState({ [name]: value });
+  
+    }
+
+    changeDateHandler = (date) => {
+        // Format the date to what I want
+        let arrayDate = date.toString().split(" ");
+
+        this.setState({
+            startDate: date,
+            date: [...arrayDate].slice(1,4).join("/"),
+            time: arrayDate[4],
+            mes: arrayDate[1].toLowerCase()
+        });
     }
     
     hideModal = () => {
@@ -53,8 +75,8 @@ class AddItemPage extends React.Component {
 
     submitHandler = (e) => {
         e.preventDefault();
-        if(this.handleValidation()){
 
+        if(this.handleValidation()){
             // Show modal
             this.showModal();
 
@@ -64,9 +86,10 @@ class AddItemPage extends React.Component {
                 'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ post: {
-                "dia": this.state.dia,
+                "date": this.state.date,
                 "mes": this.state.mes,
                 "dosier": this.state.dosier,
+                "time": this.state.time,
                 "nome": this.state.nome,
                 "descricao": this.state.descricao, 
                 "gasto": this.state.gasto,
@@ -75,12 +98,18 @@ class AddItemPage extends React.Component {
                  } }),
             }).then(e => this.setState({responseToPost: e.text().then(e =>"ele" + console.log(e) )}) );
         } else {
-            alert("Alguns campos devem estar mal escritos!");
+            window.scrollTo(0, 0);
         } 
       }
 
       
       render(){
+            // Basic error handler for client side auth in case the native browser one
+            // doesn't work.
+            const errorsList = Object.keys(this.state.errors).map(e => {
+                return <p className={classes.Errors}
+                            key={e}>Error {e}: {this.state.errors[e]}</p>
+        });
           return(
               <>
               {this.state.show ? <Modal show={this.state.show} clicked={this.hideModal}>
@@ -89,7 +118,9 @@ class AddItemPage extends React.Component {
                     <ul>
                         <li>Name: <strong></strong>{this.state.nome}</li>
                         <li>Descripton: <strong>{this.state.descricao}</strong></li>
-                        <li>Date: <strong>{this.state.dia}/{this.state.mes}/2019</strong></li>
+                        <li>Date: <strong>{this.state.date}</strong></li>
+                        <li>Month: <strong>{this.state.mes}</strong></li>
+                        <li>Time: <strong>{this.state.time}</strong></li>
                         <li>Spent: <strong>{this.state.gasto} €</strong></li>
                         <li>Earn: <strong>{this.state.recebido} €</strong></li>
                         <li>Others: <strong>{this.state.outros}</strong></li>
@@ -101,77 +132,65 @@ class AddItemPage extends React.Component {
                 
 
                 <form onSubmit={this.submitHandler} className={classes.Form}>
-                    <label htmlFor="dia">Dia</label>
-                        <input name="dia"
-                             
-                            type="text" 
-                            value={this.state.dia} placeholder="dia"
-                            onChange={this.onChangeHandle} />
+                    <h2><i className="fas fa-plus-square"></i> ADD NEW ACTION</h2>
+                    {errorsList}
+                    <label htmlFor="nome">Action Name *: </label>
+                    <input name="nome" 
+                        required
+                        type="text" 
+                        value={this.state.nome} placeholder="Action name here..."
+                        onChange={this.onChangeHandle}/>
 
-                    <label htmlor="mes">Mês</label>
-                    <select name="mes" 
-                         value={this.state.mes} onChange={this.onChangeHandle}>
-                        <option value="jan">Janeiro</option>
-                        <option value="feb">Fevereiro</option>
-                        <option value="mar">Março</option>
-                        <option value="mai">Maio</option>
-                        <option value="apr">Abril</option>
-                        <option value="jun">Junho</option>
-                        <option value="jul">Julho</option>
-                        <option value="aug">Agosto</option>
-                        <option value="sep">Setembro</option>
-                        <option value="oct">Octubro</option>
-                        <option value="nov">Novembro</option>
-                        <option value="dec">Dezembro</option>
-                    </select>
-
-
-                    <label htmlFor="dosier">Dosier</label>
-                    <div className="container-input-with-suffix">
+                    <label htmlFor="dosier">Dosier: </label>
+                    <div>
                         <input name="dosier" 
                             type="text" 
-                            
+                            placeholder="Ex: 1AB..."
                             value={this.state.dosier.toUpperCase()}
                             onChange={this.onChangeHandle} />
                     </div>
-            
-                    <label htmlFor="nome">Nome da Ação/ Produto</label>
-                    <input name="nome" 
-                        type="text" 
-                        value={this.state.nome} placeholder="Escrever..."
-                        onChange={this.onChangeHandle}/>
-    
 
-                    <label htmlFor="descricao">Descrição</label>
+                    <label htmlFor="datepicker">Action Date *:</label>
+                    <DatePicker name="datepicker"
+                        required
+                        showTimeSelect
+                        selected={this.state.startDate}
+                        onChange={this.changeDateHandler}/>
+
+
+                    <label htmlFor="descricao">Description:</label>
                     <input name="descricao" 
                         type="text" 
-                        value={this.state.descricao} placeholder="Escrever..."
+                        value={this.state.descricao} placeholder="Description here..."
                         onChange={this.onChangeHandle} />
 
-                    <label htmlFor="gasto">Gasto</label>
-                    <div className="container-input-with-suffix">
-                        <input name="gasto" 
-                            type="number" 
-                            
-                            value={this.state.gasto} placeholder="100..."
-                            onChange={this.onChangeHandle} />
-                        <span>€</span>
-                    </div>
+                    <div className={classes.Section}>
+                        <label htmlFor="gasto">Spent: </label>
+                        <div>
+                            <input name="gasto" 
+                                type="number" 
+                                
+                                value={this.state.gasto} placeholder="100..."
+                                onChange={this.onChangeHandle} />
+                            <span>€</span>
+                        </div>
 
-                    <label htmlFor="recebido">Recebido</label>
-                    <div className="container-input-with-suffix">
-                        <input name="recebido" 
-                            type="number" 
-                            
-                            value={this.state.recebido} placeholder="100..."
-                            onChange={this.onChangeHandle} />
-                        <span>€</span>
+                        <label htmlFor="recebido">Earned: </label>
+                        <div>
+                            <input name="recebido" 
+                                type="number" 
+                                
+                                value={this.state.recebido} placeholder="100..."
+                                onChange={this.onChangeHandle} />
+                            <span>€</span>
+                        </div>
                     </div>
+                   
 
-                    <label htmlFor="outros">Outros</label>
+                    <label htmlFor="outros">Others: </label>
                     <input name="outros" 
                         type="text" 
-                        value={this.state.outros} placeholder="Escever..."
+                        value={this.state.outros} placeholder="Others here..."
                         onChange={this.onChangeHandle} />
                     
                     <button type="submit" className={classes.BtnInverted}>Add</button>

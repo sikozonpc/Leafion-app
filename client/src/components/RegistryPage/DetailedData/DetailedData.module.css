@@ -1,14 +1,26 @@
 .Data {
-    margin-top: 35px;
+    margin-top: 0px;
     width: 20%;
     display: flex;
     flex-flow: column;
+    padding-right: 10px;
 }
 .DataItem {
     padding: 5px 10px;
     margin: 5px;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
-    border: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
 }
+    .DataItem > h3,p  {
+        margin-bottom: 2px;
+        margin-top: 2px;
+    }
+    .DataItem > p {
+        font-family: monospace;
+        font-size: 1.2rem;
+    }
+
+    .DataItem > * {
+        color: #333;
+    }
+

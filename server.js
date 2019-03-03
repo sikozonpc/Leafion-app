@@ -50,8 +50,11 @@ app.post('/items/add', (req, res) => {
   })
 });
 
+// 
+// Delete item from the Database
+//
 app.delete("/items/remove", (req, res) => {
-  console.log("a")
+  console.log("removing from db")
   db.collection('items').deleteOne({ _id:ObjectId(`${req.body.id}`) } ,
     (err, result) => {
       if (err) return res.send(500, err)

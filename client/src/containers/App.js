@@ -5,10 +5,13 @@ import Navbar from "../components/Navbar/Navbar";
 
 import classes from "./App.module.css";
 
+//TODO: https://reactjs.org/docs/context.html
 
 //
 // Container of the structure of the application and state.
 //
+
+
 class App extends Component {
   state = {
     items: {}
@@ -29,17 +32,14 @@ class App extends Component {
   }
 
   // Responsible for removing an item from the db.
-  removeHandler = (e) => {
-    let nome = e.target.name;
-    console.log(nome);
-    
+  removeHandler = (id) => {
     fetch('/items/remove', {
         method: 'delete',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "id": nome
+            "id": id
         })
       })
       .then(res => {
@@ -72,12 +72,12 @@ class App extends Component {
     // Because I am using router for the pages the Content section is dynamically added by it
     return (
       <div className={classes.App}>
-          <Navbar
-            onChange={() => this.onChangeHandler}
-            items={this.objectToArray(this.state.items)}
-            removeHandler={ this.removeHandler}
-            months={MONTHS}/>
-          <Footer />
+        <Navbar
+          onChange={() => this.onChangeHandler}
+          items={this.objectToArray(this.state.items)}
+          removeHandler={ this.removeHandler}
+          months={MONTHS}/>
+        <Footer />
       </div>
     );
   }
