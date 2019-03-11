@@ -26,6 +26,10 @@ class AddItemPage extends React.Component {
         show: false
     }
 
+    componentDidMount(){
+        console.log(this.props)
+    }
+
     // TODO:
     handleValidation = () => {
         let formIsValid = true;
@@ -67,7 +71,8 @@ class AddItemPage extends React.Component {
     
     hideModal = () => {
         this.setState({show: false })
-        window.location.reload();
+        // Redirects the user to the dashboard using the props from React Router Dom
+        this.props.history.push("/items")
     }
     showModal = () => {
         this.setState({show: true })
@@ -96,7 +101,10 @@ class AddItemPage extends React.Component {
                 "recebido": this.state.recebido,
                 "outros": this.state.outros
                  } }),
-            }).then(e => this.setState({responseToPost: e.text().then(e =>"ele" + console.log(e) )}) );
+            })
+            .then(e =>{
+                this.setState({responseToPost: e.text() })
+            });
         } else {
             window.scrollTo(0, 0);
         } 

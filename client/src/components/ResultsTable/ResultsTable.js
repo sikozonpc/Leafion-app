@@ -2,6 +2,8 @@ import React from 'react';
 
 import classes from "./ResultsTable.module.css";
 
+import {Table} from "react-bootstrap";
+
 const resultsTable = (props) => {
     // Add func for not displaying when data is null
     const tableData =  props.data.map((e,i) =>{
@@ -20,9 +22,9 @@ const resultsTable = (props) => {
 
 
     return (
-        <table className={classes.Table} cellSpacing="0">
+        <Table Table striped bordered hover>
         <tbody>
-            <tr className={classes.trMain} >
+            <tr >
                 <th>Name</th> 
                 <th>Dosier</th>
                 <th>Date</th>
@@ -35,7 +37,7 @@ const resultsTable = (props) => {
             </tr>
             {tableData}
         </tbody>
-        </table>
+        </Table>
     );
     
 };

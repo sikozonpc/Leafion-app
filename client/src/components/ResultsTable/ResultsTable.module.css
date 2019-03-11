@@ -7,16 +7,3 @@
     width: 98%;
   }
   
-
-  td, th {
-    border-bottom: 1px solid #D1D2D6;
-    text-align: left;
-    padding: 8px;
-    color: #333;
-  }
-  
-
-  .trMain {
-    background-color: #F8F9FB;
-  }
- 

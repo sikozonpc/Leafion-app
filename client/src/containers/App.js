@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/Navbar"; 
+import { BrowserRouter as Router} from "react-router-dom";
 
 import classes from "./App.module.css";
+
+import Layout from "./Layout/Layout";
+import RouterContent from "../components/RouterContent/RouterContent";
+
 
 //TODO: https://reactjs.org/docs/context.html
 
@@ -14,7 +16,8 @@ import classes from "./App.module.css";
 
 class App extends Component {
   state = {
-    items: {}
+    items: null,
+    searchResult: ""
   };
 
   // Api call to the API Server to get the database
@@ -29,6 +32,10 @@ class App extends Component {
           console.log("[App.js] @componentDidMount | db: " , db); 
           this.setState( { items: db} )
         });
+  }
+
+  setSearchResult = (string) => {
+    this.setState( { searchResult: string.toUpperCase()} );
   }
 
   // Responsible for removing an item from the db.
@@ -70,15 +77,21 @@ class App extends Component {
   render() {
     console.log("[App.js] @render");
     // Because I am using router for the pages the Content section is dynamically added by it
+    let routerContent = this.state.items  ?
+       <RouterContent 
+          items={this.state.items} 
+          removeHandler={this.removeHandler}
+          months={MONTHS}
+          searchResult={this.state.searchResult}
+        /> 
+       : null;
+
     return (
-      <div className={classes.App}>
-        <Navbar
-          onChange={() => this.onChangeHandler}
-          items={this.objectToArray(this.state.items)}
-          removeHandler={ this.removeHandler}
-          months={MONTHS}/>
-        <Footer />
-      </div>
+      <Router>
+        <Layout setSearchResult={this.setSearchResult}>
+          {routerContent}
+        </Layout>
+      </Router>
     );
   }
 }
