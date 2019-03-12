@@ -1,59 +1,75 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 
-
 import ResultsTable from "../ResultsTable/ResultsTable";
 import DetailedData from "./DetailedData/DetailedData";
 
 import classes from "./RegistryPage.module.css";
 
+import { Dropdown,DropdownButton, Row, Col, Container, ListGroup} from "react-bootstrap";
+
+
 const registryPage = (props) => {
     const [filter, setFilter] = useState(null);
+
+    let activeFilter = "all";
+
     // if its null display all data, ignore the filter then
     let currentData;
     if(!filter){
-        currentData =  props.data;
+        currentData = props.data;
     } else {
         currentData = props.data.filter(e => e.post.mes === filter);
     }
 
    
     return (
-        <div className={classes.Wrapper}>
-            <div className={classes.Dashboard}>
-                <h3>Dashboard</h3>
-                <h2><i className="fas fa-wrench"></i> MANAGE</h2>
-                <Link to="/add"><i className="fas fa-plus"></i> Add</Link>
-                <Link to="/Search"><i className="fas fa-search"></i> Search</Link>
-                <a href="#"><i className="fas fa-sort-alpha-down"></i> Sort</a>
-                <h2><i className="far fa-compass"></i> DATA</h2>
-                <Link to="/export"><i className="far fa-file-excel"></i> Export to Excel</Link>
-                <a href="#"><i className="fas fa-database"></i> Json</a>
-   
-            </div>
-            <div className={classes.DataTable}>
-                <div className={classes.Controls}>
-                    <h3><i className="fas fa-filter"></i> Filter: </h3>
-                    <button onClick={() => setFilter(null)} 
-                            className={classes.firstElem}>ALL</button>
+        <Container fluid style={{paddingTop:"40px", paddingBottom:"40px"}}>
+            <Row>
+            <Col xs="12" md="12" lg="2" >
+                <ListGroup variant="flush" >
+                    <ListGroup.Item variant="success">Dashboard</ListGroup.Item>
+                    <ListGroup.Item><i className="fas fa-wrench"></i> MANAGE</ListGroup.Item>
+                    <ListGroup.Item><Link to="/add"><i className="fas fa-plus"></i> Add</Link></ListGroup.Item>
+                    <ListGroup.Item><Link to="/Search"><i className="fas fa-search"></i> Search</Link></ListGroup.Item>
+                    <ListGroup.Item><a href="#"><i className="fas fa-sort-alpha-down"></i> Sort</a></ListGroup.Item>
+                    <ListGroup.Item><i className="far fa-compass"></i> DATA</ListGroup.Item>
+                    <ListGroup.Item><Link to="/export"><i className="far fa-file-excel"></i> Export to Excel</Link></ListGroup.Item>
+                    <ListGroup.Item><a href="#"><i className="fas fa-database"></i> Json</a></ListGroup.Item>
+                </ListGroup>
+            </Col>
+            <Col xs="12" md="12" lg="10">
+                <DropdownButton title={<i className="fas fa-filter"></i>}
+                     id="dropdown-basic-button"
+                     drop="right"
+                     variant="primary">
+                    <Dropdown.Item  onClick={() => setFilter(null)}
+                        active={filter ? false : true} >
+                        Show All
+                    </Dropdown.Item>
 
+                    <Dropdown.Divider />
+              
                     {Object.keys(props.months).map(m => {
-                        return <button key={m}
+                        return <Dropdown.Item key={m}
+                                    active={filter === props.months[m] ? true : false}
                                     onClick={() => setFilter(props.months[m])}>
-                                    {props.months[m].toUpperCase()}
-                                </button>
+                                    {m}
+                                </Dropdown.Item>
                     })}
-                </div>
-                <div className={classes.Grid}>
-                    <div className={classes.Table}>
-                        <ResultsTable  
-                            removeHandler={ props.removeHandler}
-                            data={currentData}/> 
-                    </div>
+                </DropdownButton>
+              
+                <ResultsTable 
+                    removeHandler={ props.removeHandler}
+                    data={currentData}/> 
+            </Col>
+            </Row>
+            <Row style={{marginTop:"40px"}}>
+                <Col>
                     <DetailedData data={currentData} />
-                </div>
-            </div>
-        </div>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

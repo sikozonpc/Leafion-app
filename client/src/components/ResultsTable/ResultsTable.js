@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from "./ResultsTable.module.css";
 
-import {Table} from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 const resultsTable = (props) => {
     // Add func for not displaying when data is null
@@ -22,7 +22,8 @@ const resultsTable = (props) => {
 
 
     return (
-        <Table Table striped bordered hover>
+        <Table striped bordered hover size="sm" responsive="md" 
+            style={{marginTop:"20px"}}>
         <tbody>
             <tr >
                 <th>Name</th> 

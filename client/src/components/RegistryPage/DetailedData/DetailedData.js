@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from "./DetailedData.module.css"
 
+import { Container,ListGroup } from "react-bootstrap";
 
 //
 // Component that displays and calculates the specific data to each month  
@@ -27,37 +28,30 @@ const detailedData = (props) => {
     }
 
     return (
-        <div className={classes.Data}>
-                    <div className={classes.DataItem}>
-                        <h3><i className="far fa-bookmark"></i> Actions: <strong>{numActions}</strong></h3>
-                    </div>
-                    <div className={classes.DataItem}>
-                        <h3><i className="fas fa-minus"></i> Total Spent:</h3>
-                        <p><strong>{totalSpendings} €</strong></p>
-                    </div>
-                    <div className={classes.DataItem}>
-                        <h3><i className="fas fa-plus"></i> Total Earned:</h3>
-                        <p><strong>{totalEarned} €</strong></p>
-                        <p><i>+iva: ({totalEarnedIVA}) €</i></p>
-                    </div>
-                    <div className={classes.DataItem} style={totalStyles}>
-                        <h3>Total:</h3>
-                        <p><strong>{totalEarned} - {totalSpendings} = {total} €</strong></p>
-                    </div>
-                </div>
+        <Container>
+            <ListGroup >
+                <ListGroup.Item>
+                    <i className="far fa-bookmark"></i> Actions: <strong>{numActions}</strong>
+                </ListGroup.Item>
+       
+                <ListGroup.Item >
+                    <i className="fas fa-minus"></i> Total Spent: <strong>{totalSpendings} €</strong>
+                </ListGroup.Item>
+                <ListGroup.Item >
+                    <i className="fas fa-plus"></i> Total Earned: <strong>{totalEarned} €</strong>
+                    <p><i>+iva: ({totalEarnedIVA}) €</i></p>
+                </ListGroup.Item>
+                <ListGroup.Item  variant={totalStyles}>
+                    Total: <strong>{totalEarned} - {totalSpendings} = {total} €</strong>
+                </ListGroup.Item>
+            </ListGroup>
+        </Container>
     );
 };
 
 
-const successStyles = {
-    "color": "rgb(42, 156, 42)",
-    "borderColor": "rgb(42, 156, 42)"
-};
-const dangerStyles = {
-    "color": "rgb(233, 50, 50)",
-    "borderColor": "rgb(233, 50, 50)"
-};
-
+const successStyles = "success";
+const dangerStyles = "danger";
 
 
 export default detailedData;

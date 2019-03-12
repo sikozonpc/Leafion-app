@@ -7,6 +7,8 @@ import classes from "./AddItemPage.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 
+import { Container, Form, Button, Col } from "react-bootstrap";
+
 
 class AddItemPage extends React.Component {
     state = {
@@ -119,7 +121,7 @@ class AddItemPage extends React.Component {
                             key={e}>Error {e}: {this.state.errors[e]}</p>
         });
           return(
-              <>
+              <Container style={{marginTop:"40px", marginBottom:"40px"}}>
               {this.state.show ? <Modal show={this.state.show} clicked={this.hideModal}>
                     <h2>Action Added !</h2>
                     <p>To <strong>{this.state.dosier}</strong> dosier.</p>
@@ -139,71 +141,72 @@ class AddItemPage extends React.Component {
                 </Modal> : null}
                 
 
-                <form onSubmit={this.submitHandler} className={classes.Form}>
-                    <h2><i className="fas fa-plus-square"></i> ADD NEW ACTION</h2>
-                    {errorsList}
-                    <label htmlFor="nome">Action Name *: </label>
-                    <input name="nome" 
-                        required
-                        type="text" 
-                        value={this.state.nome} placeholder="Action name here..."
-                        onChange={this.onChangeHandle}/>
+                <Form onSubmit={this.submitHandler}>
+                    <Form.Group  controlId="addItemForm">
+                        <h2><i className="fas fa-plus-square"></i> ADD NEW ACTION</h2>
+                        {errorsList}
+                        <Form.Label htmlFor="nome">Action Name *: </Form.Label>
+                        <Form.Control name="nome" 
+                            required
+                            type="text" 
+                            value={this.state.nome} placeholder="Action name here..."
+                            onChange={this.onChangeHandle}/>
 
-                    <label htmlFor="dosier">Dosier: </label>
-                    <div>
-                        <input name="dosier" 
+                        <Form.Label htmlFor="dosier">Dosier: </Form.Label>
+
+                        <Form.Control name="dosier" 
                             type="text" 
                             placeholder="Ex: 1AB..."
                             value={this.state.dosier.toUpperCase()}
                             onChange={this.onChangeHandle} />
-                    </div>
 
-                    <label htmlFor="datepicker">Action Date *:</label>
-                    <DatePicker name="datepicker"
-                        required
-                        showTimeSelect
-                        selected={this.state.startDate}
-                        onChange={this.changeDateHandler}/>
+                        <Form.Label htmlFor="datepicker">Date *:</Form.Label>
+                        <Form.Group>
+                            <DatePicker name="datepicker"
+                                required
+                                className={classes.DatePicker}
+                                showTimeSelect
+                                selected={this.state.startDate}
+                                onChange={this.changeDateHandler}/>
+                        </Form.Group>
+                        
 
+                        <Form.Label htmlFor="descricao">Description:</Form.Label>
+                        <Form.Control name="descricao" 
+                                    type="text" 
+                                    value={this.state.descricao} placeholder="Description here..."
+                                    onChange={this.onChangeHandle} />
 
-                    <label htmlFor="descricao">Description:</label>
-                    <input name="descricao" 
-                        type="text" 
-                        value={this.state.descricao} placeholder="Description here..."
-                        onChange={this.onChangeHandle} />
-
-                    <div className={classes.Section}>
-                        <label htmlFor="gasto">Spent: </label>
-                        <div>
-                            <input name="gasto" 
+                        <Form.Row>
+                            <Col>
+                                <Form.Label htmlFor="gasto">Spent: </Form.Label>
+                                <Form.Control name="gasto" 
                                 type="number" 
-                                
                                 value={this.state.gasto} placeholder="100..."
                                 onChange={this.onChangeHandle} />
-                            <span>€</span>
-                        </div>
+                            </Col>
+                            <Col>
+                                <Form.Label htmlFor="recebido">Earned: </Form.Label>
+                                <Form.Control name="recebido" 
+                                    type="number" 
+                                    
+                                    value={this.state.recebido} placeholder="100..."
+                                    onChange={this.onChangeHandle} />
+                            </Col>
+                        </Form.Row>
+                     
 
-                        <label htmlFor="recebido">Earned: </label>
-                        <div>
-                            <input name="recebido" 
-                                type="number" 
-                                
-                                value={this.state.recebido} placeholder="100..."
-                                onChange={this.onChangeHandle} />
-                            <span>€</span>
-                        </div>
-                    </div>
-                   
+                        <Form.Label htmlFor="outros">Others: </Form.Label>
+                        <Form.Control name="outros" 
+                            type="text" 
+                            value={this.state.outros} placeholder="Others here..."
+                            onChange={this.onChangeHandle} />
 
-                    <label htmlFor="outros">Others: </label>
-                    <input name="outros" 
-                        type="text" 
-                        value={this.state.outros} placeholder="Others here..."
-                        onChange={this.onChangeHandle} />
-                    
-                    <button type="submit" className={classes.BtnInverted}>Add</button>
-                </form>
-            </>
+
+                        <Button type="submit" variant="success">Add</Button>
+                    </Form.Group>
+                </Form>
+            </Container>
           );
       }
 }

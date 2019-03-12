@@ -13,40 +13,6 @@ code {
     monospace;
 }
 
-.btn {
-  text-decoration: none;
-  background: rgb(41, 150, 61);
-  color: white;
-  border: 0;
-  padding: 10px 20px 10px 20px;
-  margin: 10px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: rgb(20, 209, 55);
-}
-.btn-danger {
-  font-size: 1.1rem;
-  text-decoration: none;
-  color: rgb(241, 136, 136);
-  cursor: pointer;
-  border: 0;
-  background-color: transparent;
-}
-.btn-danger:hover {
-  color: rgb(243, 74, 74);
-  transform: scale(1.1);
-}
-.inverted {
-  background-color: #444 !important;
-  color: white !important;
-}
-.inverted:hover {
-  background-color: #555 !important;
-  transform: scale(1.05);
-}
-
 
 .fa-pagelines {
   color: green;
