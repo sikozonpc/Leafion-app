@@ -1,27 +1,9 @@
-.Home {
-    background-image: url("../../assets/bg.jpeg");
-    /*fallback color*/
-    background-color: #29963d;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   
-  }
-  
-  .TableMain {
-    background-color: #29963d;
-    width: 85%;
-    height: 85%;
-    padding: 15px;
-  
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly
-  }
+.IntroBox {
+  margin: 20px;
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0px 3px 2px #ccc;   
+}
   

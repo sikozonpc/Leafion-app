@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   color: #1a9537;
 }
