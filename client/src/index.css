@@ -13,6 +13,12 @@ code {
     monospace;
 }
 
+a {
+  color: #1a9537;
+}
+  a:hover {
+    color: #025716;
+  }
 
 .fa-pagelines {
   color: green;

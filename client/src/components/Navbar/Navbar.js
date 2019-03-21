@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import classes from "./Navbar.module.css";
 
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
  

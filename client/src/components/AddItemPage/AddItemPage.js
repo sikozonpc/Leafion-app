@@ -160,7 +160,7 @@ class AddItemPage extends React.Component {
                             value={this.state.dosier.toUpperCase()}
                             onChange={this.onChangeHandle} />
 
-                        <Form.Label htmlFor="datepicker">Date *:</Form.Label>
+                        <Form.Label htmlFor="datepicker">Date & Time *:</Form.Label>
                         <Form.Group>
                             <DatePicker name="datepicker"
                                 required
