@@ -13,17 +13,17 @@ import AddItemPage from "../AddItemPage/AddItemPage";
 const routerContent = (props) => {
     return (
         <>
-            <Route path="/" exact component={() => <HomePage
+           <Route path="/" exact render={() => <HomePage
              data={props.items}
              months={props.months} />} />
            <Route path="/add" component={AddItemPage} />
-           <Route path="/items" component={() => <RegistryPage
+           <Route path="/items" render={() => <RegistryPage
                removeHandler={props.removeHandler}
                data={props.items}
                months={props.months}
            />} />
-           <Route path="/export" c omponent={() => <ExportPage />} />
-           <Route path="/search" component={() => <SearchPage
+           <Route path="/export" render={() => <ExportPage />} />
+           <Route path="/search" render={() => <SearchPage
                data={props.items}
                search={props.searchResult}
                removeHandler={props.removeHandler} />} />

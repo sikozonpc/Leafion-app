@@ -9,8 +9,29 @@ import { Container } from "react-bootstrap";
 
 
 const searchPage = (props) => {
-    const result = props.data.filter(p => p.post.dosier === props.search);
-    console.log("sr: " , result);
+    const regex = new RegExp(props.search, "gi");
+   
+    const result = props.data.filter(p =>{
+        // If the search is empty then return null
+        if( "/(?:)/gi".match(regex) ) {
+            return null;
+        } else {
+            return p.post.dosier.match(regex) ||
+            p.post.date.match(regex) || p.post.nome.match(regex);
+        }
+    } );
+    console.log(result)
+
+    const resultDisplay = ( result.length  ? 
+        <ResultsTable 
+            data={result}
+            removeHandler={ props.removeHandler}/> :
+        <h3 style={{
+            textAlign: "center", color: "gray", 
+            margin: "100px"}}>
+        Type something you would like to search for.</h3>
+    );
+
     return (
         <Container stlyle={{paddingTop: "40px"}}>
             <h1 className={classes.h1} 
@@ -18,9 +39,8 @@ const searchPage = (props) => {
                     Pesquisa por:
                     <span style={{"color":"green"}}> {props.search}</span> 
             </h1>
-            <ResultsTable 
-                data={result}
-                removeHandler={ props.removeHandler}/>  
+            { resultDisplay }
+             
         </Container>
     );
 };

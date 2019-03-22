@@ -1,12 +1,8 @@
 import React from 'react';
-
-import MonthItem from "./MonthItem/MonthItem";
+import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 
 import classes from "./HomePage.module.css";
-
-import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
-
-import { Container, Row, Col, Alert } from "react-bootstrap";
 
 
 const homePage = (props) => {
@@ -21,7 +17,6 @@ const homePage = (props) => {
     Object.keys(props.months).map( m => {
         recebidoGraphFormatedData[ m.slice(0,3) ] = getMoneyFromMonth(props.data, props.months[m], "r");
     });
-
 
     return (
         <Container>
@@ -85,7 +80,6 @@ const homePage = (props) => {
                 <p>...</p>
             </Container>
         </Container>
-        
     );
 };
 
@@ -114,4 +108,4 @@ const getMoneyFromMonth = (data, month, transactionType) =>{
 }
 
 
-export default homePage;
+export default React.memo(homePage);

@@ -28,10 +28,6 @@ class AddItemPage extends React.Component {
         show: false
     }
 
-    componentDidMount(){
-        console.log(this.props)
-    }
-
     // TODO:
     handleValidation = () => {
         let formIsValid = true;
@@ -56,7 +52,6 @@ class AddItemPage extends React.Component {
     onChangeHandle = (e) =>{
         const {name, value} = e.target;
         this.setState({ [name]: value });
-  
     }
 
     changeDateHandler = (date) => {
@@ -74,7 +69,9 @@ class AddItemPage extends React.Component {
     hideModal = () => {
         this.setState({show: false })
         // Redirects the user to the dashboard using the props from React Router Dom
-        this.props.history.push("/items")
+        this.props.history.push("/items"); 
+        window.location.reload();
+        
     }
     showModal = () => {
         this.setState({show: true })
@@ -142,7 +139,7 @@ class AddItemPage extends React.Component {
                 
 
                 <Form onSubmit={this.submitHandler}>
-                    <Form.Group  controlId="addItemForm">
+                    <Form.Group >
                         <h2><i className="fas fa-plus-square"></i> ADD NEW ACTION</h2>
                         {errorsList}
                         <Form.Label htmlFor="nome">Action Name *: </Form.Label>

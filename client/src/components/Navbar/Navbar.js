@@ -18,7 +18,7 @@ const navbar = (props) => {
                     </Nav>
                     <Form inline>
                     <FormControl type="text" onChange={(e) => props.setSearchResult(e.target.value)} placeholder="Search" className="mr-sm-2" />
-                    <Link variant="outline-success" to="/search">Search</Link>
+                        <Link style={{color: "#fff"}} to="/search">Search</Link>
                     </Form>
                 </Navbar.Collapse>
          
