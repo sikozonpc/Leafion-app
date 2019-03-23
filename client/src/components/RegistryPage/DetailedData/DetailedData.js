@@ -33,16 +33,16 @@ const detailedData = (props) => {
                 <ListGroup.Item>
                     <i className="far fa-bookmark"></i> Actions: <strong>{numActions}</strong>
                 </ListGroup.Item>
-       
                 <ListGroup.Item >
-                    <i className="fas fa-minus"></i> Total Spent: <strong>{totalSpendings} €</strong>
-                </ListGroup.Item>
-                <ListGroup.Item >
-                    <i className="fas fa-plus"></i> Total Earned: <strong>{totalEarned} €</strong>
+                    <i className="fas fa-plus"></i> Total Income: <strong style={{color:"green"}}>{totalEarned} €</strong>
                     <p><i>+iva: ({totalEarnedIVA}) €</i></p>
                 </ListGroup.Item>
+                <ListGroup.Item >
+                    <i className="fas fa-minus"></i> Total Expenses: <strong style={{color:"red"}}>{totalSpendings} €</strong>
+                </ListGroup.Item>
+                
                 <ListGroup.Item  variant={totalStyles}>
-                    Total: <strong>{totalEarned} - {totalSpendings} = {total} €</strong>
+                    Balance: <strong>{totalEarned} - {totalSpendings} = {total} €</strong>
                 </ListGroup.Item>
             </ListGroup>
         </Container>

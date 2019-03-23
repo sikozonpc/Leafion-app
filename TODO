@@ -1,3 +1,15 @@
 
 Dashboard:
-  ☐ @high After adding item money is not updating 
+  ✔ After adding item money is not updating @done(19-03-23 01:00)
+
+  ☐ Create in a section for adding variables like the salary and transportation
+  ☐ @high Change the data names to ENGLISH
+  ☐ @high Create a accesbile adding form (easier),(SPENDIGNS OR EXPENSE ONLY);
+    ☐ With categories that have icons (make feature to create them too)
+    ☐ See video: https://play.google.com/store/apps/details?id=com.mhriley.spendingtracker&hl=pt_PT
+
+  ☐ CASH FLOW : For the HomePage add a new PIE CHART for viewign the most used category
+  ☐ IDENTIFY SPENDIGN PATTERNS GRAPH
+
+  ☐ na DASHBOARD MOVER PARA CIMA OS DADOS 
+  ☐ REMOVER TEMPO

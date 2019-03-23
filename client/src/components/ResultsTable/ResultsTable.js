@@ -13,8 +13,8 @@ const resultsTable = (props) => {
         <td>{ e.post.date }</td>
         <td>{ e.post.time }</td>
         <td>{ e.post.descricao }</td>
-        <td>{ e.post.gasto } €</td>
-        <td>{ e.post.recebido } €</td>
+        <td style={{color:"green"}}>{ e.post.recebido } €</td>
+        <td style={{color:"red"}}>{ e.post.gasto } €</td>
         <td>{ e.post.outros }</td>
         <td><button className="btn-danger" 
             onClick={() => props.removeHandler(e._id)}><i className="fas fa-trash-alt"></i></button></td>
@@ -31,9 +31,9 @@ const resultsTable = (props) => {
                 <th>Date</th>
                 <th>Time</th>
                 <th>Description</th>
-                <th>Spent(€)</th>
-                <th>Earned(€)</th>
-                <th>Others</th>
+                <th>Income(€)</th>
+                <th>Expense(€)</th>
+                <th>Note</th>
                 <th></th>
             </tr>
             {tableData}

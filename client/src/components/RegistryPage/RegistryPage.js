@@ -43,6 +43,7 @@ const registryPage = (props) => {
                      id="dropdown-basic-button"
                      drop="right"
                      variant="primary">
+
                     <Dropdown.Item  onClick={() => setFilter(null)}
                         active={filter ? false : true} >
                         Show All

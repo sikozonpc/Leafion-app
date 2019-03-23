@@ -128,8 +128,8 @@ class AddItemPage extends React.Component {
                         <li>Date: <strong>{this.state.date}</strong></li>
                         <li>Month: <strong>{this.state.mes}</strong></li>
                         <li>Time: <strong>{this.state.time}</strong></li>
-                        <li>Spent: <strong>{this.state.gasto} €</strong></li>
-                        <li>Earn: <strong>{this.state.recebido} €</strong></li>
+                        <li>Expense: <strong>{this.state.gasto} €</strong></li>
+                        <li>Income: <strong>{this.state.recebido} €</strong></li>
                         <li>Others: <strong>{this.state.outros}</strong></li>
                     </ul>
                     <button 
@@ -176,14 +176,14 @@ class AddItemPage extends React.Component {
 
                         <Form.Row>
                             <Col>
-                                <Form.Label htmlFor="gasto">Spent: </Form.Label>
+                                <Form.Label htmlFor="gasto">Expense: </Form.Label>
                                 <Form.Control name="gasto" 
                                 type="number" 
                                 value={this.state.gasto} placeholder="100..."
                                 onChange={this.onChangeHandle} />
                             </Col>
                             <Col>
-                                <Form.Label htmlFor="recebido">Earned: </Form.Label>
+                                <Form.Label htmlFor="recebido">Income: </Form.Label>
                                 <Form.Control name="recebido" 
                                     type="number" 
                                     
