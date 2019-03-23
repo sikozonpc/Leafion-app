@@ -10,12 +10,13 @@ const homePage = (props) => {
 
     const recebidoGraphFormatedData = {};
     const gastoGraphFormatedData = {};
+
     //TODO: Add another line in the graph for the expect
     Object.keys(props.months).map( m => {
-        gastoGraphFormatedData[ m.slice(0,3) ] = getMoneyFromMonth(props.data, props.months[m], "g");
+        return gastoGraphFormatedData[ m.slice(0,3) ] = getMoneyFromMonth(props.data, props.months[m], "g");
     });
     Object.keys(props.months).map( m => {
-        recebidoGraphFormatedData[ m.slice(0,3) ] = getMoneyFromMonth(props.data, props.months[m], "r");
+        return recebidoGraphFormatedData[ m.slice(0,3) ] = getMoneyFromMonth(props.data, props.months[m], "r");
     });
 
     return (
@@ -71,8 +72,9 @@ const homePage = (props) => {
                 </Col>
                 <Col style={{textAlign: "left", marginTop: "50px"}}>
                     <h3>Statistics</h3>
-                    <p>Total money earned: </p>
-                    <p>Total money spent: </p>
+                    <p>Total Income: +{ getMoneyFromMonth(props.data, "all", "r") } €</p>
+                    <p>Total Expenses: -{ getMoneyFromMonth(props.data, "all", "g") } €</p>
+                    <p>Yearly Balance: { getMoneyFromMonth(props.data, "all", "r") -  getMoneyFromMonth(props.data, "all", "g")} €</p>
                 </Col>
             </Row>
             </Container>
@@ -89,21 +91,29 @@ const getMoneyFromMonth = (data, month, transactionType) =>{
     let totalGasto = 0;
     let totalRecebido = 0;
 
+
     if(transactionType === "r"){
         data.map(e => {
-            if(e.post.mes === month){
-                totalRecebido += Number(e.post.recebido);
+            if( e.post.month === month && e.post.amount >= 0 ){
+                totalRecebido += Number(e.post.amount);
+            } 
+            // Special argument for getting the total amount for the year
+            else if( month === "all"&& e.post.amount >= 0) {
+                totalRecebido += Number( e.post.amount );
             }
         })
 
         return totalRecebido;
     } else {
         data.map(e => {
-            if(e.post.mes === month){
-                totalGasto += Number(e.post.gasto);
+            if( e.post.month === month && e.post.amount < 0 ){
+                totalGasto += Number( e.post.amount );
+            }
+            else if( month === "all" && e.post.amount < 0) {
+                totalGasto += Number( e.post.amount );
             }
         })
-        return totalGasto;
+        return -totalGasto;
     }
 }
 

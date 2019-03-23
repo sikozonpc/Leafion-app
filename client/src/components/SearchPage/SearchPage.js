@@ -16,11 +16,10 @@ const searchPage = (props) => {
         if( "/(?:)/gi".match(regex) ) {
             return null;
         } else {
-            return p.post.dosier.match(regex) ||
-            p.post.date.match(regex) || p.post.nome.match(regex);
+            return p.post.category.match(regex) ||
+            p.post.date.match(regex) || p.post.name.match(regex);
         }
     } );
-    console.log(result)
 
     const resultDisplay = ( result.length  ? 
         <ResultsTable 

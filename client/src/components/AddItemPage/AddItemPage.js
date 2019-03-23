@@ -7,44 +7,67 @@ import classes from "./AddItemPage.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-import { Container, Form, Button, Col } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
+
+
+const OPTIONS = ["💰 Salary", "😀 Kids", "🎁 Gifts", "🥔 Food", "🎥 Entertainment", "👚 Clothes", "📺 Eletronics", "🚌 Transportation", "⛽ Fuel", "☕ Coffee" ];
 
 
 class AddItemPage extends React.Component {
     state = {
-        mes: "jan",
+        month: "jan",
         date: "",
-        nome: "",
-        descricao: "",
-        time: "",
-        gasto: 0,
-        recebido: 0 ,
-        outros: "",
-        dosier: "",
+        name: "",
+        desc: "",
+        amount: 0,
+        category: "Choose...",
         startDate: null,
 
+        transactionType: "",
+        
         responseToPost: null,
         errors: {},
         show: false
+    }
+
+    // Sets the type of transaction 
+    componentWillMount() {
+        const transactionType = this.props.match.params.transaction;
+        if( transactionType === "income" || transactionType === "expense" ) {
+            this.setState( {
+                transactionType: transactionType, 
+                amount: (transactionType === "income" ? 1 : -1 )
+             } );
+        } else {
+            this.props.history.push("/items");
+        }
+  
     }
 
     // TODO:
     handleValidation = () => {
         let formIsValid = true;
         let errors = {};
+        
+        // Category
+        if( this.state.category === "Choose..." ){
+            formIsValid = false;
+            errors["CATEGORY"] = "this field is required";
+            console.log("ERROR: Name field is empty.");
+        }
 
-        // Nome
-        if(!this.state.nome){
+        // name
+        if( !this.state.name ){
             formIsValid = false;
             errors["NAME"] = "this field is required!";
             console.log("ERROR: Name field is empty.");
         }
-        if(!this.state.startDate){
+        if( !this.state.startDate ){
             formIsValid = false;
             errors["DATE"] = "this field is required!";
             console.log("ERROR: Date field is empty.");
         }
-         this.setState({errors: errors})
+         this.setState( {errors: errors} );
     
          return formIsValid;
     }
@@ -61,8 +84,7 @@ class AddItemPage extends React.Component {
         this.setState({
             startDate: date,
             date: [...arrayDate].slice(1,4).join("/"),
-            time: arrayDate[4],
-            mes: arrayDate[1].toLowerCase()
+            month: arrayDate[1].toLowerCase()
         });
     }
     
@@ -91,14 +113,11 @@ class AddItemPage extends React.Component {
                 },
                 body: JSON.stringify({ post: {
                 "date": this.state.date,
-                "mes": this.state.mes,
-                "dosier": this.state.dosier,
-                "time": this.state.time,
-                "nome": this.state.nome,
-                "descricao": this.state.descricao, 
-                "gasto": this.state.gasto,
-                "recebido": this.state.recebido,
-                "outros": this.state.outros
+                "month": this.state.month,
+                "category": this.state.category,
+                "name": this.state.name,
+                "desc": this.state.desc, 
+                "amount": this.state.amount
                  } }),
             })
             .then(e =>{
@@ -120,17 +139,14 @@ class AddItemPage extends React.Component {
           return(
               <Container style={{marginTop:"40px", marginBottom:"40px"}}>
               {this.state.show ? <Modal show={this.state.show} clicked={this.hideModal}>
-                    <h2>Action Added !</h2>
+                    <h2>Transaction Added !</h2>
                     <p>To <strong>{this.state.dosier}</strong> dosier.</p>
                     <ul>
-                        <li>Name: <strong></strong>{this.state.nome}</li>
-                        <li>Descripton: <strong>{this.state.descricao}</strong></li>
+                        <li>Name: <strong></strong>{this.state.name}</li>
+                        <li>Descripton: <strong>{this.state.desc}</strong></li>
                         <li>Date: <strong>{this.state.date}</strong></li>
-                        <li>Month: <strong>{this.state.mes}</strong></li>
-                        <li>Time: <strong>{this.state.time}</strong></li>
-                        <li>Expense: <strong>{this.state.gasto} €</strong></li>
-                        <li>Income: <strong>{this.state.recebido} €</strong></li>
-                        <li>Others: <strong>{this.state.outros}</strong></li>
+                        <li>Month: <strong>{this.state.month}</strong></li>
+                        <li>Amount: <strong>{this.state.amount} €</strong></li>
                     </ul>
                     <button 
                         onClick={this.hideModal}
@@ -140,65 +156,53 @@ class AddItemPage extends React.Component {
 
                 <Form onSubmit={this.submitHandler}>
                     <Form.Group >
-                        <h2><i className="fas fa-plus-square"></i> ADD NEW ACTION</h2>
+                        <h2><i className="fas fa-plus-square"></i> { this.state.transactionType.toUpperCase() } </h2>
                         {errorsList}
-                        <Form.Label htmlFor="nome">Action Name *: </Form.Label>
-                        <Form.Control name="nome" 
+                        <Form.Label htmlFor="name"> Name * </Form.Label>
+                        <Form.Control name="name" 
                             required
                             type="text" 
-                            value={this.state.nome} placeholder="Action name here..."
+                            value={this.state.name} placeholder="Action name here..."
                             onChange={this.onChangeHandle}/>
 
-                        <Form.Label htmlFor="dosier">Dosier: </Form.Label>
 
-                        <Form.Control name="dosier" 
-                            type="text" 
-                            placeholder="Ex: 1AB..."
-                            value={this.state.dosier.toUpperCase()}
-                            onChange={this.onChangeHandle} />
+                        <Form.Group controlId="addForm">
+                            <Form.Label>Category * </Form.Label>
+                            <Form.Control as="select"
+                             required
+                             value={this.state.category} 
+                             name="category"
+                             onChange={this.onChangeHandle}>
+                             <option defaultValue>Choose...</option>
+                             { OPTIONS.map(opt => {
+                                  return <option key={opt}> { opt } </option> 
+                                  }) }
+                            </Form.Control>
 
-                        <Form.Label htmlFor="datepicker">Date & Time *:</Form.Label>
+                        </Form.Group>
+                        <Form.Label htmlFor="datepicker">Date *</Form.Label>
                         <Form.Group>
                             <DatePicker name="datepicker"
                                 required
                                 className={classes.DatePicker}
-                                showTimeSelect
                                 selected={this.state.startDate}
                                 onChange={this.changeDateHandler}/>
                         </Form.Group>
                         
 
-                        <Form.Label htmlFor="descricao">Description:</Form.Label>
-                        <Form.Control name="descricao" 
+                        <Form.Label htmlFor="desc">Description</Form.Label>
+                        <Form.Control name="desc" 
                                     type="text" 
-                                    value={this.state.descricao} placeholder="Description here..."
+                                    value={this.state.desc} placeholder="Description here..."
                                     onChange={this.onChangeHandle} />
 
-                        <Form.Row>
-                            <Col>
-                                <Form.Label htmlFor="gasto">Expense: </Form.Label>
-                                <Form.Control name="gasto" 
-                                type="number" 
-                                value={this.state.gasto} placeholder="100..."
-                                onChange={this.onChangeHandle} />
-                            </Col>
-                            <Col>
-                                <Form.Label htmlFor="recebido">Income: </Form.Label>
-                                <Form.Control name="recebido" 
-                                    type="number" 
-                                    
-                                    value={this.state.recebido} placeholder="100..."
-                                    onChange={this.onChangeHandle} />
-                            </Col>
-                        </Form.Row>
-                     
-
-                        <Form.Label htmlFor="outros">Others: </Form.Label>
-                        <Form.Control name="outros" 
-                            type="text" 
-                            value={this.state.outros} placeholder="Others here..."
-                            onChange={this.onChangeHandle} />
-
+                    
+                        <Form.Label htmlFor="amount">Amount * </Form.Label>
+                        <Form.Control name="amount" 
+                        type="number" 
+                        required
+                        value={this.state.amount}
+                        onChange={this.onChangeHandle} />
 
                         <Button type="submit" variant="success">Add</Button>
                     </Form.Group>

@@ -16,7 +16,7 @@ const routerContent = (props) => {
            <Route path="/" exact render={() => <HomePage
              data={props.items}
              months={props.months} />} />
-           <Route path="/add" component={AddItemPage} />
+           <Route path="/add/:transaction" component={AddItemPage} />
            <Route path="/items" render={() => <RegistryPage
                removeHandler={props.removeHandler}
                data={props.items}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router} from "react-router-dom";
-
-import classes from "./App.module.css";
+import Spinner from "../components/UI/Spinner/Spinner";
 
 import Layout from "./Layout/Layout";
 import RouterContent from "../components/RouterContent/RouterContent";
@@ -17,20 +16,18 @@ import RouterContent from "../components/RouterContent/RouterContent";
 class App extends Component {
   state = {
     items: null,
-    searchResult: ""
+    searchResult: "",
+    loading: true
   };
 
   // Api call to the API Server to get the database
   componentDidMount(){
     console.log("[App.js] @componentDidMount")
     fetch('/items/all')
-      .then(res => {
-          console.log("[App.js] @componentDidMount | response:" , res);
-          return res.json()
-        })
+      .then(res => res.json() )
       .then(db => { 
           console.log("[App.js] @componentDidMount | db: " , db); 
-          this.setState( { items: db} )
+          this.setState( { items: db, loading: false } )
         });
   }
 
@@ -84,7 +81,7 @@ class App extends Component {
           months={MONTHS}
           searchResult={this.state.searchResult}
         /> 
-       : null;
+       : <Spinner />;
 
     return (
       <Router>
