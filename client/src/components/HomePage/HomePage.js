@@ -25,11 +25,14 @@ const homePage = (props) => {
     return (
         <Container fluid>
             <Row className={classes.MainStatus} >
-                <ExpenseSummary data={props.data} />
+                <ExpenseSummary data={props.data} months={props.months} />
             </Row>
             <Row className={classes.Graphs} >
                 <Tabs defaultActiveKey="reports" id="uncontrolled-tab">
                     <Tab eventKey="reports" title="Reports">
+                        <h4 style={{textAlign: "center", marginTop:"20px" , background: "#68B067", padding: "20px"}}>
+                            Overview of { new Date().getFullYear() } 
+                        </h4>
                         <VictoryChart 
                             theme={VictoryTheme.material}>
                             <VictoryLine
@@ -75,12 +78,17 @@ const homePage = (props) => {
                         </VictoryChart>
                     </Tab>
                     <Tab eventKey="cashflow" title="Cash Flow">
-                        <p>lorem ipsim 2</p>
+                        <h4 style={{textAlign: "center", marginTop:"20px" , background: "#68B067", padding: "20px"}}>
+                           Where your money goes
+                        </h4>
+                        <h1  style={{textAlign: "center"}}>Work in Progress</h1>
+           
                     </Tab>
                     <Tab eventKey="spendingpatterns" title="Spending Patterns" >
-                        <div>
-                            <p>lorem ipsim 3</p>
-                        </div>                    
+                        <h4 style={{textAlign: "center", marginTop:"20px" , background: "#68B067", padding: "20px"}}>
+                            When do you spend your money
+                        </h4>                
+                        <h1  style={{textAlign: "center"}}>Work in Progress</h1>   
                     </Tab>
                 </Tabs>
             </Row>

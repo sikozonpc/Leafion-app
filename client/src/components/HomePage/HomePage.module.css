@@ -11,8 +11,3 @@
   display: flex;
   flex-flow: column;
 }
-  .Graph {
-    max-width: 400px !important;
-    width: 100%;
-    height: 400px;
-  }

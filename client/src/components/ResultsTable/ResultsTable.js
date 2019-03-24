@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 
 const resultsTable = (props) => {
@@ -13,8 +13,8 @@ const resultsTable = (props) => {
         <td>{ e.post.desc }</td>
         <td style={ {color: (e.post.amount >= 0 ? "green": "red" )} } >{ e.post.amount } €</td>
 
-        <td><button className="btn-danger" 
-            onClick={() => props.removeHandler(e._id)}><i className="fas fa-trash-alt"></i></button></td>
+        <td><Button variant="outline-danger" 
+            onClick={() => props.removeHandler(e._id)}><i className="fas fa-times"></i></Button></td>
     </tr>)});
 
 
