@@ -1,8 +1,11 @@
 import React from 'react';
 import { VictoryChart, VictoryLine, VictoryTheme } from "victory";
-import { Container, Row, Col, Alert } from "react-bootstrap";
+import { Container, Row, Col, Alert, Tabs, Tab } from "react-bootstrap";
 
 import classes from "./HomePage.module.css";
+
+import ExpenseSummary from "../../components/ExpenseSummary/ExpenseSummary";
+
 
 
 const homePage = (props) => {
@@ -20,67 +23,67 @@ const homePage = (props) => {
     });
 
     return (
-        <Container>
-            <Alert variant="success">Your financial situation seems pretty stable! Congratz !!</Alert>
-            <Container className={classes.IntroBox}>
-            <h5>Hey <strong>Tiago</strong>, this is your financial summary for the {new Date().getFullYear()} year.</h5>
-            <Row>
-                <Col>
-                    <VictoryChart 
-                        theme={VictoryTheme.material}>
-                        <VictoryLine
+        <Container fluid>
+            <Row className={classes.MainStatus} >
+                <ExpenseSummary data={props.data} />
+            </Row>
+            <Row className={classes.Graphs} >
+                <Tabs defaultActiveKey="reports" id="uncontrolled-tab">
+                    <Tab eventKey="reports" title="Reports">
+                        <VictoryChart 
+                            theme={VictoryTheme.material}>
+                            <VictoryLine
+                                style={{
+                                data: { stroke: "#29963d" },
+                                parent: { border: "1px solid #ccc"}
+                                }}
+                                data={[
+                                { x: "Jan", y: recebidoGraphFormatedData["Jan"] },
+                                { x: "Feb", y: recebidoGraphFormatedData["Feb"] },
+                                { x: "Mar", y: recebidoGraphFormatedData["Mar"] },
+                                { x: "Apr", y: recebidoGraphFormatedData["Apr"] },
+                                { x: "May", y: recebidoGraphFormatedData["May"] },
+                                { x: "Jun", y: recebidoGraphFormatedData["Jun"] },
+                                { x: "Jul", y: recebidoGraphFormatedData["Jul"] },
+                                { x: "Aug", y: recebidoGraphFormatedData["Aug"] },
+                                { x: "Sep", y: recebidoGraphFormatedData["Sep"] },
+                                { x: "Oct", y: recebidoGraphFormatedData["Oct"] },
+                                { x: "Nov", y: recebidoGraphFormatedData["Nov"] },
+                                { x: "Dec", y: recebidoGraphFormatedData["Dec"] }
+                                ]}
+                            />
+                            <VictoryLine  height={400} width={400}
                             style={{
-                            data: { stroke: "#29963d" },
+                            data: { stroke: "red" },
                             parent: { border: "1px solid #ccc" }
                             }}
                             data={[
-                            { x: "Jan", y: recebidoGraphFormatedData["Jan"] },
-                            { x: "Feb", y: recebidoGraphFormatedData["Feb"] },
-                            { x: "Mar", y: recebidoGraphFormatedData["Mar"] },
-                            { x: "Apr", y: recebidoGraphFormatedData["Apr"] },
-                            { x: "May", y: recebidoGraphFormatedData["May"] },
-                            { x: "Jun", y: recebidoGraphFormatedData["Jun"] },
-                            { x: "Jul", y: recebidoGraphFormatedData["Jul"] },
-                            { x: "Aug", y: recebidoGraphFormatedData["Aug"] },
-                            { x: "Sep", y: recebidoGraphFormatedData["Sep"] },
-                            { x: "Oct", y: recebidoGraphFormatedData["Oct"] },
-                            { x: "Nov", y: recebidoGraphFormatedData["Nov"] },
-                            { x: "Dec", y: recebidoGraphFormatedData["Dec"] }
-                            ]}
+                                { x: "Jan", y: gastoGraphFormatedData["Jan"] },
+                                { x: "Feb", y: gastoGraphFormatedData["Feb"] },
+                                { x: "Mar", y: gastoGraphFormatedData["Mar"] },
+                                { x: "Apr", y: gastoGraphFormatedData["Apr"] },
+                                { x: "May", y: gastoGraphFormatedData["May"] },
+                                { x: "Jun", y: gastoGraphFormatedData["Jun"] },
+                                { x: "Jul", y: gastoGraphFormatedData["Jul"] },
+                                { x: "Aug", y: gastoGraphFormatedData["Aug"] },
+                                { x: "Sep", y: gastoGraphFormatedData["Sep"] },
+                                { x: "Oct", y: gastoGraphFormatedData["Oct"] },
+                                { x: "Nov", y: gastoGraphFormatedData["Nov"] },
+                                { x: "Dec", y: gastoGraphFormatedData["Dec"] }
+                                ]}
                         />
-                        <VictoryLine  height={400} width={400}
-                        style={{
-                        data: { stroke: "red" },
-                        parent: { border: "1px solid #ccc" }
-                        }}
-                        data={[
-                            { x: "Jan", y: gastoGraphFormatedData["Jan"] },
-                            { x: "Feb", y: gastoGraphFormatedData["Feb"] },
-                            { x: "Mar", y: gastoGraphFormatedData["Mar"] },
-                            { x: "Apr", y: gastoGraphFormatedData["Apr"] },
-                            { x: "May", y: gastoGraphFormatedData["May"] },
-                            { x: "Jun", y: gastoGraphFormatedData["Jun"] },
-                            { x: "Jul", y: gastoGraphFormatedData["Jul"] },
-                            { x: "Aug", y: gastoGraphFormatedData["Aug"] },
-                            { x: "Sep", y: gastoGraphFormatedData["Sep"] },
-                            { x: "Oct", y: gastoGraphFormatedData["Oct"] },
-                            { x: "Nov", y: gastoGraphFormatedData["Nov"] },
-                            { x: "Dec", y: gastoGraphFormatedData["Dec"] }
-                            ]}
-                    />
-                    </VictoryChart>
-                </Col>
-                <Col style={{textAlign: "left", marginTop: "50px"}}>
-                    <h3>Statistics</h3>
-                    <p>Total Income: +{ getMoneyFromMonth(props.data, "all", "r") } €</p>
-                    <p>Total Expenses: -{ getMoneyFromMonth(props.data, "all", "g") } €</p>
-                    <p>Yearly Balance: { getMoneyFromMonth(props.data, "all", "r") -  getMoneyFromMonth(props.data, "all", "g")} €</p>
-                </Col>
+                        </VictoryChart>
+                    </Tab>
+                    <Tab eventKey="cashflow" title="Cash Flow">
+                        <p>lorem ipsim 2</p>
+                    </Tab>
+                    <Tab eventKey="spendingpatterns" title="Spending Patterns" >
+                        <div>
+                            <p>lorem ipsim 3</p>
+                        </div>                    
+                    </Tab>
+                </Tabs>
             </Row>
-            </Container>
-            <Container className={classes.IntroBox}>
-                <p>...</p>
-            </Container>
         </Container>
     );
 };

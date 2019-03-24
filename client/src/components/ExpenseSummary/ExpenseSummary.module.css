@@ -1,0 +1,36 @@
+.HistoryBox {
+    position: absolute;
+    top: 270px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #555;
+  
+    justify-content: space-between;
+  
+    padding: 20px;
+    color: #fff;
+    max-width: 350px;
+    width: 100%;
+    background: #555555;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+  .Buttons {
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .Item {
+    color: rgb(214, 214, 214);
+    margin-left: 20px;
+  }
+
+  .Alert {
+    margin: auto;
+    margin-top: 80px;
+    font-weight: bold;
+  }

@@ -4,7 +4,7 @@ Dashboard:
 
   ☐ Create in a section for adding variables like the salary and transportation
   ✔ @high Change the data names to ENGLISH @done(19-03-23 22:19)
-  ☐ @high Create a accesbile adding form (easier),(SPENDIGNS OR EXPENSE ONLY);
+  ✔ @high Create a accesbile adding form (easier),(SPENDIGNS OR EXPENSE ONLY); @done(19-03-24 11:12)
     ☐ With categories that have icons (make feature to create them too)
     ☐ See video: https://play.google.com/store/apps/details?id=com.mhriley.spendingtracker&hl=pt_PT
 
@@ -12,4 +12,4 @@ Dashboard:
   ☐ IDENTIFY SPENDIGN PATTERNS GRAPH
 
   ☐ na DASHBOARD MOVER PARA CIMA OS DADOS 
-  ☐ REMOVER TEMPO
+  ✔ REMOVER TEMPO @done(19-03-24 11:11)

@@ -13,8 +13,11 @@ code {
     monospace;
 }
 
-* {
-  box-sizing: border-box;
+svg {
+  display: block;
+  margin: auto;
+  max-width: 500px !important;
+  width: 100% !important;
 }
 
 a {
