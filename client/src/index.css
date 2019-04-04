@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #F9F9F9;
 }
 
 code {
@@ -13,12 +14,7 @@ code {
     monospace;
 }
 
-svg {
-  display: block;
-  margin: auto;
-  max-width: 500px !important;
-  width: 100% !important;
-}
+
 
 a {
   color: #1a9537;

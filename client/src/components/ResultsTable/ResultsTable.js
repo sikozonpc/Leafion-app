@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Table, Button } from "react-bootstrap";
-
+import classes from "./ResultsTable.module.css"
 
 const resultsTable = (props) => {
     // Add func for not displaying when data is null
@@ -19,7 +19,7 @@ const resultsTable = (props) => {
 
 
     return (
-        <Table striped bordered hover size="sm" responsive="md" 
+        <Table striped bordered hover size="sm" responsive="md"
             style={{marginTop:"20px"}}>
         <tbody>
             <tr>

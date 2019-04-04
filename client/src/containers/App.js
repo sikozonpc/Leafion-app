@@ -62,7 +62,7 @@ class App extends Component {
   }
 
    // Convert items objects to an array to display
- objectToArray = (items) => {
+  objectToArray = (items) => {
     let result = []
     for (let e in items) {
         result.push( items[e] );

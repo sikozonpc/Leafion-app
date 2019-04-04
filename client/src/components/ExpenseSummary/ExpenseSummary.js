@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import classes from "./ExpenseSummary.module.css"
 
+import userImg from "../../assets/eu.jpg";
+
 const expenseSummary = (props) => {
     let currMonthIncome = 0;
     let currMonthExpenses = 0;
@@ -57,52 +59,57 @@ const expenseSummary = (props) => {
     return (
         <>
         { alert }
-
+        <div className={classes.Wrapper}>
+            <div>
+                <img src={userImg} alt="user"  className={classes.UserImg}></img>
+                <p className={classes.UserName}>Tiago Taquelim</p>
+            </div>
         <Row className={classes.HistoryBox} >
-                    <Col xs lg="auto">
-                        <p>Income</p>
-                        <p>Expense</p>
-                        { lastTransactions.map( (e,i) => {
-                            if(i === 0) {
-                                return <p key={e[0]} className={classes.Item} style={{ paddingTop: "10px" }}>
-                                    { e[0] }...
-                                 </p>
-                            } 
-                            else if(i === listLenght -1) {
-                                return <p key={e[0]} className={classes.Item}  style={{ paddingBottom: "10px" }}>
-                                    { e[0] }... 
-                                 </p>
-                            } else {
-                                return <p key={e[0]} className={classes.Item}> { e[0] }... </p>
-                            }
-                        }) }
-                        <p>Balance</p>
-                    </Col>
-                    <Col  xs lg="auto">
-                        <p style={{color: "rgb(22, 240, 69)" }}>+{currMonthIncome} €</p>
-                        <p style={{color: "red" }}>{currMonthExpenses} €</p>
-                        { lastTransactions.map( (e,i) => {
-                            if(i === 0) {
-                                return <p key={e[0]} className={classes.Item} style={{ paddingTop: "10px" }}>
-                                    { e[1] } €
-                                 </p>
-                            } 
-                            else if(i === listLenght -1) {
-                                return <p key={e[0]}  className={classes.Item}  style={{ paddingBottom: "10px" }}>
-                                    { e[1] } €
-                                 </p>
-                            } else {
-                                return <p key={e[0]} className={classes.Item}> { e[1] } € </p>
-                            }
-                        }) }
-                        <p style={{color: COLOR }}> {currMonthBalance} €</p>
-                    </Col>
-                    <Row  className={classes.Buttons}>
-                        <Link className="btn btn-danger" to="/add/expense">+ Expense</Link>
-                        <Link className="btn btn-success" to="/add/income">+ Income</Link>
-                    </Row>
-                </Row>
-                </>
+            <Col xs lg="auto">
+                <p>Income</p>
+                <p>Expense</p>
+                { lastTransactions.map( (e,i) => {
+                    if(i === 0) {
+                        return <p key={e[0]} className={classes.Item} style={{ paddingTop: "10px" }}>
+                            { e[0] }...
+                            </p>
+                    } 
+                    else if(i === listLenght -1) {
+                        return <p key={e[0]} className={classes.Item}  style={{ paddingBottom: "10px" }}>
+                            { e[0] }... 
+                            </p>
+                    } else {
+                        return <p key={e[0]} className={classes.Item}> { e[0] }... </p>
+                    }
+                }) }
+                <p>Balance</p>
+            </Col>
+            <Col  xs lg="auto">
+                <p style={{color: "rgb(22, 240, 69)" }}>+{currMonthIncome} €</p>
+                <p style={{color: "red" }}>{currMonthExpenses} €</p>
+                { lastTransactions.map( (e,i) => {
+                    if(i === 0) {
+                        return <p key={e[0]} className={classes.Item} style={{ paddingTop: "10px" }}>
+                            { e[1] } €
+                            </p>
+                    } 
+                    else if(i === listLenght -1) {
+                        return <p key={e[0]}  className={classes.Item}  style={{ paddingBottom: "10px" }}>
+                            { e[1] } €
+                            </p>
+                    } else {
+                        return <p key={e[0]} className={classes.Item}> { e[1] } € </p>
+                    }
+                }) }
+                <p style={{color: COLOR }}> {currMonthBalance} €</p>
+            </Col>
+            <Row  className={classes.Buttons}>
+                <Link className="btn btn-danger" to="/add/expense">+ Expense</Link>
+                <Link className="btn btn-success" to="/add/income">+ Income</Link>
+            </Row>
+        </Row>
+        </div>
+        </>
     );
 };
 

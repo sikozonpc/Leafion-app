@@ -1,25 +1,52 @@
+
+.Wrapper {
+  max-width: 350px;
+  border: 1px solid #eee;
+  box-shadow: 8px 8px 20px rgba(0,0,0,0.2);
+  color: #555;
+  background: #ffff;
+  max-width: 520px;
+  width: 100%;
+  border-radius: 20px;
+  position: absolute;
+  top: 200px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+.UserImg {
+  width: 80px;
+  border-radius: 100px;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+.UserName {
+  position: absolute;
+  top: 66%;
+  left: 6%;
+  font-weight: bold;
+}
 .HistoryBox {
-    position: absolute;
-    top: 270px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background: #555;
-  
-    justify-content: space-between;
-  
+    border-left: 1px solid #ccc;
+    justify-content: space-between;  
     padding: 20px;
-    color: #fff;
+    color: #555;
     max-width: 350px;
+
     width: 100%;
-    background: #555555;
-  
-    box-sizing: border-box;
-    border-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: #fff;
   }
   .Buttons {
     padding: 0;
     margin: 0;
+    padding-top: 10px;
     justify-content: space-between;
     width: 100%;
     margin-top: 20px;

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import ResultsTable from "../ResultsTable/ResultsTable";
 import DetailedData from "./DetailedData/DetailedData";
 
-
 import { Dropdown,DropdownButton, Row, Col, Container, ListGroup} from "react-bootstrap";
 
+import classes from "./RegistryPage.module.css";
 
 const registryPage = (props) => {
     const [filter, setFilter] = useState(null);
@@ -37,7 +37,7 @@ const registryPage = (props) => {
                     <ListGroup.Item><a href="#"><i className="fas fa-database"></i> Json</a></ListGroup.Item>
                 </ListGroup>
             </Col>
-            <Col xs="12" md="12" lg="10">
+            <Col xs="12" md="12" lg="10" className={classes.TableWrapper}>
                 <DropdownButton title={<i className="fas fa-filter"></i>}
                      id="dropdown-basic-button"
                      drop="right"
