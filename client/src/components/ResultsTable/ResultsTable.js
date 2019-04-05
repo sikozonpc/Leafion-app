@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Table, Button } from "react-bootstrap";
-import classes from "./ResultsTable.module.css"
+
 
 const resultsTable = (props) => {
     // Add func for not displaying when data is null

@@ -6,6 +6,8 @@ import classes from "./ExpenseSummary.module.css"
 
 import userImg from "../../assets/eu.jpg";
 
+
+
 const expenseSummary = (props) => {
     let currMonthIncome = 0;
     let currMonthExpenses = 0;
@@ -45,7 +47,6 @@ const expenseSummary = (props) => {
             return currMonthBalance += Number(e.post.amount) 
         }
     });
-    console.log(currMonthBalance)
 
     // Change the Alert message and color depending on the balance result
     const alert = (
