@@ -1,64 +1,46 @@
 
-.Wrapper {
-  max-width: 350px;
-  border: 1px solid #eee;
-  box-shadow: 8px 8px 20px rgba(0,0,0,0.2);
-  color: #555;
-  background: #ffff;
-  max-width: 520px;
-  width: 100%;
-  border-radius: 20px;
-  position: absolute;
-  top: 200px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
+.Info {
+  margin-bottom: 30px;
 }
-.UserImg {
-  width: 80px;
-  border-radius: 100px;
-  position: absolute;
-  top: 20%;
-  left: 10%;
-}
-.UserName {
-  position: absolute;
-  top: 66%;
-  left: 6%;
-  font-weight: bold;
-}
-.HistoryBox {
-    border-left: 1px solid #ccc;
-    justify-content: space-between;  
-    padding: 20px;
-    color: #555;
-    max-width: 350px;
+  .Info p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: normal;
 
-    width: 100%;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    background: #fff;
+    color: #333333;
   }
+  .Info span {
+    font-weight: 600;
+  }
+  .Good {
+    margin: 100px auto;
+  }
+  .Img {
+    width: 80%;
+    margin-left: 50px;
+    margin-right: 10px;
+  }
+
   .Buttons {
-    padding: 0;
-    margin: 0;
-    padding-top: 10px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100%;
-    margin-top: 20px;
-  }
-  
-  .Item {
-    color: rgb(214, 214, 214);
-    margin-left: 20px;
+    margin: auto;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    background-color: var(--color-primary-light);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
   }
 
-  .Alert {
-    margin: auto;
-    margin-top: 80px;
-    font-weight: bold;
+
+  .SubTitle {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: normal;
+
+    color: #333333;
+    margin: 20px auto;
   }

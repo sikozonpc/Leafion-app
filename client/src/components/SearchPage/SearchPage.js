@@ -1,10 +1,10 @@
 import React from 'react';
+import { Container } from "react-bootstrap";
 
 import classes from "./SearchPage.module.css";
 
 import ResultsTable from '../ResultsTable/ResultsTable';
-
-import { Container } from "react-bootstrap";
+import notFound from "../../assets/svg/undraw_empty_xct9.svg";
 
 
 
@@ -25,17 +25,24 @@ const searchPage = (props) => {
         <ResultsTable 
             data={result}
             removeHandler={ props.removeHandler}/> :
-        <h3 style={{
-            textAlign: "center", color: "gray", 
-            margin: "100px"}}>
-        Type something you would like to search for.</h3>
+        <div >
+            <h3 style={{
+                textAlign: "center", color: "gray", 
+                margin: "50px"}}>
+            Results not found</h3>
+            <img
+                style={{display:"block",width:"35%",margin: "auto", marginBottom: "100px"}}
+                        
+                src={notFound}
+                alt="Not found ilustration"
+            />
+        </div>
     );
 
     return (
-        <Container stlyle={{paddingTop: "40px"}}>
-            <h1 className={classes.h1} 
-                style={{"color":"#333","marginLeft":"15px"}}>
-                    Pesquisa por:
+        <Container style={{margin: "50px auto"}}>
+            <h1 className={classes.h1} >
+                    Searching for:
                     <span style={{"color":"green"}}> {props.search}</span> 
             </h1>
             { resultDisplay }

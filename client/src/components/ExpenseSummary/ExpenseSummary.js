@@ -1,10 +1,15 @@
 import React from 'react';
-import { Row, Col, Alert } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import MoneyHistoryBox from './MoneyHistoryBox/MoneyHistoryBox';
 import classes from "./ExpenseSummary.module.css"
 
 import userImg from "../../assets/eu.jpg";
+import ballons from "../../assets/svg/undraw_balloons_vxx5.svg";
+import sad from "../../assets/svg/undraw_happy_feeling_slmw.svg";
+
+
 
 
 
@@ -48,69 +53,74 @@ const expenseSummary = (props) => {
         }
     });
 
-    // Change the Alert message and color depending on the balance result
-    const alert = (
-        (currMonthBalance) >= 0 ? 
-         <Alert className={classes.Alert} variant="success">Hello Tiago, looks like your financial status are good for <span style={{color: "#222"}}>{currMonthDisplayFormat}</span> !</Alert> 
-        :    <Alert className={classes.Alert} variant="danger">Hey Tiago, you have been spending more then what you've earned so far in <span style={{color: "#222"}}>{currMonthDisplayFormat}</span> !</Alert> 
-    );
 
-    const COLOR = (currMonthBalance >= 0 ? "rgb(22, 240, 69)" : "red");
-    
+    const userCondition = currMonthBalance >= 0 ?
+        (<>
+            <Col md lg={5}>
+                <img className={classes.Img}
+                    src={ballons}
+                    alt="Ballons" />
+            </Col>
+            <Col md lg={7}>
+                <div className={classes.Info}>
+                    <p>
+                        Hello <span>Tiago</span>,
+                    </p>
+                    <p>
+                        looks like your financial situation is <span>GOOD </span><br/>
+                        for the month of <span>{currMonthDisplayFormat}</span> !
+                    </p>
+                </div>
+                <MoneyHistoryBox
+                    className={classes.MoneyHistoryBox}
+                    lastTransactions={lastTransactions}
+                    listLenght={listLenght}
+                    currMonthBalance={currMonthBalance}
+                    currMonthIncome={currMonthIncome}
+                    currMonthExpenses={currMonthExpenses}
+                 />
+            </Col>
+        </>)
+    : (<>
+            <Col  md lg={5}>
+                <img  
+                    className={classes.Img}
+                    src={sad}
+                    alt="Ballons" />
+            </Col>
+            <Col md lg={7}>
+                <div className={classes.Info}>
+                    <p>
+                        Hello <span>Tiago</span>,
+                    </p>
+                    <p>
+                        it seems you have been spending more<br/> than what you earned   
+                        for last couple <br/> days of <span>{currMonthDisplayFormat}</span> !
+                    </p>
+                </div>
+                <MoneyHistoryBox
+                        className={classes.MoneyHistoryBox}
+                        lastTransactions={lastTransactions}
+                        listLenght={listLenght}
+                        currMonthBalance={currMonthBalance}
+                        currMonthIncome={currMonthIncome}
+                        currMonthExpenses={currMonthExpenses}
+                 />
+            </Col>
+        </>);
+
+
     return (
-        <>
-        { alert }
-        <div className={classes.Wrapper}>
-            <div>
-                <img src={userImg} alt="user"  className={classes.UserImg}></img>
-                <p className={classes.UserName}>Tiago Taquelim</p>
-            </div>
-        <Row className={classes.HistoryBox} >
-            <Col xs lg="auto">
-                <p>Income</p>
-                <p>Expense</p>
-                { lastTransactions.map( (e,i) => {
-                    if(i === 0) {
-                        return <p key={e[0]} className={classes.Item} style={{ paddingTop: "10px" }}>
-                            { e[0] }...
-                            </p>
-                    } 
-                    else if(i === listLenght -1) {
-                        return <p key={e[0]} className={classes.Item}  style={{ paddingBottom: "10px" }}>
-                            { e[0] }... 
-                            </p>
-                    } else {
-                        return <p key={e[0]} className={classes.Item}> { e[0] }... </p>
-                    }
-                }) }
-                <p>Balance</p>
-            </Col>
-            <Col  xs lg="auto">
-                <p style={{color: "rgb(22, 240, 69)" }}>+{currMonthIncome} €</p>
-                <p style={{color: "red" }}>{currMonthExpenses} €</p>
-                { lastTransactions.map( (e,i) => {
-                    if(i === 0) {
-                        return <p key={e[0]} className={classes.Item} style={{ paddingTop: "10px" }}>
-                            { e[1] } €
-                            </p>
-                    } 
-                    else if(i === listLenght -1) {
-                        return <p key={e[0]}  className={classes.Item}  style={{ paddingBottom: "10px" }}>
-                            { e[1] } €
-                            </p>
-                    } else {
-                        return <p key={e[0]} className={classes.Item}> { e[1] } € </p>
-                    }
-                }) }
-                <p style={{color: COLOR }}> {currMonthBalance} €</p>
-            </Col>
-            <Row  className={classes.Buttons}>
-                <Link className="btn btn-danger" to="/add/expense">+ Expense</Link>
-                <Link className="btn btn-success" to="/add/income">+ Income</Link>
-            </Row>
+    <>
+        <Row className={classes.Good}>
+            {userCondition}
+            <h3 className={classes.SubTitle}>Quickly add or reduce money</h3>
         </Row>
-        </div>
-        </>
+        <Row className={classes.Buttons}>
+           <Link className="btn btn-danger" to="/add/expense">+ Expense</Link>
+           <Link className="btn btn-success" to="/add/income">+ Income</Link>
+       </Row>
+    </>
     );
 };
 

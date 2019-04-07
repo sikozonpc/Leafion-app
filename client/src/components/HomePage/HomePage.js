@@ -49,8 +49,9 @@ const homePage = (props) => {
 		{ Month: "Dec", Income: recebidoGraphFormatedData["Dec"], Expense: gastoGraphFormatedData["Dec"] }
 		];
 
+
 	return (
-		<Container fluid style={{backgroundColor:  "#F9F9F9"}}>
+		<Container fluid style={{backgroundColor: "#F9F9F9"}}>
 			<Row className={classes.MainStatus} >
 				<ExpenseSummary data={props.data} months={props.months} />
 			</Row>

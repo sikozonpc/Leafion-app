@@ -1,21 +1,7 @@
 .MainStatus {
-	background-image:  url("https://images.pexels.com/photos/1310755/pexels-photo-1310755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	
-	height: 400px;
+	background-color: #fff;
 }
-	.MainStatus::before {
-		background-color: rgba(104, 176, 103, 0.255);
-		content: '';
-		display: block;
-		height: 100%;
-		position: absolute;
-		width: 100%;
 
-	}
 .DoubleChart {
 	display: flex;
 	flex-flow: row;
@@ -115,7 +101,7 @@
 .Graphs {
 	margin: auto;
 	margin-top: 120px;
-	margin-bottom: 100px;
+
 	max-width: 1300px;
 	width: 100%;
 }

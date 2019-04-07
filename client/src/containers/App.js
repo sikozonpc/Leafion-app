@@ -112,7 +112,7 @@ class App extends Component {
 	}
 }
 
-// Array containing alls months available for the map method
+// Object containing alls months available for the map method
 const MONTHS = {
 	"January": "jan","February": "feb","March": "mar","April": "apr", "May":"mai",
 	"June": "jun", "July": "jul", "August": "aug", "September": "sep",

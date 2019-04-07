@@ -10,4 +10,6 @@
 
 .h1 {
   justify-self: start;
+  color: #666;
+  margin-left: 15px;
 }

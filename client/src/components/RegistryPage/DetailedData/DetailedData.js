@@ -15,9 +15,15 @@ const detailedData = (props) => {
     let totalEarned = 0;
     let totalEarnedIVA = 0;
 
-   
-    props.data.map(e => totalSpendings+= Number(e.post.gasto));
-    props.data.map(e => totalEarned+= Number(e.post.recebido));
+    props.data.forEach( e => {
+        let amount = Number(e.post.amount);
+        if( amount >= 0 ) {
+            totalEarned+= amount;
+        }
+        else {
+            totalSpendings += amount;
+        }
+    });
     totalEarnedIVA =  (totalEarned - (totalEarned * IVA)).toFixed(2);
 
     let total = (totalEarned - totalSpendings ).toFixed(2);
@@ -42,7 +48,7 @@ const detailedData = (props) => {
                 </ListGroup.Item>
                 
                 <ListGroup.Item  variant={totalStyles}>
-                    Balance: <strong>{totalEarned} - {totalSpendings} = {total} €</strong>
+                    Balance: <strong>{totalEarned} - {Math.abs(totalSpendings)} = {total} €</strong>
                 </ListGroup.Item>
             </ListGroup>
         </Container>

@@ -9,8 +9,8 @@ Dashboard:
     ☐ See video: https://play.google.com/store/apps/details?id=com.mhriley.spendingtracker&hl=pt_PT
 
   ☐ CASH FLOW : For the HomePage add a new PIE CHART for viewign the most used category
-  ☐ IDENTIFY SPENDIGN PATTERNS GRAPH
+  ✔ IDENTIFY SPENDIGN PATTERNS GRAPH @done(19-04-05 21:58)
 
-  ☐ na DASHBOARD MOVER PARA CIMA OS DADOS 
+  ✘ na DASHBOARD MOVER PARA CIMA OS DADOS @cancelled(19-04-05 21:57)
   ✔ REMOVER TEMPO @done(19-03-24 11:11)
-  ☐ Fix Detailed data and put it on top
+  ✔ Fix Detailed data @done(19-04-05 21:57)

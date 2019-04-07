@@ -6,12 +6,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F9F9F9;
+  background: #fff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+:root {
+  --color-primary: #38D39F;
+  --color-primary-light: #ECFBF6;
+  --color-primary-dark: rgb(47, 153, 118);
+  --color-text-primary: #3EC094;
 }
 
 *, *::after, *::before {
@@ -22,7 +29,7 @@ a {
   color: #1a9537;
 }
   a:hover {
-    color: #025716;
+    color: #87e09c;
   }
 
 .fa-pagelines {
