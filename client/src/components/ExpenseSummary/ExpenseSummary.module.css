@@ -22,19 +22,6 @@
     margin-right: 10px;
   }
 
-  .Buttons {
-    justify-content: space-evenly;
-    width: 100%;
-    margin: auto;
-    margin-bottom: 40px;
-    border-radius: 12px;
-    background-color: var(--color-primary-light);
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-  }
-
-
   .SubTitle {
     font-style: normal;
     font-weight: 300;

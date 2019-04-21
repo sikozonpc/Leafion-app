@@ -1,35 +1,33 @@
-import React from 'react';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import { Route} from "react-router-dom";
-
-
-import HomePage from "../HomePage/HomePage"
-import ExportPage from "../ExportPage/ExportPage";
-import RegistryPage from "../RegistryPage/RegistryPage";
-import SearchPage from "../SearchPage/SearchPage";
-import AddItemPage from "../AddItemPage/AddItemPage";
-
+import HomePage from "../../containers/Home/HomePage";
+import RegistryPage from "../../containers/Dashboard/RegistryPage";
+import Search from "../../containers/Search/SearchPage";
+import AddItem from "../../containers/AddItem/AddItemPage";
 
 const routerContent = (props) => {
-    return (
-        <>
-           <Route path="/" exact render={() => <HomePage
-             data={props.items}
-             months={props.months}
-             categories={props.categories} />} />
-           <Route path="/add/:transaction" component={AddItemPage} />
-           <Route path="/items" render={() => <RegistryPage
-               removeHandler={props.removeHandler}
-               data={props.items}
-               months={props.months}
-           />} />
-           <Route path="/export" render={() => <ExportPage />} />
-           <Route path="/search" render={() => <SearchPage
-               data={props.items}
-               search={props.searchResult}
-               removeHandler={props.removeHandler} />} />
-           </>
-    );
+	return (
+		<Switch>
+			<Route path="/" component={HomePage} exact />
+			<Route path="/add/:transaction" component={AddItem} />
+			<Route
+				path="/items"
+				render={() => (
+					<RegistryPage removeHandler={props.removeHandler} />
+				)}
+			/>
+			<Route
+				path="/search"
+				render={() => (
+					<Search
+						search={props.searchResult}
+						removeHandler={props.removeHandler}
+					/>
+				)}
+			/>
+		</Switch>
+	);
 };
 
 export default routerContent;
