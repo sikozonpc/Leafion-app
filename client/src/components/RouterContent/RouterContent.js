@@ -1,15 +1,19 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import HomePage from "../../containers/Home/HomePage";
 import RegistryPage from "../../containers/Dashboard/RegistryPage";
 import Search from "../../containers/Search/SearchPage";
 import AddItem from "../../containers/AddItem/AddItemPage";
+import Auth from "../../containers/Auth/Auth";
+import SignLogin from "../../containers/Auth/SignLogin";
 
 const routerContent = (props) => {
 	return (
 		<Switch>
-			<Route path="/" component={HomePage} exact />
+			<Route path="/" component={Auth} exact />
+			<Route path="/home" component={HomePage} exact />
+			<Route path="/auth" component={SignLogin} exact />
 			<Route path="/add/:transaction" component={AddItem} />
 			<Route
 				path="/items"
@@ -26,6 +30,9 @@ const routerContent = (props) => {
 					/>
 				)}
 			/>
+
+			{/* Redirect UNKOWN PAGES TO / */}
+			<Redirect to="/" />
 		</Switch>
 	);
 };

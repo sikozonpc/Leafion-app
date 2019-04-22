@@ -1,0 +1,53 @@
+.Auth {
+	height: 100vh;
+	width: 100%;
+}
+
+.Img {
+	width: 100%;
+	padding: 0;
+}
+
+.Container {
+	margin-top: 100px;
+}
+.TextBox {
+	padding: 0;
+	text-align: left;
+	margin: auto;
+	margin-bottom: 200px;
+}
+.TextBox h1 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 60px;
+	line-height: normal;
+
+	color: #333333;
+}
+.TextBox p {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: normal;
+
+	color: #333333;
+}
+
+.ButtonSave,
+.ButtonSave:focus,
+.ButtonSave:link {
+	background: #38d39f;
+	border-radius: 12px;
+	border: 0;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: normal;
+	padding: 10px 15px;
+
+	color: #ffffff;
+}
+.ButtonSave:hover {
+	background: #30a37d;
+}
