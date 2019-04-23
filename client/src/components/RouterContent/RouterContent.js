@@ -8,14 +8,12 @@ import AddItem from "../../containers/AddItem/AddItemPage";
 import Auth from "../../containers/Auth/Auth";
 import Signin from "../../containers/Auth/Signin";
 import Login from "../../containers/Auth/Login";
-import Portal from "../../containers/Auth/Portal";
 import Settings from "../../containers/Settings/Settings";
 
 const routerContent = (props) => {
 	let router = (
 		<Switch>
 			<Route path="/" component={Auth} exact />
-			<Route path="/portal" component={Portal} exact />
 			<Route path="/signin" component={Signin} exact />
 			<Route path="/login" component={Login} exact />
 			{/* Redirect UNKOWN PAGES TO / */}

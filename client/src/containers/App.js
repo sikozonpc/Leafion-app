@@ -59,6 +59,7 @@ class App extends Component {
 				<Layout
 					setSearchResult={this.setSearchResult}
 					name={this.props.name}
+					isAuth={this.props.isAuth}
 				>
 					{routerContent}
 				</Layout>

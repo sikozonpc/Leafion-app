@@ -73,7 +73,10 @@ class Signin extends Component {
 		}
 		return (
 			<div className={classes.Auth}>
-				<h2>Register an account at Leafion</h2>
+				<h2 style={{ margin: "50px auto", textAlign: "center" }}>
+					Register an account at{" "}
+					<span style={{ fontWeight: "300" }}>Leafion</span>
+				</h2>
 				{form}
 			</div>
 		);

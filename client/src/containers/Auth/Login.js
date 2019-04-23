@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Container, Row } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -30,7 +30,11 @@ class Login extends Component {
 	};
 
 	render() {
-		let error = <p style={{ color: "red" }}>{this.props.error}</p>;
+		let error = (
+			<p style={{ color: "red", textAlign: "center", margin: "auto" }}>
+				{this.props.error}
+			</p>
+		);
 		let form = <Spinner />;
 		if (!this.props.loading) {
 			form = (
@@ -55,26 +59,48 @@ class Login extends Component {
 							onChange={this.onChange}
 						/>
 					</Form.Group>
-					<Button type="submit" variant="info">
+					<Button type="submit" variant="success">
 						Login
 					</Button>
 				</form>
 			);
 		}
 		return (
-			<div className={classes.Auth}>
-				{this.props.isAuth ? <Redirect to="/home" /> : null}
-				<h2>
-					{this.props.isAuth ? (
-						<p style={{ color: "green" }}>
-							Welcome, {this.props.email}
-						</p>
-					) : (
-						"Login with your Leafion account."
-					)}
-				</h2>
-				{error}
-				{form}
+			<div className={classes.Window}>
+				<Container>
+					{this.props.isAuth ? <Redirect to="/home" /> : null}
+					<Row>
+						<>
+							{this.props.isAuth ? (
+								<h2
+									style={{
+										color: "green",
+										textAlign: "center",
+										margin: "50px auto",
+									}}
+								>
+									Welcome, {this.props.email}
+								</h2>
+							) : (
+								<h2
+									style={{
+										color: "#333",
+										textAlign: "center",
+										margin: "50px auto",
+									}}
+								>
+									Login with your{" "}
+									<span style={{ fontWeight: "300" }}>
+										Leafion
+									</span>{" "}
+									account.
+								</h2>
+							)}
+						</>
+					</Row>
+					<Row>{error}</Row>
+					<Row>{form}</Row>
+				</Container>
 			</div>
 		);
 	}

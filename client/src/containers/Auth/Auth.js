@@ -26,7 +26,7 @@ class Auth extends Component {
 							perhaps you want to keep track of where your money
 							goes ? Then, why don’t try Saving with Leafion !
 						</p>
-						<Link to="/portal" className={classes.ButtonSave}>
+						<Link to="/signin" className={classes.ButtonSave}>
 							Start saving now
 						</Link>
 					</Col>
