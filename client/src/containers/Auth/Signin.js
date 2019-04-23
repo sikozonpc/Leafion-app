@@ -6,7 +6,7 @@ import { Button, Form } from "react-bootstrap";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import classes from "./Auth.module.css";
 
-class SignLogin extends Component {
+class Signin extends Component {
 	state = {
 		email: "",
 		password: "",
@@ -98,4 +98,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(SignLogin);
+)(Signin);

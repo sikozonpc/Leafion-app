@@ -8,7 +8,7 @@ import { Container } from "react-bootstrap";
 const layout = (props) => {
 	return (
 		<Container fluid style={{ padding: "0" }}>
-			<Navbar setSearchResult={props.setSearchResult} />
+			<Navbar setSearchResult={props.setSearchResult} name={props.name} />
 
 			<div className="content-app">{props.children}</div>
 

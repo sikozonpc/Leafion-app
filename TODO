@@ -19,7 +19,7 @@ Dashboard:
   ☐ Add auth:
     ✔ Login/signup page @done(19-04-22 20:24)
     ✔ Actions and reducer logic for SIGN IN, LOG IN to api @done(19-04-23 11:24)
-    ☐ Guard routes based on auth status
+    ✔ Guard routes based on auth status @done(19-04-23 15:46)
     ✔ localStorage the token @done(19-04-23 11:24)
-    ☐ Auto login based on localStorage token
+    ✔ Auto login based on localStorage token @done(19-04-23 14:41)
     ☐ Filter the data based on user

@@ -2,12 +2,15 @@ import { ActionTypes } from "./actionTypes";
 
 //// Fetch Items ////
 // Async fetch with redux-thunk
-export const fetchItems = () => {
+export const fetchItems = (email) => {
 	return (dispatch) => {
 		fetch("/items/all")
 			.then((res) => res.json())
 			.then((db) => {
-				dispatch(setItemsSucces(db));
+				const userItems = db.filter((e) => {
+					return e.post.email === email;
+				});
+				dispatch(setItemsSucces(userItems));
 			})
 			.catch((error) => dispatch(fetchItemsFailed()));
 	};

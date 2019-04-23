@@ -24,14 +24,30 @@ export const authSignin = (email, password, name) => {
 				const expirationDate = new Date(
 					new Date().getTime() + res.data.expiresIn * 1000
 				);
+				console.log(res.data);
 				// Set the token and expiriration to localStorage
 				localStorage.setItem("userName", name);
-				localStorage.setItem("token", res.data.token);
+				localStorage.setItem("token", res.data.idToken);
 				localStorage.setItem("email", email);
 				localStorage.setItem("userId", res.data.localId);
 				localStorage.setItem("expirationDate", expirationDate);
 
-				dispatch(authSuccess(res.data, email, name));
+				// Store username on db to link to the email
+				axios
+					.post(
+						"https://leafion-budget-app.firebaseio.com/User.json",
+						{ email: email, name: name }
+					)
+					.then((res) => {
+						console.log("added to db");
+						dispatch(getUserNameByEmail(email));
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+
+				dispatch(authSuccess(res.data, email));
+
 				dispatch(checkAuthTimeout(res.data.expiresIn));
 			})
 			.catch((error) => {
@@ -62,13 +78,12 @@ export const authLogin = (email, password) => {
 				const expirationDate = new Date(
 					new Date().getTime() + res.data.expiresIn * 1000
 				);
-				const name = localStorage.getItem("userName");
-				localStorage.setItem("token", res.data.token);
+				localStorage.setItem("token", res.data.idToken);
 				localStorage.setItem("email", email);
 				localStorage.setItem("userId", res.data.localId);
 				localStorage.setItem("expirationDate", expirationDate);
 
-				dispatch(authSuccess(res.data, email, name));
+				dispatch(authSuccess(res.data, email));
 				dispatch(checkAuthTimeout(res.data.expiresIn));
 			})
 			.catch((error) => {
@@ -81,13 +96,12 @@ export const authStart = () => {
 		type: ActionTypes.AUTH_START,
 	};
 };
-export const authSuccess = (authData, userEmail, name) => {
+export const authSuccess = (authData, userEmail) => {
 	return {
 		type: ActionTypes.AUTH_START_SUCCESS,
 		email: userEmail,
 		token: authData.idToken,
 		localId: authData.localId,
-		name: name,
 	};
 };
 export const authFailed = (error) => {
@@ -109,8 +123,71 @@ export const logout = () => {
 	localStorage.removeItem("expirationDate");
 	localStorage.removeItem("email");
 	localStorage.removeItem("userId");
-	localStorage.removeItem("userName");
 	return {
 		type: ActionTypes.AUTH_LOGOUT,
+	};
+};
+export const authCheckState = () => {
+	return (dispatch) => {
+		const token = localStorage.getItem("token");
+		if (!token) {
+			dispatch(logout());
+		} else {
+			const expirationDate = new Date(
+				localStorage.getItem("expirationDate")
+			);
+			if (expirationDate > new Date()) {
+				const userId = localStorage.getItem("userId");
+				const email = localStorage.getItem("email");
+
+				dispatch(
+					authSuccess({ idToken: token, localId: userId }, email)
+				);
+				dispatch(
+					checkAuthTimeout(
+						(expirationDate.getTime() - new Date().getTime()) / 1000 // in miliseconds so divide
+					)
+				);
+			} else {
+				dispatch(logout());
+			}
+		}
+	};
+};
+
+export const getUserNameSucces = (userName) => {
+	return {
+		type: ActionTypes.USER_NAME_SUCCESS,
+		userName: userName,
+	};
+};
+export const getUserNameFailed = (error) => {
+	return {
+		type: ActionTypes.USER_NAME_FAILED,
+		error: error,
+	};
+};
+
+export const getUserNameByEmail = (email) => {
+	return (dispatch) => {
+		let userName = "";
+		const queryParams = 'orderBy="email"&equalTo="' + email + '"';
+		axios
+			.get(
+				"https://leafion-budget-app.firebaseio.com/User.json?" +
+					queryParams
+			)
+			.then((res) => {
+				let users = [];
+				for (let key in res.data) {
+					users.push(res.data[key]);
+				}
+				userName = users[0].name;
+				dispatch(getUserNameSucces(userName));
+			})
+			.catch((error) => {
+				dispatch(getUserNameFailed(error));
+				console.log("Failed to get user", error);
+			});
 	};
 };

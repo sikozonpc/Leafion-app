@@ -1,4 +1,10 @@
 export { fetchItems, addItem, removeItem } from "./appData";
-export { authSignin, authLogin } from "./auth";
+export {
+	authSignin,
+	authLogin,
+	authCheckState,
+	logout,
+	getUserNameByEmail,
+} from "./auth";
 
 export {} from "./settings";

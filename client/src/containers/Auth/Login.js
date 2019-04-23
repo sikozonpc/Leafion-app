@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import { Button, Form } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 import Spinner from "../../components/UI/Spinner/Spinner";
 import classes from "./Auth.module.css";
@@ -19,13 +20,17 @@ class Login extends Component {
 		console.log(this.state);
 	};
 
-	onSubmitHandler = (event, isAuth) => {
+	onSubmitHandler = (event) => {
 		event.preventDefault();
+		this.props.setUserNameByEmail(this.state.email);
 
 		this.props.onAuth(this.state.email, this.state.password);
+
+		this.props.onInitItems(this.state.email);
 	};
 
 	render() {
+		let error = <p style={{ color: "red" }}>{this.props.error}</p>;
 		let form = <Spinner />;
 		if (!this.props.loading) {
 			form = (
@@ -58,11 +63,17 @@ class Login extends Component {
 		}
 		return (
 			<div className={classes.Auth}>
+				{this.props.isAuth ? <Redirect to="/home" /> : null}
 				<h2>
-					{this.props.isAuth
-						? "Welcome " + this.props.email
-						: "Login with your Leafion account."}
+					{this.props.isAuth ? (
+						<p style={{ color: "green" }}>
+							Welcome, {this.props.email}
+						</p>
+					) : (
+						"Login with your Leafion account."
+					)}
 				</h2>
+				{error}
 				{form}
 			</div>
 		);
@@ -74,13 +85,17 @@ const mapStateToProps = (state) => {
 		isAuth: state.auth.token !== null,
 		email: state.auth.email,
 		loading: state.auth.loading,
+		error: state.auth.error,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
+		onInitItems: (email) => dispatch(actions.fetchItems(email)),
 		onAuth: (email, password) =>
 			dispatch(actions.authLogin(email, password)),
+		setUserNameByEmail: (email) =>
+			dispatch(actions.getUserNameByEmail(email)),
 	};
 };
 

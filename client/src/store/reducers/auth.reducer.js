@@ -25,7 +25,6 @@ const authReducer = (state = initialState, action) => {
 			token: action.token,
 			localId: action.localId,
 			email: action.email,
-			name: action.name,
 		};
 	}
 	if (action.type === ActionTypes.AUTH_START_FAILED) {
@@ -44,6 +43,18 @@ const authReducer = (state = initialState, action) => {
 			localId: null,
 			email: null,
 			name: null,
+		};
+	}
+	if (action.type === ActionTypes.USER_NAME_SUCCESS) {
+		return {
+			...state,
+			name: action.userName,
+		};
+	}
+	if (action.type === ActionTypes.USER_NAME_FAILED) {
+		return {
+			...state,
+			error: action.error,
 		};
 	}
 

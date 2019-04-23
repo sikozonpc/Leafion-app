@@ -17,7 +17,12 @@ class App extends Component {
 
 	// Api call to the API Server to get the database
 	componentDidMount() {
-		this.props.onInitItems();
+		const email = localStorage.getItem("email");
+		this.props.onInitItems(email);
+		if (email) {
+			this.props.setUserNameByEmail(email);
+			this.props.onTryAutoLogin();
+		}
 	}
 
 	setSearchResult = (string) => {
@@ -41,6 +46,7 @@ class App extends Component {
 		// Because I am using router for the pages the Content section is dynamically added by it
 		let routerContent = this.props.items ? (
 			<RouterContent
+				isAuth={this.props.isAuth}
 				removeHandler={this.removeHandler}
 				searchResult={this.state.searchResult}
 			/>
@@ -50,7 +56,10 @@ class App extends Component {
 
 		return (
 			<Router>
-				<Layout setSearchResult={this.setSearchResult}>
+				<Layout
+					setSearchResult={this.setSearchResult}
+					name={this.props.name}
+				>
 					{routerContent}
 				</Layout>
 			</Router>
@@ -60,17 +69,22 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
 	return {
+		isAuth: state.auth.token !== null,
 		currency: state.settings.currency,
 		months: state.appData.months,
 		categoryFrequency: state.appData.categoryFrequency,
 		items: state.appData.items,
+		name: state.auth.name,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onInitItems: () => dispatch(actions.fetchItems()),
+		onInitItems: (email) => dispatch(actions.fetchItems(email)),
 		onRemoveItem: (id) => dispatch(actions.removeItem(id)),
+		onTryAutoLogin: (name) => dispatch(actions.authCheckState(name)),
+		setUserNameByEmail: (email) =>
+			dispatch(actions.getUserNameByEmail(email)),
 	};
 };
 

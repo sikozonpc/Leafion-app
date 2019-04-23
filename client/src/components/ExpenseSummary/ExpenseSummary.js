@@ -70,10 +70,10 @@ const expenseSummary = (props) => {
 						</p>
 						<p>
 							looks like your financial situation is{" "}
-							<span>GOOD </span>
+							<span style={{ color: "green" }}>GOOD </span>
 							<br />
 							for the month of
-							<span>{currMonthDisplayFormat}</span> !
+							<span> {currMonthDisplayFormat}</span> !
 						</p>
 					</div>
 					<MoneyHistoryBox

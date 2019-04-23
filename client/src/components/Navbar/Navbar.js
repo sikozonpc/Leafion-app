@@ -29,13 +29,6 @@ const navbar = (props) => {
 					>
 						Goals
 					</Link>
-					<Link
-						className={["nav-link", classes.Link].join(" ")}
-						to="/settings"
-						style={{ marginRight: "30px" }}
-					>
-						Settings
-					</Link>
 				</Nav>
 				<Form inline>
 					<FormControl
@@ -56,6 +49,12 @@ const navbar = (props) => {
 						Search
 					</Link>
 				</Form>
+
+				{props.name ? (
+					<Link className={classes.User} to="/settings">
+						{props.name[0]}
+					</Link>
+				) : null}
 			</Navbar.Collapse>
 		</Navbar>
 	);

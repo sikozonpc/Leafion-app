@@ -115,6 +115,7 @@ class AddItemPage extends React.Component {
 			this.showModal();
 			const item = JSON.stringify({
 				post: {
+					email: this.props.email,
 					date: this.state.date,
 					month: this.state.month,
 					category: this.state.category,
@@ -245,6 +246,12 @@ class AddItemPage extends React.Component {
 	}
 }
 
+export const mapStateToProps = (state) => {
+	return {
+		email: state.auth.email,
+	};
+};
+
 export const mapDispatchToProps = (dispatch) => {
 	return {
 		onAddItem: (item) => dispatch(actions.addItem(item)),
@@ -252,6 +259,6 @@ export const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(AddItemPage);

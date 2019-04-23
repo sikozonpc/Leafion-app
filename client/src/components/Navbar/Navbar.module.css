@@ -1,20 +1,45 @@
 .Navbar {
-    background-color: #fff;
-    padding-left: 40px;
-    padding-right: 40px;
+	background-color: #fff;
+	padding-left: 40px;
+	padding-right: 40px;
 }
-.Brand  {
-    color: #3EC094 !important;
-    font-size: 30px;
+.Brand {
+	color: #3ec094 !important;
+	font-size: 30px;
 }
 .Link {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 17px;
-    line-height: normal;
-    margin: 10px 15px;
-    color: var(--color-text-primary) !important;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 17px;
+	line-height: normal;
+	margin: 10px 15px;
+	color: var(--color-text-primary) !important;
 }
-    .Link:hover {
-        color: var(--color-primary-dark) !important; 
-    }
+.Link:hover {
+	color: var(--color-primary-dark) !important;
+}
+.User {
+	position: relative;
+	margin-left: 30px;
+	text-decoration: none;
+}
+.User::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 100px;
+	border: 1px solid transparent;
+	background-color: #f0f0f0;
+	z-index: -1;
+	width: 40px;
+	height: 40px;
+	transform: translate(-50%, -50%);
+	transition: 0.3s all;
+}
+.User:hover::after {
+	background-color: #d8d5d5;
+}
+.User:hover {
+	color: #111;
+}
