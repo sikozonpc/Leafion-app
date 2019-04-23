@@ -7,13 +7,17 @@ import Search from "../../containers/Search/SearchPage";
 import AddItem from "../../containers/AddItem/AddItemPage";
 import Auth from "../../containers/Auth/Auth";
 import SignLogin from "../../containers/Auth/SignLogin";
+import Login from "../../containers/Auth/Login";
+import Portal from "../../containers/Auth/Portal";
 
 const routerContent = (props) => {
 	return (
 		<Switch>
 			<Route path="/" component={Auth} exact />
 			<Route path="/home" component={HomePage} exact />
-			<Route path="/auth" component={SignLogin} exact />
+			<Route path="/signin" component={SignLogin} exact />
+			<Route path="/portal" component={Portal} exact />
+			<Route path="/login" component={Login} exact />
 			<Route path="/add/:transaction" component={AddItem} />
 			<Route
 				path="/items"

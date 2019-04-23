@@ -66,13 +66,13 @@ const expenseSummary = (props) => {
 				<Col md lg={7}>
 					<div className={classes.Info}>
 						<p>
-							Hello <span>Tiago</span>,
+							Hello <span>{props.name}</span>,
 						</p>
 						<p>
 							looks like your financial situation is{" "}
 							<span>GOOD </span>
 							<br />
-							for the month of{" "}
+							for the month of
 							<span>{currMonthDisplayFormat}</span> !
 						</p>
 					</div>

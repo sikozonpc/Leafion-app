@@ -6,27 +6,23 @@ import { Button, Form } from "react-bootstrap";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import classes from "./Auth.module.css";
 
-class SignLogin extends Component {
+class Login extends Component {
 	state = {
 		email: "",
 		password: "",
-		name: "",
 	};
 
 	onChange = (event) => {
 		this.setState({
 			[event.target.name]: event.target.value,
 		});
+		console.log(this.state);
 	};
 
-	onSubmitHandler = (event) => {
+	onSubmitHandler = (event, isAuth) => {
 		event.preventDefault();
 
-		this.props.onAuth(
-			this.state.email,
-			this.state.password,
-			this.state.name
-		);
+		this.props.onAuth(this.state.email, this.state.password);
 	};
 
 	render() {
@@ -34,16 +30,6 @@ class SignLogin extends Component {
 		if (!this.props.loading) {
 			form = (
 				<form onSubmit={this.onSubmitHandler} className={classes.Form}>
-					<Form.Group controlId="formName">
-						<Form.Label>First Name</Form.Label>
-						<Form.Control
-							name="name"
-							type="text"
-							placeholder="Enter you name..."
-							value={this.state.name}
-							onChange={this.onChange}
-						/>
-					</Form.Group>
 					<Form.Group controlId="formEmail">
 						<Form.Label>Email address</Form.Label>
 						<Form.Control
@@ -64,16 +50,19 @@ class SignLogin extends Component {
 							onChange={this.onChange}
 						/>
 					</Form.Group>
-
-					<Button type="submit" variant="success">
-						Register
+					<Button type="submit" variant="info">
+						Login
 					</Button>
 				</form>
 			);
 		}
 		return (
 			<div className={classes.Auth}>
-				<h2>Register an account at Leafion</h2>
+				<h2>
+					{this.props.isAuth
+						? "Welcome " + this.props.email
+						: "Login with your Leafion account."}
+				</h2>
 				{form}
 			</div>
 		);
@@ -90,12 +79,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onAuth: (email, password, name) =>
-			dispatch(actions.authSignin(email, password, name)),
+		onAuth: (email, password) =>
+			dispatch(actions.authLogin(email, password)),
 	};
 };
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(SignLogin);
+)(Login);

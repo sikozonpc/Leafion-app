@@ -6,11 +6,20 @@ Dashboard:
   ✔ @high Change the data names to ENGLISH @done(19-03-23 22:19)
   ✔ @high Create a accesbile adding form (easier),(SPENDIGNS OR EXPENSE ONLY); @done(19-03-24 11:12)
     ☐ With categories that have icons (make feature to create them too)
-    ☐ See video: https://play.google.com/store/apps/details?id=com.mhriley.spendingtracker&hl=pt_PT
+    ✔ See video: https://play.google.com/store/apps/details?id=com.mhriley.spendingtracker&hl=pt_PT @done(19-04-22 20:11)
 
-  ☐ CASH FLOW : For the HomePage add a new PIE CHART for viewign the most used category
+  ✔ CASH FLOW : For the HomePage add a new PIE CHART for viewign the most used category @done(19-04-22 20:11)
   ✔ IDENTIFY SPENDIGN PATTERNS GRAPH @done(19-04-05 21:58)
 
   ✘ na DASHBOARD MOVER PARA CIMA OS DADOS @cancelled(19-04-05 21:57)
   ✔ REMOVER TEMPO @done(19-03-24 11:11)
   ✔ Fix Detailed data @done(19-04-05 21:57)
+
+
+  ☐ Add auth:
+    ✔ Login/signup page @done(19-04-22 20:24)
+    ✔ Actions and reducer logic for SIGN IN, LOG IN to api @done(19-04-23 11:24)
+    ☐ Guard routes based on auth status
+    ✔ localStorage the token @done(19-04-23 11:24)
+    ☐ Auto login based on localStorage token
+    ☐ Filter the data based on user

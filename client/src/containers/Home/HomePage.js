@@ -68,6 +68,7 @@ class HomePage extends Component {
 					<ExpenseSummary
 						data={this.props.items}
 						months={this.props.months}
+						name={this.props.name}
 					/>
 				</Row>
 				<Row className={classes.Graphs}>
@@ -227,6 +228,8 @@ const mapStateToProps = (state) => {
 		months: state.appData.months,
 		categoryFrequency: state.appData.categoryFrequency,
 		items: state.appData.items,
+		isAuth: state.auth.token !== null,
+		name: state.auth.name,
 	};
 };
 

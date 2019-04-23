@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Button, Container } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 import Envirioment from "../../assets/svg/undraw_environment_iaus.svg";
 import classes from "./Auth.module.css";
 
@@ -26,12 +26,9 @@ class Auth extends Component {
 							perhaps you want to keep track of where your money
 							goes ? Then, why don’t try Saving with Leafion !
 						</p>
-						<Button
-							variant="success"
-							className={classes.ButtonSave}
-						>
+						<Link to="/portal" className={classes.ButtonSave}>
 							Start saving now
-						</Button>
+						</Link>
 					</Col>
 				</Row>
 			</Container>

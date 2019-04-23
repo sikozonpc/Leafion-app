@@ -9,11 +9,13 @@ import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 import appDataReducer from "./store/reducers/appData.reducer";
 import settingsReducer from "./store/reducers/settings.reducer";
+import authReducer from "./store/reducers/auth.reducer";
 
 // Setting up the reducer
 const rootReducer = combineReducers({
 	appData: appDataReducer,
 	settings: settingsReducer,
+	auth: authReducer,
 });
 
 // Middleware
