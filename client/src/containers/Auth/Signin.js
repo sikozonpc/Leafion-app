@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Row, Container } from "react-bootstrap";
 
-import Spinner from "../../components/UI/Spinner/Spinner";
+import WelcomeSVG from "../../assets/svg/undraw_welcome_3gvl.svg";
+import Spinner from "../../components/UI/PacmanSpinner/PacmanSpinner";
 import classes from "./Auth.module.css";
 
 class Signin extends Component {
@@ -77,6 +78,15 @@ class Signin extends Component {
 					Register an account at{" "}
 					<span style={{ fontWeight: "300" }}>Leafion</span>
 				</h2>
+				<Container>
+					<Row>
+						<img
+							src={WelcomeSVG}
+							alt="Welcome person"
+							className={classes.ImgSvg}
+						/>
+					</Row>
+				</Container>
 				{form}
 			</div>
 		);

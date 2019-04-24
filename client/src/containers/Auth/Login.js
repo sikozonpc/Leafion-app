@@ -4,7 +4,7 @@ import * as actions from "../../store/actions/index";
 import { Button, Form, Container, Row } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 
-import Spinner from "../../components/UI/Spinner/Spinner";
+import Spinner from "../../components/UI/PacmanSpinner/PacmanSpinner";
 import classes from "./Auth.module.css";
 
 class Login extends Component {
@@ -97,6 +97,18 @@ class Login extends Component {
 								</h2>
 							)}
 						</>
+					</Row>
+					<Row
+						style={{
+							margin: "auto",
+							fontSize: "50px",
+							color: "##33BE8F",
+						}}
+					>
+						<i
+							className="fas fa-leaf"
+							style={{ color: "#33BE8F", margin: "20px auto" }}
+						/>
 					</Row>
 					<Row>{error}</Row>
 					<Row>{form}</Row>

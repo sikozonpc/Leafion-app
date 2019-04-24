@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/index";
 
-import Spinner from "../components/UI/Spinner/Spinner";
+import Spinner from "../components/UI/PacmanSpinner/PacmanSpinner";
 import Layout from "./Layout/Layout";
 import RouterContent from "../components/RouterContent/RouterContent";
 
