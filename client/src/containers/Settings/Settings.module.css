@@ -1,10 +1,9 @@
 .SettingsWrapper {
 	margin-top: 50px;
 	padding-bottom: 100px;
-}
-.UserWrapper {
 	background-color: #fff;
 }
+
 .UserAvatar {
 	position: relative;
 	text-decoration: none;
@@ -30,6 +29,13 @@
 	transition: 0.3s all;
 }
 
+.TitleMain {
+	background-color: #f7f7f7;
+	box-shadow: 0.1px 1px 4px 0 #e7eeef;
+	padding: 15px 50px;
+	z-index: 10;
+}
+
 .User {
 	background-color: #f7f7f7;
 	padding: 20px;
@@ -37,15 +43,13 @@
 	border-radius: 8px;
 	background-color: #fff;
 	border: 1px solid #eee;
-	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 	padding: 25px;
 	margin: 20px;
 }
 .Settings {
 	box-sizing: border-box;
 	background-color: #f7f7f7;
-}
-.DownloadDataWrapper {
 }
 
 .Desc {
@@ -56,7 +60,8 @@
 .Title {
 	margin: 20px 0;
 	font-weight: bold;
-	color: var(--color-primary);
+	color: #666;
+	margin-bottom: 5px;
 }
 .UserSettings {
 	background-color: #f7f7f7;

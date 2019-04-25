@@ -1,26 +1,18 @@
-.Data {
-    margin-top: 0px;
-    width: 20%;
-    display: flex;
-    flex-flow: column;
-    padding-right: 10px;
+.Box {
+	border-radius: 8px;
+	background-color: #fff;
+	border: 1px solid #eee;
+	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+	padding: 25px;
+	margin: 20px;
+	max-width: 600px;
+	margin: auto;
 }
-.DataItem {
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #fff;
-    border-bottom: 2px solid #ccc;
+.Box > * {
+	padding: 10px;
+	border-bottom: 1px solid #eee;
 }
-    .DataItem > h3,p  {
-        margin-bottom: 2px;
-        margin-top: 2px;
-    }
-    .DataItem > p {
-        font-family: monospace;
-        font-size: 1.2rem;
-    }
-
-    .DataItem > * {
-        color: #333;
-    }
-
+.Box > *:last-child {
+	padding: 20px 10px;
+	border-bottom: 0;
+}

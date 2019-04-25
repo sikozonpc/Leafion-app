@@ -1,52 +1,53 @@
 .Footer {
-    background-color: #333;
-    text-align: center;
-    padding: 60px;
-    color: #fff;
+	background-color: #39424e;
+	text-align: center;
+	padding: 60px;
+	color: #fff;
 }
 .MainRow {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	align-items: center;
 }
-    .Footer p, .Footer a {
-        color: #fff;
-    }
+.Footer p,
+.Footer a {
+	color: #fff;
+}
 
-    .Highlight {
-        color: rgb(70, 103, 248);
-    }
+.Highlight {
+	color: rgb(70, 103, 248);
+}
 
 .ListLinks {
-    width: 100%;
-    max-width: 200px;
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
-    
-    list-style: none;
-    text-transform: uppercase;
+	width: 100%;
+	max-width: 200px;
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
+
+	list-style: none;
+	text-transform: uppercase;
 }
 .Desc {
-    text-align: left;
-    max-width: 400px;
-    width: 100%;
+	text-align: left;
+	max-width: 400px;
+	width: 100%;
 }
 .LinkSocials {
-    width: 100%;
-    margin: 10px 0;
-    padding: 0;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
+	width: 100%;
+	margin: 10px 0;
+	padding: 0;
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
 }
-    .LinkSocials li {
-        margin: 20px;
-        font-size: 1.2rem;
-        border: 1px solid #f9f9f9;
-        border-radius: 100px;
-        padding: 5px 15px;
-    }
+.LinkSocials li {
+	margin: 20px;
+	font-size: 1.2rem;
+	border: 1px solid #f9f9f9;
+	border-radius: 100px;
+	padding: 5px 15px;
+}

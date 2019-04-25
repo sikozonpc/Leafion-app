@@ -20,6 +20,12 @@ const navbar = (props) => {
 				>
 					Goals
 				</Link>
+				<Link
+					className={["nav-link", classes.Link].join(" ")}
+					to="/settings"
+				>
+					Settings
+				</Link>
 			</Nav>
 			<Form inline>
 				<FormControl
@@ -42,8 +48,12 @@ const navbar = (props) => {
 			</Form>
 
 			{props.name ? (
-				<Link className={classes.User} to="/settings">
-					{props.name[0]}
+				<Link
+					to="/settings"
+					style={{ textDecoration: "none", marginLeft: "20px" }}
+				>
+					<span style={{ fontWeight: "bold" }}>{props.name} </span>
+					<span className={classes.User}> {props.name[0]}</span>
 				</Link>
 			) : null}
 		</Navbar.Collapse>
@@ -76,12 +86,13 @@ const navbar = (props) => {
 		);
 	}
 	return (
-		<Navbar className={classes.Navbar} sticky="top" expand="lg">
+		<Navbar className={classes.Navbar} fixed expand="lg">
 			<Link
 				className={["navbar-brand", classes.Brand].join(" ")}
 				to="/home"
 			>
 				<i className="fas fa-leaf" style={{ color: "##33BE8F" }} />
+				{"  "} {"  "}
 				Leafion
 			</Link>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />

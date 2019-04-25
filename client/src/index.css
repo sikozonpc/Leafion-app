@@ -29,9 +29,7 @@ code {
 
 a {
 	color: #1a9537;
-}
-a:hover {
-	color: #87e09c;
+	transition: 0.3s all;
 }
 
 .fa-pagelines {

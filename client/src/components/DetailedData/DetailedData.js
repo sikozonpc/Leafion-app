@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Container, ListGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import classes from "./DetailedData.module.css";
 
 //
 // Component that displays and calculates the specific data to each month
@@ -31,31 +32,28 @@ const detailedData = (props) => {
 	}
 
 	return (
-		<Container>
-			<ListGroup>
-				<ListGroup.Item>
-					<i className="far fa-bookmark" /> Actions:{" "}
-					<strong>{numActions}</strong>
-				</ListGroup.Item>
-				<ListGroup.Item>
-					<i className="fas fa-plus" /> Total Income:{" "}
-					<strong style={{ color: "green" }}>{totalEarned} €</strong>
-					<p>
-						<i>+iva: ({totalEarnedIVA}) €</i>
-					</p>
-				</ListGroup.Item>
-				<ListGroup.Item>
-					<i className="fas fa-minus" /> Total Expenses:{" "}
-					<strong style={{ color: "red" }}>{totalSpendings} €</strong>
-				</ListGroup.Item>
+		<Container className={classes.Box}>
+			<div>
+				<i className="far fa-bookmark" /> Actions:{" "}
+				<strong>{numActions}</strong>
+			</div>
+			<div>
+				<i className="fas fa-plus" /> Total Income:{" "}
+				<strong style={{ color: "green" }}>{totalEarned} €</strong>
+				{"  "}
+				<i>+iva: ({totalEarnedIVA}) €</i>
+			</div>
+			<div>
+				<i className="fas fa-minus" /> Total Expenses:{" "}
+				<strong style={{ color: "red" }}>{totalSpendings} €</strong>
+			</div>
 
-				<ListGroup.Item variant={totalStyles}>
-					Balance:{" "}
-					<strong>
-						{totalEarned} - {Math.abs(totalSpendings)} = {total} €
-					</strong>
-				</ListGroup.Item>
-			</ListGroup>
+			<div>
+				Balance:{" "}
+				<strong>
+					{totalEarned} - {Math.abs(totalSpendings)} = {total} €
+				</strong>
+			</div>
 		</Container>
 	);
 };

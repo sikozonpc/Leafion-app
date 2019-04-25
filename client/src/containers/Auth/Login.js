@@ -67,52 +67,59 @@ class Login extends Component {
 		}
 		return (
 			<div className={classes.Window}>
-				<Container>
-					{this.props.isAuth ? <Redirect to="/home" /> : null}
-					<Row>
-						<>
-							{this.props.isAuth ? (
-								<h2
-									style={{
-										color: "green",
-										textAlign: "center",
-										margin: "50px auto",
-									}}
-								>
-									Welcome, {this.props.email}
-								</h2>
-							) : (
-								<h2
-									style={{
-										color: "#333",
-										textAlign: "center",
-										margin: "50px auto",
-									}}
-								>
-									Login with your{" "}
-									<span style={{ fontWeight: "300" }}>
-										Leafion
-									</span>{" "}
-									account.
-								</h2>
-							)}
-						</>
-					</Row>
-					<Row
-						style={{
-							margin: "auto",
-							fontSize: "50px",
-							color: "##33BE8F",
-						}}
-					>
-						<i
-							className="fas fa-leaf"
-							style={{ color: "#33BE8F", margin: "20px auto" }}
-						/>
-					</Row>
-					<Row>{error}</Row>
-					<Row>{form}</Row>
-				</Container>
+				{!this.props.loading ? (
+					<Container>
+						{this.props.isAuth ? <Redirect to="/home" /> : null}
+						<Row>
+							<>
+								{this.props.isAuth ? (
+									<h2
+										style={{
+											color: "green",
+											textAlign: "center",
+											margin: "50px auto",
+										}}
+									>
+										Welcome, {this.props.email}
+									</h2>
+								) : (
+									<h2
+										style={{
+											color: "#333",
+											textAlign: "center",
+											margin: "50px auto",
+										}}
+									>
+										Login with your{" "}
+										<span style={{ fontWeight: "300" }}>
+											Leafion
+										</span>{" "}
+										account.
+									</h2>
+								)}
+							</>
+						</Row>
+						<Row
+							style={{
+								margin: "auto",
+								fontSize: "50px",
+								color: "##33BE8F",
+							}}
+						>
+							<i
+								className="fas fa-leaf"
+								style={{
+									color: "#33BE8F",
+									margin: "20px auto",
+								}}
+							/>
+						</Row>
+						<Row>{error}</Row>
+						<Row>{form}</Row>
+					</Container>
+				) : (
+					<Spinner />
+				)}
 			</div>
 		);
 	}

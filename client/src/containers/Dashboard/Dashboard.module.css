@@ -1,0 +1,87 @@
+.TitleMain {
+	background-color: #f7f7f7;
+	box-shadow: 0.1px 1px 4px 0 #e7eeef;
+	padding: 15px 50px;
+	z-index: 10;
+}
+
+.Dashboard {
+	width: 15%;
+	display: flex;
+	flex-flow: column;
+	background-color: rgba(97, 187, 104, 0.993);
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+.Dashboard > * {
+	color: #f0f0f0;
+	text-decoration: none;
+}
+.Dashboard > h2 {
+	font-size: 1.3rem;
+	color: #fff;
+	font-family: monospace;
+}
+.Dashboard > h3 {
+	font-size: 1.2rem;
+	color: #444;
+}
+.Dashboard > a {
+	margin: 5px 5px;
+}
+
+.DataTable {
+	width: 85%;
+}
+
+.Grid {
+	display: flex;
+	flex-flow: row;
+	width: 100%;
+	background-color: #fff;
+}
+
+.Table {
+	padding: 0;
+	display: flex;
+	flex-flow: column;
+	justify-content: start;
+	align-items: center;
+	padding-left: 20px;
+
+	width: 80%;
+	box-sizing: border-box;
+}
+
+.firstElem {
+	color: #333 !important;
+	background-color: green !important;
+	color: #fff !important;
+}
+
+.Sidebar {
+	background-color: #f9f9f9;
+}
+
+.Sidebar__list {
+	list-style: none;
+	padding: 20px;
+}
+
+.Sidebar__list li {
+	margin: 6px;
+}
+
+.Link {
+	color: #4691f6;
+	font-size: 18px;
+	font-weight: 400;
+	text-decoration: none !important;
+}
+.LinkSeparator {
+	color: #444;
+	font-size: 20px;
+	font-weight: 400;
+	display: inline-block;
+	margin: 10px;
+}

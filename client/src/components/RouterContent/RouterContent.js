@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import HomePage from "../../containers/Home/HomePage";
-import RegistryPage from "../../containers/Dashboard/RegistryPage";
+import Dashboard from "../../containers/Dashboard/Dashboard";
 import Search from "../../containers/Search/SearchPage";
 import AddItem from "../../containers/AddItem/AddItemPage";
 import Auth from "../../containers/Auth/Auth";
@@ -29,7 +29,7 @@ const routerContent = (props) => {
 				<Route
 					path="/items"
 					render={() => (
-						<RegistryPage removeHandler={props.removeHandler} />
+						<Dashboard removeHandler={props.removeHandler} />
 					)}
 				/>
 				<Route

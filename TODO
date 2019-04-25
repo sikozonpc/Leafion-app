@@ -24,11 +24,17 @@ Dashboard:
     ✔ Auto login based on localStorage token @done(19-04-23 14:41)
     ✔ Filter the data based on user @done(19-04-23 17:48)
 
-  ☐ Style UI for:
+  ✔ Style UI for: @done(19-04-25 12:59)
     ✘ Portal page @cancelled(19-04-23 18:34)
-    ☐ Settings/User profile page
+    ✔ Settings/User profile page @done(19-04-25 12:59)
     ✔ Login @done(19-04-23 18:34)
     ✔ Signin @done(19-04-23 18:34)
 
+  ☐ Responsiveness
+  ☐ Finish Home page
   ☐ Create a global Button component
   ☐ Parse error messages on loggin and sign up
+  ☐ Finish Goals Page
+  ☐ Rework the dashboard
+  ☐ Rework forms, Popup
+  ☐ Remove legacy CSS and Imports

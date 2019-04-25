@@ -24,7 +24,7 @@ const PacmanSpinner = () => {
 						margin: "50px auto",
 						textAlign: "center",
 					}}
-					class="lds-pacman"
+					className="lds-pacman"
 				>
 					<div>
 						<div />
