@@ -83,3 +83,9 @@ export const removeItemFailed = (error) => {
 		error: error,
 	};
 };
+
+export const sortItems = () => {
+	return {
+		type: ActionTypes.SORT_ITEMS,
+	};
+};

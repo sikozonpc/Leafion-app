@@ -30,11 +30,16 @@ Dashboard:
     ✔ Login @done(19-04-23 18:34)
     ✔ Signin @done(19-04-23 18:34)
 
+  
+  ✔ Refetch items when an item is added or removed @done(19-04-26 15:30)
   ☐ Responsiveness
   ☐ Finish Home page
-  ☐ Create a global Button component
-  ☐ Parse error messages on loggin and sign up
+  ✔ Create a global Button component @done(19-04-26 14:40)
+  ✔ Parse error messages on loggin and sign up @done(19-04-26 15:01)
   ☐ Finish Goals Page
-  ☐ Rework the dashboard
-  ☐ Rework forms, Popup
+  ✔ Rework the dashboard @done(19-04-26 13:18)
+  ✔ Rework forms, Popup @done(19-04-26 15:49)
   ☐ Remove legacy CSS and Imports
+  ☐ How to use, about, contact me page
+  ☐ Welcome page on creating account
+  ☐ Make the remaning todo on the app

@@ -10,13 +10,19 @@
 	justify-content: space-between;
 	align-items: center;
 }
-.Footer p,
-.Footer a {
-	color: #fff;
-}
 
 .Highlight {
-	color: rgb(70, 103, 248);
+	color: var(--color-primary);
+	text-decoration: none !important;
+}
+.Highlight:hover {
+	color: var(--color-primary-dark);
+}
+
+.Title {
+	font-size: 30px;
+	color: var(--color-primary);
+	display: inline-block;
 }
 
 .ListLinks {
@@ -25,9 +31,10 @@
 	display: flex;
 	flex-flow: column;
 	align-items: flex-start;
-
 	list-style: none;
-	text-transform: uppercase;
+}
+.ListLinks a {
+	color: #fff;
 }
 .Desc {
 	text-align: left;
@@ -44,10 +51,31 @@
 	align-items: center;
 	list-style: none;
 }
+
 .LinkSocials li {
-	margin: 20px;
+	position: relative;
 	font-size: 1.2rem;
-	border: 1px solid #f9f9f9;
-	border-radius: 100px;
 	padding: 5px 15px;
+	cursor: pointer;
+}
+.LinkSocials li a {
+	color: #fff;
+}
+.LinkSocials li:not(:last-child) {
+	margin-right: 20px;
+}
+.LinkSocials li:hover {
+	color: red !important;
+}
+
+.LinkSocials li::after {
+	content: "";
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid #ccc;
+	border-radius: 100px;
 }

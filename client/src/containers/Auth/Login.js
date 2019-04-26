@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
-import { Button, Form, Container, Row } from "react-bootstrap";
+import { Form, Container, Row } from "react-bootstrap";
+import Button from "../../components/UI/Button/Button";
 import { Redirect } from "react-router-dom";
 
 import Spinner from "../../components/UI/PacmanSpinner/PacmanSpinner";
@@ -17,7 +18,6 @@ class Login extends Component {
 		this.setState({
 			[event.target.name]: event.target.value,
 		});
-		console.log(this.state);
 	};
 
 	onSubmitHandler = (event) => {
@@ -47,6 +47,7 @@ class Login extends Component {
 							placeholder="Enter email"
 							value={this.state.email}
 							onChange={this.onChange}
+							required
 						/>
 					</Form.Group>
 					<Form.Group controlId="formPassoword">
@@ -57,11 +58,10 @@ class Login extends Component {
 							placeholder="Enter password"
 							value={this.state.password}
 							onChange={this.onChange}
+							required
 						/>
 					</Form.Group>
-					<Button type="submit" variant="success">
-						Login
-					</Button>
+					<Button type="submit">Login</Button>
 				</form>
 			);
 		}
@@ -130,7 +130,9 @@ const mapStateToProps = (state) => {
 		isAuth: state.auth.token !== null,
 		email: state.auth.email,
 		loading: state.auth.loading,
-		error: state.auth.error,
+		error: state.auth.prettyError
+			? state.auth.prettyError
+			: state.auth.error,
 	};
 };
 

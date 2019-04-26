@@ -1,4 +1,4 @@
-export { fetchItems, addItem, removeItem } from "./appData";
+export { fetchItems, addItem, removeItem, sortItems } from "./appData";
 export {
 	authSignin,
 	authLogin,

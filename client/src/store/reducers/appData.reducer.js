@@ -19,14 +19,15 @@ const initialState = {
 	},
 	error: false,
 	success: false,
+	refetch: false,
 };
 
-// TODO: Handle ERROR on app
 const appDataReducer = (state = initialState, action) => {
 	if (action.type === ActionTypes.FETCH_ITEMS_FAILED) {
 		return {
 			...state,
 			error: true,
+			refetch: false,
 		};
 	}
 
@@ -48,6 +49,7 @@ const appDataReducer = (state = initialState, action) => {
 			...state,
 			items: action.items,
 			categoryFrequency: categoriesArr,
+			refetch: false,
 		};
 	}
 
@@ -55,18 +57,44 @@ const appDataReducer = (state = initialState, action) => {
 		return {
 			...state,
 			success: true,
+			refetch: true,
 		};
 	}
 	if (action.type === ActionTypes.REMOVE_ITEM_SUCCESS) {
 		return {
 			...state,
 			error: false,
+			refetch: true,
 		};
 	}
 	if (action.type === ActionTypes.REMOVE_ITEM_FAILED) {
 		return {
 			...state,
 			error: action.error,
+			refetch: false,
+		};
+	}
+	if (action.type === ActionTypes.SORT_ITEMS) {
+		let sortedItems = [...state.items];
+		console.log(sortedItems);
+		sortedItems.sort((a, b) => {
+			console.log(
+				a.post.name[0].toLowerCase(),
+				b.post.name[0].toLowerCase()
+			);
+			if (a.post.name[0].toLowerCase() < b.post.name[0].toLowerCase()) {
+				return -1;
+			}
+			if (a.post.name[0].toLowerCase() > b.post.name[0].toLowerCase()) {
+				return 1;
+			}
+			return 0;
+		});
+		console.log(sortedItems);
+		return {
+			...state,
+			items: sortedItems,
+			refetch: false,
 		};
 	}
 

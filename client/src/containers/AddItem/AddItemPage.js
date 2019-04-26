@@ -3,10 +3,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
-
+import Button from "../../components/UI/Button/Button";
 import Modal from "../../components/Modal/Modal";
 
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import classes from "./AddItemPage.module.css";
 
 const OPTIONS = [
@@ -53,7 +53,7 @@ class AddItemPage extends React.Component {
 		console.log(this.props);
 	}
 
-	// TODO:
+	// TODO: Validation & Error handling
 	handleValidation = () => {
 		let formIsValid = true;
 		let errors = {};
@@ -144,14 +144,13 @@ class AddItemPage extends React.Component {
 			<Container style={{ marginTop: "40px", marginBottom: "40px" }}>
 				{this.state.show ? (
 					<Modal show={this.state.show} clicked={this.hideModal}>
-						<h2>Transaction Added !</h2>
-						<p>
-							To <strong>{this.state.dosier}</strong> dosier.
-						</p>
+						<h2>
+							<i className="fas fa-map-marker" /> Transaction
+							Added
+						</h2>
 						<ul>
 							<li>
-								Name: <strong />
-								{this.state.name}
+								Name: <strong>{this.state.name}</strong>
 							</li>
 							<li>
 								Descripton: <strong>{this.state.desc}</strong>
@@ -166,12 +165,7 @@ class AddItemPage extends React.Component {
 								Amount: <strong>{this.state.amount} €</strong>
 							</li>
 						</ul>
-						<button
-							onClick={this.hideModal}
-							className={classes.BtnInverted}
-						>
-							Continue
-						</button>
+						<Button clickEvent={this.hideModal}>Continue</Button>
 					</Modal>
 				) : null}
 
@@ -210,8 +204,10 @@ class AddItemPage extends React.Component {
 						<Form.Label htmlFor="datepicker">Date *</Form.Label>
 						<Form.Group>
 							<DatePicker
+								placeholderText="Click to select a date"
 								name="datepicker"
 								required
+								withPortal
 								className={classes.DatePicker}
 								selected={this.state.startDate}
 								onChange={this.changeDateHandler}
@@ -235,10 +231,9 @@ class AddItemPage extends React.Component {
 							value={this.state.amount}
 							onChange={this.onChangeHandle}
 						/>
-
-						<Button type="submit" variant="success">
-							Add
-						</Button>
+						<div style={{ marginTop: "20px" }}>
+							<Button type="submit">Add</Button>
+						</div>
 					</Form.Group>
 				</Form>
 			</Container>

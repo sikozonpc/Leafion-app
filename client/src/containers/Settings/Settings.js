@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
-import { Button, Container, Col, Row, Form } from "react-bootstrap";
+import { Container, Col, Row, Form } from "react-bootstrap";
+import Button from "../../components/UI/Button/Button";
 import { Redirect } from "react-router-dom";
 
 import classes from "./Settings.module.css";
@@ -39,15 +40,14 @@ class Settings extends Component {
 								<div className={classes.Buttons}>
 									{this.props.isAuth ? (
 										<Button
-											onClick={this.props.onLogout}
-											variant="success"
+											clickEvent={this.props.onLogout}
 										>
 											Logout
 										</Button>
 									) : (
 										<Redirect to="/portal" />
 									)}
-									<Button variant="outline-success">
+									<Button variant="outline-green">
 										Download data
 									</Button>
 								</div>

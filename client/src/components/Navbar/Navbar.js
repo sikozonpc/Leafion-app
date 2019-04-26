@@ -50,7 +50,10 @@ const navbar = (props) => {
 			{props.name ? (
 				<Link
 					to="/settings"
-					style={{ textDecoration: "none", marginLeft: "20px" }}
+					style={{
+						textDecoration: "none",
+						marginLeft: "20px",
+					}}
 				>
 					<span style={{ fontWeight: "bold" }}>{props.name} </span>
 					<span className={classes.User}> {props.name[0]}</span>

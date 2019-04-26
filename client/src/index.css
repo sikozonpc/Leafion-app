@@ -28,8 +28,10 @@ code {
 }
 
 a {
-	color: #1a9537;
-	transition: 0.3s all;
+	color: inherit;
+}
+a:hover {
+	color: inherit;
 }
 
 .fa-pagelines {
