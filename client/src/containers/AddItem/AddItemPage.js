@@ -1,5 +1,6 @@
 import React from "react";
 import DatePicker from "react-datepicker";
+import { Link } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
@@ -50,7 +51,6 @@ class AddItemPage extends React.Component {
 		} else {
 			this.props.history.push("/items");
 		}
-		console.log(this.props);
 	}
 
 	// TODO: Validation & Error handling
@@ -130,6 +130,18 @@ class AddItemPage extends React.Component {
 		}
 	};
 
+	changeTransactionType = () => {
+		let newTrans;
+		if (this.state.transactionType === "income") {
+			newTrans = "expense";
+		} else {
+			newTrans = "income";
+		}
+		this.props.history.push("/add/" + newTrans);
+		this.setState({ transactionType: newTrans });
+		document.location.reload();
+	};
+
 	render() {
 		// Basic error handler for client side auth in case the native browser one
 		// doesn't work.
@@ -171,11 +183,22 @@ class AddItemPage extends React.Component {
 
 				<Form onSubmit={this.submitHandler}>
 					<Form.Group>
+						<a
+							style={{ color: "blue", float: "right" }}
+							onClick={this.changeTransactionType}
+							href={"#"}
+						>
+							switch to{" "}
+							{this.state.transactionType === "income"
+								? "expense"
+								: "income"}
+						</a>
 						<h2>
 							<i className="fas fa-plus-square" />{" "}
 							{this.state.transactionType.toUpperCase()}{" "}
 						</h2>
 						{errorsList}
+
 						<Form.Label htmlFor="name"> Name * </Form.Label>
 						<Form.Control
 							name="name"

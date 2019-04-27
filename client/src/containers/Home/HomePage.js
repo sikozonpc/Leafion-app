@@ -133,6 +133,10 @@ class HomePage extends Component {
 								{this.props.currency}
 							</p>
 						</div>
+						<div className={classes.SingletonBlue}>
+							<h3>Nº Actions</h3>
+							<p>{this.props.items.length} actions </p>
+						</div>
 					</Col>
 				</Row>
 				<Row className={classes.Graphs}>
