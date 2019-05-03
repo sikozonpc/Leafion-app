@@ -8,7 +8,6 @@ import ballons from "../../assets/svg/undraw_balloons_vxx5.svg";
 import sad from "../../assets/svg/undraw_happy_feeling_slmw.svg";
 
 const expenseSummary = (props) => {
-	console.log(props);
 	let currMonthIncome = 0;
 	let currMonthExpenses = 0;
 	let lastTransactions = [];
@@ -56,6 +55,10 @@ const expenseSummary = (props) => {
 			return (currMonthBalance += Number(e.post.amount));
 		}
 	});
+	if (props.monthlyExpense)
+		currMonthBalance -= parseFloat(props.monthlyExpense);
+	if (props.monthlyIncome)
+		currMonthBalance += parseFloat(props.monthlyIncome);
 
 	const userCondition =
 		currMonthBalance >= 0 ? (
@@ -65,11 +68,11 @@ const expenseSummary = (props) => {
 				</Col>
 				<Col md lg={7}>
 					<div className={classes.Info}>
-						<p>
-							Hello <span>{props.name}</span>,
+						<p style={{ fontSize: "42px" }}>
+							Hello <span>{props.name}</span> !
 						</p>
 						<p>
-							looks like your financial situation is{" "}
+							Looks like your financial situation is{" "}
 							<span style={{ color: "green" }}>GOOD </span>
 							<br />
 							for the month of
@@ -77,6 +80,9 @@ const expenseSummary = (props) => {
 						</p>
 					</div>
 					<MoneyHistoryBox
+						currency={props.currency}
+						monthlyIncome={props.monthlyIncome}
+						monthlyExpense={props.monthlyExpense}
 						className={classes.MoneyHistoryBox}
 						lastTransactions={lastTransactions}
 						listLenght={listLenght}
@@ -93,16 +99,19 @@ const expenseSummary = (props) => {
 				</Col>
 				<Col md lg={7}>
 					<div className={classes.Info}>
-						<p>
-							Hello <span>Tiago</span>,
+						<p style={{ fontSize: "42px" }}>
+							Hello <span>Tiago</span> !
 						</p>
 						<p>
-							it seems you have been spending more
+							It seems you have been spending more
 							<br /> than what you earned for last couple <br />{" "}
 							days of <span>{currMonthDisplayFormat}</span> !
 						</p>
 					</div>
 					<MoneyHistoryBox
+						currency={props.currency}
+						monthlyIncome={props.monthlyIncome}
+						monthlyExpense={props.monthlyExpense}
 						className={classes.MoneyHistoryBox}
 						lastTransactions={lastTransactions}
 						listLenght={listLenght}

@@ -65,6 +65,13 @@ const authReducer = (state = initialState, action) => {
 			error: action.error,
 		};
 	}
+	if (action.type === ActionTypes.CLEAR_ERROR) {
+		return {
+			...state,
+			error: null,
+			prettyError: null,
+		};
+	}
 
 	return state;
 };

@@ -9,6 +9,7 @@ import Auth from "../../containers/Auth/Auth";
 import Signin from "../../containers/Auth/Signin";
 import Login from "../../containers/Auth/Login";
 import Settings from "../../containers/Settings/Settings";
+import Goals from "../../containers/Goals/Goals";
 
 const routerContent = (props) => {
 	let router = (
@@ -25,6 +26,7 @@ const routerContent = (props) => {
 			<Switch>
 				<Route path="/" component={HomePage} exact />
 				<Route path="/settings" component={Settings} exact />
+				<Route path="/goals" component={Goals} exact />
 				<Route path="/add/:transaction" component={AddItem} />
 				<Route
 					path="/items"

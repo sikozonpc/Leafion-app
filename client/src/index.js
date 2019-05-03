@@ -28,7 +28,7 @@ const store = createStore(
 );
 
 // Subscription
-store.subscribe(() => console.log("[Subscription]: " + store.getState()));
+//store.subscribe(() => console.log("[Subscription]: " + store.getState()));
 
 const app = (
 	<Provider store={store}>

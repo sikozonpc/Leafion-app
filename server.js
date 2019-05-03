@@ -35,7 +35,6 @@ app.get("/items/all", (req, res) => {
 	db.collection("items")
 		.find()
 		.toArray(function(err, results) {
-			console.log(results);
 			res.send(results);
 		});
 });
@@ -45,12 +44,10 @@ app.get("/items/all", (req, res) => {
 //
 app.post("/items/add", (req, res) => {
 	let post = req.body.post;
-	console.log("POST pre adding:" + post);
 
 	db.collection("items").save(req.body, (err, result) => {
 		if (err) return console.log(err);
 
-		console.log("saved to database");
 		res.redirect("/");
 	});
 });
@@ -59,7 +56,6 @@ app.post("/items/add", (req, res) => {
 // Delete item from the Database
 //
 app.delete("/items/remove", (req, res) => {
-	console.log("removing from db");
 	db.collection("items").deleteOne(
 		{ _id: ObjectId(`${req.body.id}`) },
 		(err, result) => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/index";
 
@@ -23,6 +23,9 @@ class App extends Component {
 			this.props.setUserNameByEmail(email);
 			this.props.onTryAutoLogin();
 		}
+
+		// Fetch User settings
+		this.props.onFetchSettingsFromLocalStorage();
 	}
 
 	setSearchResult = (string) => {
@@ -86,6 +89,8 @@ const mapDispatchToProps = (dispatch) => {
 		onTryAutoLogin: (name) => dispatch(actions.authCheckState(name)),
 		setUserNameByEmail: (email) =>
 			dispatch(actions.getUserNameByEmail(email)),
+		onFetchSettingsFromLocalStorage: () =>
+			dispatch(actions.fetchSettings()),
 	};
 };
 

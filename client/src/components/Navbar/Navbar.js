@@ -46,7 +46,7 @@ const navbar = (props) => {
 					Search
 				</Link>
 			</Form>
-
+			{/* User name and avatar  */}
 			{props.name ? (
 				<Link
 					to="/settings"
@@ -55,7 +55,9 @@ const navbar = (props) => {
 						marginLeft: "20px",
 					}}
 				>
-					<span style={{ fontWeight: "bold" }}>{props.name} </span>
+					<span style={{ fontWeight: "bold", color: "#555" }}>
+						{props.name}{" "}
+					</span>
 					<span className={classes.User}> {props.name[0]}</span>
 				</Link>
 			) : null}

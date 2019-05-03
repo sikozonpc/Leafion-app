@@ -24,7 +24,7 @@ export const authSignin = (email, password, name) => {
 				const expirationDate = new Date(
 					new Date().getTime() + res.data.expiresIn * 1000
 				);
-				console.log(res.data);
+
 				// Set the token and expiriration to localStorage
 				localStorage.setItem("userName", name);
 				localStorage.setItem("token", res.data.idToken);
@@ -112,7 +112,6 @@ export const authFailed = (error) => {
 };
 export const checkAuthTimeout = (expirationTime) => {
 	return (dispatch) => {
-		console.log(expirationTime);
 		setTimeout(() => {
 			dispatch(logout());
 		}, expirationTime * 1000); // expirationTime cames in seconds
@@ -189,5 +188,11 @@ export const getUserNameByEmail = (email) => {
 				dispatch(getUserNameFailed(error));
 				console.log("Failed to get user", error);
 			});
+	};
+};
+
+export const clearError = () => {
+	return {
+		type: ActionTypes.CLEAR_ERROR,
 	};
 };

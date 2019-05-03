@@ -14,6 +14,10 @@ class Signin extends Component {
 		name: "",
 	};
 
+	componentWillUnmount() {
+		this.props.clearErrorMessage();
+	}
+
 	onChange = (event) => {
 		this.setState({
 			[event.target.name]: event.target.value,
@@ -132,6 +136,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onAuth: (email, password, name) =>
 			dispatch(actions.authSignin(email, password, name)),
+		clearErrorMessage: () => dispatch(actions.clearError()),
 	};
 };
 

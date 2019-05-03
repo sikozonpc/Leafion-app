@@ -31,9 +31,10 @@ Dashboard:
     ✔ Signin @done(19-04-23 18:34)
 
   
+  ✔ Have the settings working!! @done(19-05-03 13:38)
   ✔ Refetch items when an item is added or removed @done(19-04-26 15:30)
   ☐ Responsiveness
-  ☐ Finish Home page
+  ✔ Finish Home page @done(19-04-28 12:54)
   ✔ Create a global Button component @done(19-04-26 14:40)
   ✔ Parse error messages on loggin and sign up @done(19-04-26 15:01)
   ☐ Finish Goals Page

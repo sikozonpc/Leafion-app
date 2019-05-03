@@ -5,6 +5,7 @@ export {
 	authCheckState,
 	logout,
 	getUserNameByEmail,
+	clearError,
 } from "./auth";
 
-export {} from "./settings";
+export { saveChanges, fetchSettings } from "./settings";

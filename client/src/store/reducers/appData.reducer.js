@@ -76,7 +76,7 @@ const appDataReducer = (state = initialState, action) => {
 	}
 	if (action.type === ActionTypes.SORT_ITEMS) {
 		let sortedItems = [...state.items];
-		console.log(sortedItems);
+
 		sortedItems.sort((a, b) => {
 			console.log(
 				a.post.name[0].toLowerCase(),

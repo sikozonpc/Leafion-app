@@ -1,6 +1,5 @@
 import React from "react";
 import DatePicker from "react-datepicker";
-import { Link } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";

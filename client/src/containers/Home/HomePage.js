@@ -69,6 +69,9 @@ class HomePage extends Component {
 						data={this.props.items}
 						months={this.props.months}
 						name={this.props.name}
+						currency={this.props.currency}
+						monthlyIncome={this.props.monthlyIncome}
+						monthlyExpense={this.props.monthlyExpense}
 					/>
 				</Row>
 				<Row className={classes.Graphs}>
@@ -229,6 +232,8 @@ function getMoneyFromMonth(data, month, transactionType) {
 const mapStateToProps = (state) => {
 	return {
 		currency: state.settings.currency,
+		monthlyIncome: state.settings.monthlyIncome,
+		monthlyExpense: state.settings.monthlyExpense,
 		months: state.appData.months,
 		categoryFrequency: state.appData.categoryFrequency,
 		items: state.appData.items,

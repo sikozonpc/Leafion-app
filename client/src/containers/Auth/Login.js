@@ -20,6 +20,10 @@ class Login extends Component {
 		});
 	};
 
+	componentWillUnmount() {
+		this.props.clearErrorMessage();
+	}
+
 	onSubmitHandler = (event) => {
 		event.preventDefault();
 		this.props.setUserNameByEmail(this.state.email);
@@ -143,6 +147,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(actions.authLogin(email, password)),
 		setUserNameByEmail: (email) =>
 			dispatch(actions.getUserNameByEmail(email)),
+		clearErrorMessage: () => dispatch(actions.clearError()),
 	};
 };
 
