@@ -4,6 +4,17 @@ const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 var ObjectId = require("mongodb").ObjectID;
 
+//
+//
+// IMPORTANT | If you are interested in contribution to Leafion, the server is using a
+// MongoDB as database for the items, and so you can create your database or even change the
+// server to load from anywhere.
+//
+// If you are using mongoDB this is where it laods the database uri, to do so:
+// 1. Create in this directory a 'dbinfo.json' and add to it a 'uri' pointing to your database;
+const dbUri = require("./dbinfo.json");
+//
+
 // Setting up express and the server
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,17 +27,14 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 // START THE DB
 var db;
-MongoClient.connect(
-	"mongodb://sikoz:batata123@ds161894.mlab.com:61894/fcc-test-db",
-	{ useNewUrlParser: true },
-	(err, client) => {
-		if (err) return console.log(err);
 
-		db = client.db("fcc-test-db"); // whatever the database name is
+MongoClient.connect(dbUri.uri, { useNewUrlParser: true }, (err, client) => {
+	if (err) return console.log(err);
 
-		app.listen(port, () => console.log(`Listening on port ${port}`));
-	}
-);
+	db = client.db("fcc-test-db"); // whatever the database name is
+
+	app.listen(port, () => console.log(`Listening on port ${port}`));
+});
 
 //
 // Request the list of all items from Database
