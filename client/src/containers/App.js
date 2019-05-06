@@ -6,6 +6,7 @@ import * as actions from "../store/actions/index";
 import Spinner from "../components/UI/PacmanSpinner/PacmanSpinner";
 import Layout from "./Layout/Layout";
 import RouterContent from "../components/RouterContent/RouterContent";
+import WelcomeTutorial from "../components/WelcomeTutorial/WelcomeTutorial";
 
 //
 // Container of the structure of the application and state.
@@ -56,18 +57,23 @@ class App extends Component {
 		) : (
 			<Spinner />
 		);
-
-		return (
-			<Router>
-				<Layout
-					setSearchResult={this.setSearchResult}
-					name={this.props.name}
-					isAuth={this.props.isAuth}
-				>
-					{routerContent}
-				</Layout>
-			</Router>
+		let display = (
+			<Layout
+				setSearchResult={this.setSearchResult}
+				name={this.props.name}
+				isAuth={this.props.isAuth}
+				tutorial={this.props.tutorial}
+			>
+				{routerContent}
+			</Layout>
 		);
+		if (this.props.tutorial) {
+			display = (
+				<WelcomeTutorial endTutorial={this.props.onEndTutorial} />
+			);
+		}
+
+		return <Router>{display}</Router>;
 	}
 }
 
@@ -79,6 +85,7 @@ const mapStateToProps = (state) => {
 		categoryFrequency: state.appData.categoryFrequency,
 		items: state.appData.items,
 		name: state.auth.name,
+		tutorial: state.auth.tutorial,
 	};
 };
 
@@ -91,6 +98,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(actions.getUserNameByEmail(email)),
 		onFetchSettingsFromLocalStorage: () =>
 			dispatch(actions.fetchSettings()),
+		onEndTutorial: () => dispatch(actions.endTutorial()),
 	};
 };
 

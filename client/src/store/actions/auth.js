@@ -47,6 +47,7 @@ export const authSignin = (email, password, name) => {
 					});
 
 				dispatch(authSuccess(res.data, email));
+				dispatch(playTutorial());
 
 				dispatch(checkAuthTimeout(res.data.expiresIn));
 			})
@@ -194,5 +195,16 @@ export const getUserNameByEmail = (email) => {
 export const clearError = () => {
 	return {
 		type: ActionTypes.CLEAR_ERROR,
+	};
+};
+
+export const playTutorial = () => {
+	return {
+		type: ActionTypes.PLAY_TUTORIAL,
+	};
+};
+export const endTutorial = () => {
+	return {
+		type: ActionTypes.END_TUTORIAL,
 	};
 };

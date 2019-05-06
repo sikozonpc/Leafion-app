@@ -8,6 +8,7 @@ const initialState = {
 	prettyError: null,
 	loading: false,
 	name: null,
+	tutorial: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -70,6 +71,18 @@ const authReducer = (state = initialState, action) => {
 			...state,
 			error: null,
 			prettyError: null,
+		};
+	}
+	if (action.type === ActionTypes.PLAY_TUTORIAL) {
+		return {
+			...state,
+			tutorial: true,
+		};
+	}
+	if (action.type === ActionTypes.END_TUTORIAL) {
+		return {
+			...state,
+			tutorial: false,
 		};
 	}
 

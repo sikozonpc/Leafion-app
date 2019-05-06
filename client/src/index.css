@@ -30,9 +30,6 @@ code {
 a {
 	color: inherit;
 }
-a:hover {
-	color: inherit;
-}
 
 .fa-pagelines {
 	color: green;

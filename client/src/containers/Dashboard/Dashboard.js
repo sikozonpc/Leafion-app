@@ -73,14 +73,13 @@ class Dashboard extends Component {
 									</Link>
 								</li>
 								<li>
-									<a
-										href="#"
+									<span
 										className={classes.Link}
 										onClick={this.props.onSortItems}
 									>
 										<i className="fas fa-sort-alpha-down" />{" "}
 										Sort
-									</a>
+									</span>
 								</li>
 								<li
 									className={classes.LinkSeparator}
@@ -146,10 +145,16 @@ class Dashboard extends Component {
 								})}
 							</DropdownButton>
 
-							<ResultsTable
-								removeHandler={this.props.removeHandler}
-								data={currentData}
-							/>
+							{this.props.items.length !== 0 ? (
+								<ResultsTable
+									removeHandler={this.props.removeHandler}
+									data={currentData}
+								/>
+							) : (
+								<p className={classes.Warning}>
+									No transactions recorded.
+								</p>
+							)}
 						</Col>
 					</Row>
 					<Row style={{ marginTop: "40px" }}>

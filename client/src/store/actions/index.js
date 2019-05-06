@@ -6,6 +6,8 @@ export {
 	logout,
 	getUserNameByEmail,
 	clearError,
+	playTutorial,
+	endTutorial,
 } from "./auth";
 
 export { saveChanges, fetchSettings } from "./settings";

@@ -76,7 +76,11 @@
 	color: #4691f6;
 	font-size: 18px;
 	font-weight: 400;
+	cursor: pointer;
 	text-decoration: none !important;
+}
+.Link:hover {
+	color: darkblue;
 }
 .LinkSeparator {
 	color: #444;
@@ -84,4 +88,9 @@
 	font-weight: 400;
 	display: inline-block;
 	margin: 10px;
+}
+.Warning {
+	margin: 100px auto;
+	text-align: center;
+	font-size: 20px;
 }
