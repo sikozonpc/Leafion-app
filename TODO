@@ -43,7 +43,8 @@ Dashboard:
   ✔ Rework the dashboard @done(19-04-26 13:18)
   ✔ Rework forms, Popup @done(19-04-26 15:49)
   ☐ Remove legacy CSS and Imports
-  ☐ How to use, about, contact me page
+  ☐ How to use
+  ✔ about, contact me page @done(19-05-06 15:34)
   ✔ Welcome page on creating account @done(19-05-06 13:38)
   ☐ Make the remaning todo on the app
   ☐ Create test account and populate with data

@@ -1,7 +1,7 @@
 import React from "react";
 
 import classes from "./Footer.module.css";
-
+import { Link } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
 
 const footer = () => {
@@ -36,13 +36,13 @@ const footer = () => {
 				<Col md lg xl="4">
 					<ul className={classes.ListLinks}>
 						<li>
-							<a href="#">How to use ?</a>
+							<Link to="/howtouse">How to use ?</Link>
 						</li>
 						<li>
-							<a href="#">About</a>
+							<Link to="/about">About</Link>
 						</li>
 						<li>
-							<a href="#">Contact me</a>
+							<Link to="/contact">Contact me</Link>
 						</li>
 					</ul>
 				</Col>

@@ -10,6 +10,9 @@ import Signin from "../../containers/Auth/Signin";
 import Login from "../../containers/Auth/Login";
 import Settings from "../../containers/Settings/Settings";
 import Goals from "../../containers/Goals/Goals";
+import About from "../../containers/InformationPages/About/About";
+import Contact from "../../containers/InformationPages/Contact/Contact";
+import HowToUse from "../../containers/InformationPages/HowToUse/HowToUse";
 
 const routerContent = (props) => {
 	let router = (
@@ -28,6 +31,9 @@ const routerContent = (props) => {
 				<Route path="/settings" component={Settings} exact />
 				<Route path="/goals" component={Goals} exact />
 				<Route path="/add/:transaction" component={AddItem} />
+				<Route path="/about" component={About} exact />
+				<Route path="/howtouse" component={HowToUse} exact />
+				<Route path="/contact" component={Contact} exact />
 				<Route
 					path="/items"
 					render={() => (
