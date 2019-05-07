@@ -5,7 +5,7 @@ import * as actions from "../../store/actions/index";
 
 import ResultsTable from "../../components/ResultsTable/ResultsTable";
 import DetailedData from "../../components/DetailedData/DetailedData";
-
+import PageHeader from "../../components/PageHeader/PageHeader";
 import { Dropdown, DropdownButton, Row, Col, Container } from "react-bootstrap";
 
 import classes from "./Dashboard.module.css";
@@ -32,14 +32,10 @@ class Dashboard extends Component {
 
 		return (
 			<>
-				<div className={classes.TitleMain}>
-					<h2 className={classes.Title}>Dashboard</h2>
-					<span
-						style={{ fontSize: "14px", color: "#777", margin: "0" }}
-					>
-						Manage, Filter, Add or remove your data
-					</span>
-				</div>
+				<PageHeader
+					title="Dashboard"
+					desc="Manage, Filter, Add or remove your data"
+				/>
 				<Container
 					fluid
 					style={{ paddingTop: "40px", paddingBottom: "60px" }}
@@ -147,6 +143,7 @@ class Dashboard extends Component {
 
 							{this.props.items.length !== 0 ? (
 								<ResultsTable
+									currency={this.props.currency}
 									removeHandler={this.props.removeHandler}
 									data={currentData}
 								/>
@@ -159,7 +156,10 @@ class Dashboard extends Component {
 					</Row>
 					<Row style={{ marginTop: "40px" }}>
 						<Col>
-							<DetailedData data={currentData} />
+							<DetailedData
+								data={currentData}
+								currency={this.props.currency}
+							/>
 						</Col>
 					</Row>
 				</Container>
@@ -174,6 +174,7 @@ const mapStateToProps = (state) => {
 		months: state.appData.months,
 		refetch: state.appData.refetch,
 		email: state.auth.email,
+		currency: state.settings.currency,
 	};
 };
 

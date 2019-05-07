@@ -29,13 +29,6 @@
 	transition: 0.3s all;
 }
 
-.TitleMain {
-	background-color: #f7f7f7;
-	box-shadow: 0.1px 1px 4px 0 #e7eeef;
-	padding: 15px 50px;
-	z-index: 10;
-}
-
 .User {
 	background-color: #f7f7f7;
 	padding: 20px;
@@ -57,12 +50,7 @@
 	flex-flow: column;
 	color: #555;
 }
-.Title {
-	margin: 20px 0;
-	font-weight: bold;
-	color: #666;
-	margin-bottom: 5px;
-}
+
 .UserSettings {
 	background-color: #f7f7f7;
 	padding: 20px;

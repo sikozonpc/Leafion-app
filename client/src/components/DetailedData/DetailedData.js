@@ -2,11 +2,13 @@ import React from "react";
 
 import { Container } from "react-bootstrap";
 import classes from "./DetailedData.module.css";
+import formatMoney from "../../utils/formatMoney";
 
 //
 // Component that displays and calculates the specific data to each month
 //
 const detailedData = (props) => {
+	const { currency } = props;
 	// Calculations for the data display
 	const numActions = props.data.length;
 	const IVA = 0.23;
@@ -24,12 +26,19 @@ const detailedData = (props) => {
 	});
 	totalEarnedIVA = (totalEarned - totalEarned * IVA).toFixed(2);
 
-	let total = (totalEarned - totalSpendings).toFixed(2);
+	let total = (totalEarned + totalSpendings).toFixed(2);
 
 	let totalStyles = total > 0 ? successStyles : dangerStyles;
 	if (total === 0) {
 		totalStyles = null;
 	}
+
+	// Formating the values to money strings
+	const totalSpendingsAbs = formatMoney(-totalSpendings);
+	totalSpendings = formatMoney(totalSpendings);
+	totalEarned = formatMoney(totalEarned);
+	total = formatMoney(total);
+	totalEarnedIVA = formatMoney(totalEarnedIVA);
 
 	return (
 		<Container className={classes.Box}>
@@ -39,19 +48,25 @@ const detailedData = (props) => {
 			</div>
 			<div>
 				<i className="fas fa-plus" /> Total Income:{" "}
-				<strong style={{ color: "green" }}>{totalEarned} €</strong>
+				<strong style={{ color: "green" }}>
+					{totalEarned} {currency}
+				</strong>
 				{"  "}
-				<i>+iva: ({totalEarnedIVA}) €</i>
+				<i>
+					+iva: ({totalEarnedIVA}) {currency}
+				</i>
 			</div>
 			<div>
 				<i className="fas fa-minus" /> Total Expenses:{" "}
-				<strong style={{ color: "red" }}>{totalSpendings} €</strong>
+				<strong style={{ color: "red" }}>
+					{totalSpendings} {currency}
+				</strong>
 			</div>
 
 			<div>
 				Balance:{" "}
 				<strong>
-					{totalEarned} - {Math.abs(totalSpendings)} = {total} €
+					{totalEarned} - {totalSpendingsAbs} = {total} {currency}
 				</strong>
 			</div>
 		</Container>

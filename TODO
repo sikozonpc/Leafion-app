@@ -31,15 +31,14 @@ Dashboard:
     ✔ Signin @done(19-04-23 18:34)
 
 
-  ☐ REQUIRED TO BE AUTH ON AUTH ACTION CREATOR
-
+  ✔ REQUIRED TO BE AUTH ON AUTH ACTION CREATOR @done(19-05-07 16:41)
   ✔ Have the settings working!! @done(19-05-03 13:38)
   ✔ Refetch items when an item is added or removed @done(19-04-26 15:30)
   ☐ Responsiveness
   ✔ Finish Home page @done(19-04-28 12:54)
   ✔ Create a global Button component @done(19-04-26 14:40)
   ✔ Parse error messages on loggin and sign up @done(19-04-26 15:01)
-  ☐ Finish Goals Page
+  ✘ Finish Goals Page @cancelled(19-05-07 16:26)
   ✔ Rework the dashboard @done(19-04-26 13:18)
   ✔ Rework forms, Popup @done(19-04-26 15:49)
   ☐ Remove legacy CSS and Imports
@@ -48,3 +47,4 @@ Dashboard:
   ✔ Welcome page on creating account @done(19-05-06 13:38)
   ☐ Make the remaning todo on the app
   ☐ Create test account and populate with data
+  ☐ Finish dashboard detailed data component

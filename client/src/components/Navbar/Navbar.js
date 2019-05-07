@@ -16,15 +16,9 @@ const navbar = (props) => {
 				</Link>
 				<Link
 					className={["nav-link", classes.Link].join(" ")}
-					to="/goals"
-				>
-					Goals
-				</Link>
-				<Link
-					className={["nav-link", classes.Link].join(" ")}
 					to="/settings"
 				>
-					Settings
+					Settings & Goals
 				</Link>
 			</Nav>
 			<Form inline>

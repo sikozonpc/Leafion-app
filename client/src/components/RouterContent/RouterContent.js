@@ -9,7 +9,6 @@ import Auth from "../../containers/Auth/Auth";
 import Signin from "../../containers/Auth/Signin";
 import Login from "../../containers/Auth/Login";
 import Settings from "../../containers/Settings/Settings";
-import Goals from "../../containers/Goals/Goals";
 import About from "../../containers/InformationPages/About/About";
 import Contact from "../../containers/InformationPages/Contact/Contact";
 import HowToUse from "../../containers/InformationPages/HowToUse/HowToUse";
@@ -29,7 +28,6 @@ const routerContent = (props) => {
 			<Switch>
 				<Route path="/" component={HomePage} exact />
 				<Route path="/settings" component={Settings} exact />
-				<Route path="/goals" component={Goals} exact />
 				<Route path="/add/:transaction" component={AddItem} />
 				<Route path="/about" component={About} exact />
 				<Route path="/howtouse" component={HowToUse} exact />

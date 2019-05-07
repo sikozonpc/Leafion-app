@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
-
 import {
 	Radar,
 	RadarChart,
@@ -22,6 +21,8 @@ import {
 
 import classes from "./HomePage.module.css";
 import ExpenseSummary from "../../components/ExpenseSummary/ExpenseSummary";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import formatMoney from "../../utils/formatMoney";
 
 class HomePage extends Component {
 	render() {
@@ -70,10 +71,12 @@ class HomePage extends Component {
 						months={this.props.months}
 						name={this.props.name}
 						currency={this.props.currency}
-						monthlyIncome={this.props.monthlyIncome}
-						monthlyExpense={this.props.monthlyExpense}
 					/>
 				</Row>
+				<PageHeader
+					title="Overview"
+					desc="Note that the montly income/expenses are not calculated in here."
+				/>
 				<Row className={classes.Graphs}>
 					<Col xs={12} sm={12} md lg={9}>
 						<div className={classes.ContainerWrapper}>
@@ -113,12 +116,13 @@ class HomePage extends Component {
 						<div className={classes.Singleton}>
 							<h3>Total Income</h3>
 							<p>
-								{" "}
 								+{" "}
-								{getMoneyFromMonth(
-									this.props.items,
-									"all",
-									"r"
+								{formatMoney(
+									getMoneyFromMonth(
+										this.props.items,
+										"all",
+										"r"
+									)
 								)}{" "}
 								{this.props.currency}
 							</p>
@@ -128,10 +132,12 @@ class HomePage extends Component {
 							<p>
 								{" "}
 								-{" "}
-								{getMoneyFromMonth(
-									this.props.items,
-									"all",
-									"g"
+								{formatMoney(
+									getMoneyFromMonth(
+										this.props.items,
+										"all",
+										"g"
+									)
 								)}{" "}
 								{this.props.currency}
 							</p>

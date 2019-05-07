@@ -1,16 +1,11 @@
 import React from "react";
-
+import PageHeader from "../../../components/PageHeader/PageHeader";
 import classes from "../InformationPages.module.css";
 
 const contact = () => {
 	return (
 		<div className={classes.Container}>
-			<div className={classes.TitleMain}>
-				<h2 className={classes.Title}>Contact </h2>
-				<span style={{ fontSize: "14px", color: "#777", margin: "0" }}>
-					Contact information
-				</span>
-			</div>
+			<PageHeader title="Contact" desc="Contact information" />
 			<main className={classes.Main}>
 				<p className={classes.p}>
 					If you need help, would like to contribute or anything else

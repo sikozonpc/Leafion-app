@@ -12,7 +12,7 @@ import classes from "./AddItemPage.module.css";
 const OPTIONS = [
 	"💰 Salary",
 	"😀 Kids",
-	"🎁 Gifts",
+	"🎁 Gift",
 	"🥔 Food",
 	"🎥 Entertainment",
 	"👚 Clothes",
@@ -20,6 +20,8 @@ const OPTIONS = [
 	"🚌 Transportation",
 	"⛽ Fuel",
 	"☕ Coffee",
+	"🏘️ House",
+	"🔵 Others",
 ];
 
 class AddItemPage extends React.Component {

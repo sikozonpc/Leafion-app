@@ -1,11 +1,12 @@
 import React from "react";
 
 import { Table, Button } from "react-bootstrap";
-
+import formatMoney from "../../utils/formatMoney";
 //
 // Table results responsible for displaying the items
 //
 const resultsTable = (props) => {
+	const { currency } = props;
 	const tableData = props.data.map((e, i) => {
 		return (
 			<tr key={i}>
@@ -16,7 +17,7 @@ const resultsTable = (props) => {
 				<td>{e.post.date}</td>
 				<td>{e.post.desc}</td>
 				<td style={{ color: e.post.amount >= 0 ? "green" : "red" }}>
-					{e.post.amount} €
+					{formatMoney(e.post.amount)} {currency}
 				</td>
 
 				<td>
@@ -46,7 +47,7 @@ const resultsTable = (props) => {
 					<th>Category</th>
 					<th>Date</th>
 					<th>Description</th>
-					<th>Amount(€)</th>
+					<th>Amount({currency})</th>
 					<th />
 				</tr>
 				{tableData}

@@ -12,11 +12,11 @@ export const authSignin = (email, password, name) => {
 			returnSecureToken: true,
 		};
 
-		const token = "AIzaSyCopYnaTX31la6M8fOtfnIyNOpk71AlNGM";
+		const apitoken = "AIzaSyCopYnaTX31la6M8fOtfnIyNOpk71AlNGM";
 		// Endpoint URL for firebase API signin request
 		const url =
 			"https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" +
-			token;
+			apitoken;
 
 		axios
 			.post(url, authData)
@@ -35,7 +35,8 @@ export const authSignin = (email, password, name) => {
 				// Store username on db to link to the email
 				axios
 					.post(
-						"https://leafion-budget-app.firebaseio.com/User.json",
+						"https://leafion-budget-app.firebaseio.com/User.json?auth" +
+							res.data.idToken,
 						{ email: email, name: name }
 					)
 					.then((res) => {

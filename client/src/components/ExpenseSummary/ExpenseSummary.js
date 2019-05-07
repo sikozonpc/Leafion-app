@@ -81,8 +81,6 @@ const expenseSummary = (props) => {
 					</div>
 					<MoneyHistoryBox
 						currency={props.currency}
-						monthlyIncome={props.monthlyIncome}
-						monthlyExpense={props.monthlyExpense}
 						className={classes.MoneyHistoryBox}
 						lastTransactions={lastTransactions}
 						listLenght={listLenght}
@@ -110,8 +108,6 @@ const expenseSummary = (props) => {
 					</div>
 					<MoneyHistoryBox
 						currency={props.currency}
-						monthlyIncome={props.monthlyIncome}
-						monthlyExpense={props.monthlyExpense}
 						className={classes.MoneyHistoryBox}
 						lastTransactions={lastTransactions}
 						listLenght={listLenght}

@@ -5,6 +5,7 @@ import { Container, Col, Row, Form, Alert } from "react-bootstrap";
 import Button from "../../components/UI/Button/Button";
 import { Redirect } from "react-router-dom";
 import Spinner from "../../components/UI/PacmanSpinner/PacmanSpinner";
+import PageHeader from "../../components/PageHeader/PageHeader";
 import classes from "./Settings.module.css";
 
 class Settings extends Component {
@@ -50,14 +51,10 @@ class Settings extends Component {
 		}
 		return (
 			<>
-				<div className={classes.TitleMain}>
-					<h2 className={classes.Title}>Settings</h2>
-					<span
-						style={{ fontSize: "14px", color: "#777", margin: "0" }}
-					>
-						Change the app to your preferences
-					</span>
-				</div>
+				<PageHeader
+					title="Settings"
+					desc="Change the app to your preferences"
+				/>
 
 				{this.props.loading ? (
 					<Spinner />
@@ -67,11 +64,6 @@ class Settings extends Component {
 							<Col md lg xl={12} />
 							<Col md lg xl={12}>
 								<div className={classes.User}>
-									<p>
-										By letting Leafeon know your personal
-										preferences, we can make your user more
-										fun and interesting
-									</p>
 									<span className={classes.UserAvatar}>
 										{this.props.name
 											? this.props.name[0]
@@ -97,6 +89,11 @@ class Settings extends Component {
 							</Col>
 						</Row>
 						<Row className={classes.UserSettings}>
+							<p>
+								By letting Leafeon know your personal
+								preferences, we can make your user more fun and
+								interesting.
+							</p>
 							<Col md lg xl={12}>
 								<Form.Group controlId="currency">
 									<Form.Label>Currency</Form.Label>
@@ -108,6 +105,17 @@ class Settings extends Component {
 										onChange={this.onChangeHandler}
 									/>
 								</Form.Group>
+								<h3>
+									Goals{" "}
+									<span
+										style={{
+											fontSize: "15px",
+											color: "gray",
+										}}
+									>
+										(Currently not working)
+									</span>
+								</h3>
 								<Form.Group controlId="monthlyincome">
 									<Form.Label>
 										Monthly Income / Salary

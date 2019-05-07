@@ -109,7 +109,9 @@
 	top: 0;
 	left: 0;
 }
-.Singleton > h3 {
+.Singleton > h3,
+.SingletonBlue > h3,
+.SingletonRed > h3 {
 	color: #5b5b5c;
 	font-size: 26px;
 	font-weight: 600;
