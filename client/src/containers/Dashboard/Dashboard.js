@@ -38,7 +38,7 @@ class Dashboard extends Component {
 				/>
 				<Container
 					fluid
-					style={{ paddingTop: "40px", paddingBottom: "60px" }}
+					style={{ paddingTop: "4rem", paddingBottom: "6rem" }}
 				>
 					<Row>
 						<Col xs="12" md="12" lg="2" className={classes.Sidebar}>
@@ -103,12 +103,14 @@ class Dashboard extends Component {
 							className={classes.TableWrapper}
 						>
 							<DropdownButton
+								className={classes.DropdownBtn}
 								title={<i className="fas fa-filter" />}
 								id="dropdown-basic-button"
 								drop="right"
 								variant="primary"
 							>
 								<Dropdown.Item
+									style={{ fontSize: "1.7rem" }}
 									onClick={() =>
 										this.setState({ filter: null })
 									}
@@ -120,6 +122,7 @@ class Dashboard extends Component {
 								{Object.keys(this.props.months).map((m) => {
 									return (
 										<Dropdown.Item
+											style={{ fontSize: "1.7rem" }}
 											key={m}
 											active={
 												this.state.filter ===
@@ -154,7 +157,7 @@ class Dashboard extends Component {
 							)}
 						</Col>
 					</Row>
-					<Row style={{ marginTop: "40px" }}>
+					<Row style={{ marginTop: "4rem" }}>
 						<Col>
 							<DetailedData
 								data={currentData}

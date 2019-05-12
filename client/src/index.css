@@ -8,6 +8,12 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	background: #fff;
 }
+html {
+	/* 16px ---100 %*/
+	/* 10px --- x %*/
+	/*  1000/16 = 62,5 %*/
+	font-size: 62.5%;
+}
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -31,6 +37,19 @@ a {
 	color: inherit;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	font-size: 1.8rem;
+	height: 3.5rem;
+}
+input::placeholder {
+	font-size: 1.5rem;
+}
+input::-ms-value {
+	font-size: 1.8rem;
+}
+
 .fa-pagelines {
 	color: green;
 	font-size: 2rem;
@@ -43,6 +62,30 @@ a {
 	}
 }
 
+/* Temprary responsiveness styles */
+/* Big Desktops */
+@media screen and (min-width: 1800px) {
+	html {
+		font-size: 75%;
+	}
+}
+/* Tablet Land */
+@media screen and (max-width: 1200px) {
+	html {
+		font-size: 56.25%;
+	}
+}
+/* Tablet port */
+@media screen and (max-width: 992px) {
+	html {
+		font-size: 50%;
+	}
+}
+/* Mobile phone */
+@media screen and (max-width: 768px) {
+}
+
+/* PacmanSpinner Styles */
 @keyframes lds-pacman-1 {
 	0% {
 		-webkit-transform: rotate(0deg);

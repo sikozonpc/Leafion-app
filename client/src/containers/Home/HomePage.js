@@ -81,7 +81,11 @@ class HomePage extends Component {
 					<Col xs={12} sm={12} md lg={9}>
 						<div className={classes.ContainerWrapper}>
 							<h2> Year Overview - {new Date().getFullYear()}</h2>
-							<ResponsiveContainer width="100%" height={400}>
+							<ResponsiveContainer
+								width="100%"
+								height={400}
+								className={classes.RespGraph}
+							>
 								<LineChart data={graphData}>
 									<XAxis dataKey="Month" />
 									<YAxis />

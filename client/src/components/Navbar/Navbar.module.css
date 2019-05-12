@@ -1,7 +1,6 @@
 .Navbar {
 	background-color: #fff;
-	padding-left: 40px;
-	padding-right: 40px;
+	padding: 1rem 4rem;
 	box-shadow: 0.1px 1px 4px 0 #e7eeef;
 }
 .Brand {
@@ -11,9 +10,9 @@
 .Link {
 	font-style: normal;
 	font-weight: 600;
-	font-size: 17px;
+	font-size: 1.8rem;
 	line-height: normal;
-	margin: 10px 15px;
+	margin: 10px 1.5rem;
 	color: var(--color-text-primary) !important;
 }
 .Link:hover {
@@ -21,8 +20,9 @@
 }
 .User {
 	position: relative;
-	margin-left: 30px;
+	margin-left: 3rem;
 	text-decoration: none;
+	font-size: 1.8rem;
 	z-index: 1;
 }
 .User::after {
@@ -34,8 +34,8 @@
 	border: 1px solid transparent;
 	background-color: #f0f0f0;
 	z-index: -1;
-	width: 40px;
-	height: 40px;
+	width: 4rem;
+	height: 4rem;
 	transform: translate(-50%, -50%);
 	transition: 0.3s all;
 }

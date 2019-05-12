@@ -35,7 +35,14 @@ class Login extends Component {
 
 	render() {
 		let error = (
-			<p style={{ color: "red", textAlign: "center", margin: "auto" }}>
+			<p
+				style={{
+					color: "red",
+					textAlign: "center",
+					margin: "3rem auto",
+					fontSize: "1.8rem",
+				}}
+			>
 				{this.props.error}
 			</p>
 		);
@@ -81,7 +88,8 @@ class Login extends Component {
 										style={{
 											color: "green",
 											textAlign: "center",
-											margin: "50px auto",
+											margin: "5rem auto",
+											fontSize: "2.9rem",
 										}}
 									>
 										Welcome, {this.props.email}
@@ -91,7 +99,8 @@ class Login extends Component {
 										style={{
 											color: "#333",
 											textAlign: "center",
-											margin: "50px auto",
+											margin: "5rem auto",
+											fontSize: "2.9rem",
 										}}
 									>
 										Login with your{" "}

@@ -17,7 +17,7 @@ class Auth extends Component {
 							alt="Person holding a flower"
 						/>
 					</Col>
-					<Col xs md lg xl={6} className={classes.TextBox}>
+					<Col xs={11} md lg xl={6} className={classes.TextBox}>
 						<h1>
 							Start Saving{" "}
 							<span style={{ fontWeight: "300" }}>Today</span>

@@ -14,34 +14,36 @@
 	padding: 0;
 }
 
-.ImgSvg {
-	width: 150px;
-	height: 150px;
-	margin: 0px auto;
-}
-
 .Container {
-	margin-top: 100px;
+	margin-top: 10rem;
 }
 .TextBox {
 	padding: 0;
 	text-align: left;
 	margin: auto;
-	margin-bottom: 200px;
+	margin-bottom: 20rem;
 }
+
 .TextBox h1 {
 	font-style: normal;
 	font-weight: 600;
-	font-size: 60px;
+	font-size: 6rem;
 	line-height: normal;
 
 	color: #333333;
 }
+.ImgSvg {
+	width: 15rem;
+	height: 15rem;
+	margin: 0px auto;
+}
+
 .TextBox p {
 	font-style: normal;
 	font-weight: normal;
-	font-size: 18px;
+	font-size: 1.8rem;
 	line-height: normal;
+	margin-bottom: 3rem;
 
 	color: #333333;
 }
@@ -49,4 +51,23 @@
 .Form {
 	width: 60%;
 	margin: auto;
+	font-size: 1.8rem;
+}
+
+/* Tablet port */
+@media screen and (max-width: 992px) {
+	.Img {
+		width: 70%;
+	}
+	.TextBox h1 {
+		font-size: 5.5rem;
+	}
+}
+@media screen and (max-width: 768px) {
+	.Img {
+		display: none;
+	}
+	.TextBox {
+		padding: 3rem;
+	}
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl } from "react-bootstrap";
+import Button from "../UI/Button/Button";
 
 import classes from "./Navbar.module.css";
 
@@ -34,6 +35,7 @@ const navbar = (props) => {
 						color: "#fff",
 						backgroundColor: "#38D39F",
 						border: "0",
+						fontSize: "1.6rem",
 					}}
 					to="/search"
 				>
@@ -46,10 +48,16 @@ const navbar = (props) => {
 					to="/settings"
 					style={{
 						textDecoration: "none",
-						marginLeft: "20px",
+						marginLeft: "2rem",
 					}}
 				>
-					<span style={{ fontWeight: "bold", color: "#555" }}>
+					<span
+						style={{
+							fontWeight: "bold",
+							color: "#555",
+							fontSize: "1.8rem",
+						}}
+					>
 						{props.name}{" "}
 					</span>
 					<span className={classes.User}> {props.name[0]}</span>
@@ -64,22 +72,14 @@ const navbar = (props) => {
 				<Nav className="ml-auto">
 					<Link
 						className={["nav-link", classes.Link].join(" ")}
-						style={{ margin: "0 15px" }}
+						style={{ margin: "0 1.5rem" }}
 						to="/signin"
 					>
 						Sign in
 					</Link>
-					<Link
-						className="btn btn-success"
-						style={{
-							color: "#fff",
-							backgroundColor: "#38D39F",
-							border: "0",
-						}}
-						to="/login"
-					>
+					<Button link toLink="/login">
 						Log In
-					</Link>
+					</Button>
 				</Nav>
 			</Navbar.Collapse>
 		);

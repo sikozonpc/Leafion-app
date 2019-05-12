@@ -42,7 +42,8 @@ class Signin extends Component {
 					style={{
 						color: "red",
 						textAlign: "center",
-						margin: "auto",
+						margin: "3rem auto",
+						fontSize: "1.8rem",
 					}}
 				>
 					{this.props.error}
@@ -76,7 +77,7 @@ class Signin extends Component {
 						/>
 					</Form.Group>
 					<Form.Group controlId="formPassoword">
-						<Form.Label>Passoword</Form.Label>
+						<Form.Label>Password</Form.Label>
 						<Form.Control
 							name="password"
 							type="password"
@@ -96,7 +97,11 @@ class Signin extends Component {
 				{!this.props.loading ? (
 					<>
 						<h2
-							style={{ margin: "50px auto", textAlign: "center" }}
+							style={{
+								margin: "5rem auto",
+								textAlign: "center",
+								fontSize: "2.9rem",
+							}}
 						>
 							Register an account at{" "}
 							<span style={{ fontWeight: "300" }}>Leafion</span>
@@ -111,7 +116,7 @@ class Signin extends Component {
 							</Row>
 						</Container>
 						{error}
-						{form}{" "}
+						{form}
 					</>
 				) : (
 					<Spinner />

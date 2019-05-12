@@ -39,7 +39,7 @@ const resultsTable = (props) => {
 			hover
 			size="sm"
 			responsive="md"
-			style={{ marginTop: "20px" }}
+			style={{ marginTop: "2rem", fontSize: "1.6rem" }}
 		>
 			<tbody>
 				<tr>

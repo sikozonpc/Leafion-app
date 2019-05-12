@@ -1,21 +1,16 @@
 
 Dashboard:
   ✔ After adding item money is not updating @done(19-03-23 01:00)
-
-  ☐ Create in a section for adding variables like the salary and transportation
+  ✔ Create in a section for adding variables like the salary and transportation @done(19-05-12 12:37)
   ✔ @high Change the data names to ENGLISH @done(19-03-23 22:19)
   ✔ @high Create a accesbile adding form (easier),(SPENDIGNS OR EXPENSE ONLY); @done(19-03-24 11:12)
     ☐ With categories that have icons (make feature to create them too)
     ✔ See video: https://play.google.com/store/apps/details?id=com.mhriley.spendingtracker&hl=pt_PT @done(19-04-22 20:11)
-
   ✔ CASH FLOW : For the HomePage add a new PIE CHART for viewign the most used category @done(19-04-22 20:11)
   ✔ IDENTIFY SPENDIGN PATTERNS GRAPH @done(19-04-05 21:58)
-
   ✘ na DASHBOARD MOVER PARA CIMA OS DADOS @cancelled(19-04-05 21:57)
   ✔ REMOVER TEMPO @done(19-03-24 11:11)
   ✔ Fix Detailed data @done(19-04-05 21:57)
-
-
   ✔ Add auth: @done(19-04-23 17:48)
     ✔ Login/signup page @done(19-04-22 20:24)
     ✔ Actions and reducer logic for SIGN IN, LOG IN to api @done(19-04-23 11:24)
@@ -23,14 +18,11 @@ Dashboard:
     ✔ localStorage the token @done(19-04-23 11:24)
     ✔ Auto login based on localStorage token @done(19-04-23 14:41)
     ✔ Filter the data based on user @done(19-04-23 17:48)
-
   ✔ Style UI for: @done(19-04-25 12:59)
     ✘ Portal page @cancelled(19-04-23 18:34)
     ✔ Settings/User profile page @done(19-04-25 12:59)
     ✔ Login @done(19-04-23 18:34)
     ✔ Signin @done(19-04-23 18:34)
-
-
   ✔ REQUIRED TO BE AUTH ON AUTH ACTION CREATOR @done(19-05-07 16:41)
   ✔ Have the settings working!! @done(19-05-03 13:38)
   ✔ Refetch items when an item is added or removed @done(19-04-26 15:30)

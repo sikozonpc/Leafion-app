@@ -1,7 +1,9 @@
 .MainStatus {
 	background-color: #fff;
 }
-
+* > p {
+	font-size: 1.8rem;
+}
 .DoubleChart {
 	display: flex;
 	flex-flow: row;

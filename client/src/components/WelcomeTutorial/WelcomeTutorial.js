@@ -8,7 +8,7 @@ const welcomeTutorial = (props) => {
 	let [counter, addToCounter] = useState(0);
 
 	let displayText = (
-		<div class={classes.TextBox}>
+		<div className={classes.TextBox}>
 			<p className={classes.Title}>
 				Welcome to Leafion{" "}
 				<i className="fas fa-leaf" style={{ color: "#33BE8F" }} />.
@@ -28,7 +28,7 @@ const welcomeTutorial = (props) => {
 	);
 	if (counter === 1) {
 		displayText = (
-			<div class={classes.TextBox}>
+			<div className={classes.TextBox}>
 				<p className={classes.Title}>How we do that ?</p>
 				<p className={classes.Title}>
 					By recording all of your transactions in our web
@@ -43,7 +43,7 @@ const welcomeTutorial = (props) => {
 	}
 	if (counter === 2) {
 		displayText = (
-			<div class={classes.TextBox}>
+			<div className={classes.TextBox}>
 				<Button clickEvent={props.endTutorial}>Finish</Button>
 			</div>
 		);

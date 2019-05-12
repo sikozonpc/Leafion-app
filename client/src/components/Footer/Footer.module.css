@@ -1,8 +1,9 @@
 .Footer {
 	background-color: #39424e;
 	text-align: center;
-	padding: 60px;
+	padding: 6rem;
 	color: #fff;
+	font-size: 1.6rem;
 }
 .MainRow {
 	display: flex;
@@ -20,14 +21,14 @@
 }
 
 .Title {
-	font-size: 30px;
+	font-size: 3rem;
 	color: var(--color-primary);
 	display: inline-block;
 }
 
 .ListLinks {
 	width: 100%;
-	max-width: 200px;
+	max-width: 20rem;
 	display: flex;
 	flex-flow: column;
 	align-items: flex-start;
@@ -38,12 +39,12 @@
 }
 .Desc {
 	text-align: left;
-	max-width: 400px;
+	max-width: 40rem;
 	width: 100%;
 }
 .LinkSocials {
 	width: 100%;
-	margin: 10px 0;
+	margin: 1rem 0;
 	padding: 0;
 	display: flex;
 	flex-flow: row;
@@ -55,14 +56,15 @@
 .LinkSocials li {
 	position: relative;
 	font-size: 1.2rem;
-	padding: 5px 15px;
+	padding: 5px 1.5rem;
 	cursor: pointer;
 }
 .LinkSocials li a {
 	color: #fff;
+	font-size: 2rem;
 }
 .LinkSocials li:not(:last-child) {
-	margin-right: 20px;
+	margin-right: 2rem;
 }
 .LinkSocials li:hover {
 	color: red !important;
@@ -71,8 +73,8 @@
 .LinkSocials li::after {
 	content: "";
 	position: absolute;
-	width: 40px;
-	height: 40px;
+	width: 4rem;
+	height: 4rem;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
