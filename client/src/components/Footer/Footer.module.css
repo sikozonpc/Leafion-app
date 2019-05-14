@@ -67,7 +67,7 @@
 	margin-right: 2rem;
 }
 .LinkSocials li:hover {
-	color: red !important;
+	color: var(--color-primary);
 }
 
 .LinkSocials li::after {
@@ -80,4 +80,11 @@
 	transform: translate(-50%, -50%);
 	border: 1px solid #ccc;
 	border-radius: 100px;
+}
+
+.Link {
+	cursor: pointer;
+	color: inherit;
+	transition: 0.3s all;
+	font-size: 2rem;
 }

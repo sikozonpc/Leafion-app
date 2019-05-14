@@ -44,7 +44,7 @@ class Settings extends Component {
 		let alert = null;
 		if (this.state.showAlert) {
 			alert = (
-				<Alert variant={"success"}>
+				<Alert variant={"success"} style={{ fontSize: "1.8rem" }}>
 					Changes were made successfuly!
 				</Alert>
 			);
@@ -61,7 +61,6 @@ class Settings extends Component {
 				) : (
 					<Container className={classes.SettingsWrapper}>
 						<Row className={classes.Desc}>
-							<Col md lg xl={12} />
 							<Col md lg xl={12}>
 								<div className={classes.User}>
 									<span className={classes.UserAvatar}>
@@ -70,7 +69,9 @@ class Settings extends Component {
 											: null}
 									</span>
 									<h3>{this.props.name}</h3>
-									<p>{this.props.email}</p>
+									<p style={{ color: "gray" }}>
+										{this.props.email}
+									</p>
 									<div className={classes.Buttons}>
 										{this.props.isAuth ? (
 											<Button

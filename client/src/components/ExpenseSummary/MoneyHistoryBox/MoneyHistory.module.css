@@ -1,8 +1,8 @@
 .HistoryBox {
 	justify-content: space-between;
-	padding: 20px;
+	padding: 2rem;
 	color: #555;
-	max-width: 520px;
+	max-width: 52rem;
 	margin-left: 5px;
 	width: 100%;
 	border-radius: 12px;
@@ -11,19 +11,19 @@
 
 .Item {
 	margin: 0;
-	line-height: 25px;
-	margin-left: 20px;
+	line-height: 2.5rem;
+	margin-left: 2rem;
 	font-style: normal;
 	font-weight: 300;
-	font-size: 16px;
+	font-size: 1.6rem;
 
 	color: #555555;
 }
 .ItemBold {
 	font-style: normal;
 	font-weight: normal;
-	font-size: 18px;
-	line-height: 30px;
+	font-size: 1.8rem;
+	line-height: 3rem;
 	color: #333333;
 	margin: 0.5rem 0;
 }
@@ -31,7 +31,10 @@
 .Buttons {
 	justify-content: space-evenly;
 	width: 100%;
-	margin: 20px auto;
+	margin: 2rem auto;
 	width: 100%;
-	max-width: 400px;
+	max-width: 40rem;
+}
+.Buttons > * {
+	font-size: 1.7rem;
 }

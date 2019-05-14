@@ -51,29 +51,29 @@ const footer = () => {
 			<Row>
 				<ul className={classes.LinkSocials}>
 					<li>
-						<a href="#" target="_blank">
+						<span className={classes.Link} target="_blank">
 							<i className="fab fa-facebook-f" />
-						</a>
+						</span>
 					</li>
 					<li>
-						<a href="#" target="_blank">
+						<span className={classes.Link} target="_blank">
 							<i className="fab fa-twitter" />
-						</a>
+						</span>
 					</li>
 					<li>
-						<a href="#" target="_blank">
+						<span className={classes.Link} target="_blank">
 							<i className="fab fa-linkedin-in" />
-						</a>
+						</span>
 					</li>
 					<li>
-						<a href="#" target="_blank">
+						<span className={classes.Link} target="_blank">
 							<i className="fab fa-instagram" />
-						</a>
+						</span>
 					</li>
 					<li>
-						<a href="#" target="_blank">
+						<span className={classes.Link} target="_blank">
 							<i className="fab fa-patreon" />
-						</a>
+						</span>
 					</li>
 				</ul>
 			</Row>

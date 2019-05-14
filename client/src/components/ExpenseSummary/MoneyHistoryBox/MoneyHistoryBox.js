@@ -85,7 +85,13 @@ const moneyHistoryBox = (props) => {
 						);
 					}
 				})}
-				<p style={{ color: COLOR, marginTop: "15px" }}>
+				<p
+					style={{
+						color: COLOR,
+						marginTop: "15px",
+						fontSize: "1.8rem",
+					}}
+				>
 					{" "}
 					{formatMoney(props.currMonthBalance)} {props.currency}
 				</p>

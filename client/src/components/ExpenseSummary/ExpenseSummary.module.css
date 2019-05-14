@@ -1,33 +1,46 @@
-
 .Info {
-  margin-bottom: 30px;
+	margin-bottom: 3rem;
 }
-  .Info p {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 36px;
-    line-height: normal;
+.Info p {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 3.6rem;
+	line-height: normal;
 
-    color: #333333;
-  }
-  .Info span {
-    font-weight: 600;
-  }
-  .Good {
-    margin: 100px auto;
-  }
-  .Img {
-    width: 80%;
-    margin-left: 50px;
-    margin-right: 10px;
-  }
+	color: #333333;
+}
+.Info span {
+	font-weight: 600;
+}
+.Good {
+	margin: 10rem auto;
+}
+.Img {
+	width: 80%;
+	margin-left: 5rem;
+	margin-right: 1rem;
+}
 
-  .SubTitle {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 36px;
-    line-height: normal;
+.SubTitle {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 3.6rem;
+	line-height: normal;
 
-    color: #333333;
-    margin: 20px auto;
-  }
+	color: #333333;
+	margin: 2rem auto;
+}
+
+/* Remove the image when the bootstrap collum used 100% of the row */
+@media screen and (max-width: 992px) {
+	.Img {
+		display: none;
+	}
+}
+
+/* Mobile phone */
+@media screen and (max-width: 768px) {
+	.Info p {
+		text-align: center;
+	}
+}

@@ -1,16 +1,17 @@
 .SettingsWrapper {
-	margin-top: 50px;
-	padding-bottom: 100px;
+	margin-top: 5rem;
+	padding-bottom: 10rem;
 	background-color: #fff;
+	font-size: 1.8rem;
 }
 
 .UserAvatar {
 	position: relative;
 	text-decoration: none;
 	z-index: 50;
-	margin: 20px;
+	margin: 2rem;
 	text-align: center;
-	font-size: 30px;
+	font-size: 3rem;
 	display: inline-block;
 	color: #333;
 }
@@ -19,26 +20,26 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	border-radius: 100px;
+	border-radius: 10rem;
 	border: 1px solid transparent;
 	background-color: var(--color-primary);
 	z-index: -1;
-	width: 60px;
-	height: 60px;
+	width: 6rem;
+	height: 6rem;
 	transform: translate(-50%, -50%);
 	transition: 0.3s all;
 }
 
 .User {
 	background-color: #f7f7f7;
-	padding: 20px;
+	padding: 2rem;
 	text-align: center;
 	border-radius: 8px;
 	background-color: #fff;
 	border: 1px solid #eee;
 	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
-	padding: 25px;
-	margin: 20px;
+	padding: 2.5rem;
+	margin: 2rem;
 }
 .Settings {
 	box-sizing: border-box;
@@ -46,22 +47,32 @@
 }
 
 .Desc {
-	margin: 20px;
+	margin: 2rem;
 	flex-flow: column;
 	color: #555;
 }
 
 .UserSettings {
 	background-color: #f7f7f7;
-	padding: 20px;
+	padding: 2rem;
 	border-radius: 8px;
 	background-color: #fff;
 	border: 1px solid #eee;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
-	padding: 25px;
-	margin: 20px;
+	padding: 2.5rem;
+	margin: 2rem;
 }
 
 .Buttons > * {
-	margin: 20px;
+	margin: 2rem;
+}
+
+/* Mobile phone */
+@media screen and (max-width: 768px) {
+	.UserSettings {
+		margin: 0;
+	}
+	.User {
+		margin: 0;
+	}
 }

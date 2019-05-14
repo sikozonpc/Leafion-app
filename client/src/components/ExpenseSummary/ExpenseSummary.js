@@ -50,7 +50,7 @@ const expenseSummary = (props) => {
 	}
 
 	// Set current month balance
-	props.data.map((e) => {
+	props.data.forEach((e) => {
 		if (currMonth === e.post.month) {
 			return (currMonthBalance += Number(e.post.amount));
 		}
@@ -63,10 +63,10 @@ const expenseSummary = (props) => {
 	const userCondition =
 		currMonthBalance >= 0 ? (
 			<>
-				<Col md lg={5}>
+				<Col md={1} lg={5}>
 					<img className={classes.Img} src={ballons} alt="Ballons" />
 				</Col>
-				<Col md lg={7}>
+				<Col md={11} lg={7}>
 					<div className={classes.Info}>
 						<p style={{ fontSize: "42px" }}>
 							Hello <span>{props.name}</span> !

@@ -39,20 +39,38 @@ a {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="number"],
+select {
 	font-size: 1.8rem;
 	height: 3.5rem;
 }
+option {
+	font-size: 1.6rem;
+}
+
 input::placeholder {
 	font-size: 1.5rem;
 }
 input::-ms-value {
 	font-size: 1.8rem;
 }
+select::placeholder {
+	font-size: 1.5rem;
+}
 
 .fa-pagelines {
 	color: green;
 	font-size: 2rem;
+}
+/* fix for the font-size on the calendar */
+.react-datepicker__month-container > div {
+	font-size: 16px;
+}
+.react-datepicker__week > div {
+	width: 5rem !important;
+	height: 5rem !important;
+	line-height: 5rem !important;
 }
 
 @media screen and (max-width: 1070px) {
@@ -72,13 +90,13 @@ input::-ms-value {
 /* Tablet Land */
 @media screen and (max-width: 1200px) {
 	html {
-		font-size: 56.25%;
+		font-size: 62.5%;
 	}
 }
 /* Tablet port */
 @media screen and (max-width: 992px) {
 	html {
-		font-size: 50%;
+		font-size: 56%;
 	}
 }
 /* Mobile phone */

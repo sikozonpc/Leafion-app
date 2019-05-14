@@ -28,11 +28,6 @@ const detailedData = (props) => {
 
 	let total = (totalEarned + totalSpendings).toFixed(2);
 
-	let totalStyles = total > 0 ? successStyles : dangerStyles;
-	if (total === 0) {
-		totalStyles = null;
-	}
-
 	// Formating the values to money strings
 	const totalSpendingsAbs = formatMoney(-totalSpendings);
 	totalSpendings = formatMoney(totalSpendings);
@@ -66,14 +61,14 @@ const detailedData = (props) => {
 			<div>
 				Balance:{" "}
 				<strong>
-					{totalEarned} - {totalSpendingsAbs} = {total} {currency}
+					{totalEarned} - {totalSpendingsAbs} ={" "}
+					<b style={{ color: total > 0 ? "green" : "red" }}>
+						{total} {currency}
+					</b>
 				</strong>
 			</div>
 		</Container>
 	);
 };
-
-const successStyles = "success";
-const dangerStyles = "danger";
 
 export default detailedData;

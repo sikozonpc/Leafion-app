@@ -23,10 +23,11 @@ import classes from "./HomePage.module.css";
 import ExpenseSummary from "../../components/ExpenseSummary/ExpenseSummary";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import formatMoney from "../../utils/formatMoney";
+import getMoneyFromMonth from "../../utils/getMoneyFromMonth";
 
 class HomePage extends Component {
 	render() {
-		console.log("[HomePage.js] @render | props: ", this.props);
+		// console.log("[HomePage.js] @render | props: ", this.props);
 
 		const recebidoGraphFormatedData = {};
 		const gastoGraphFormatedData = {};
@@ -153,13 +154,17 @@ class HomePage extends Component {
 					</Col>
 				</Row>
 				<Row className={classes.Graphs}>
-					<Col>
+					<Col md lg="12">
 						<div
 							className={classes.ContainerWrapper}
 							style={{ width: "100%" }}
 						>
 							<h2>Bar Chart </h2>
-							<ResponsiveContainer width="100%" height={400}>
+							<ResponsiveContainer
+								width="100%"
+								height={400}
+								className={classes.RespGraph}
+							>
 								<BarChart data={graphData}>
 									<CartesianGrid strokeDasharray="3 3" />
 									<XAxis dataKey="Month" />
@@ -172,13 +177,17 @@ class HomePage extends Component {
 							</ResponsiveContainer>
 						</div>
 					</Col>
-					<Col>
+					<Col md lg="12">
 						<div
 							className={classes.ContainerWrapper}
-							style={{ width: "80%", margin: "50px auto" }}
+							style={{ width: "80%", margin: "5rem auto" }}
 						>
 							<h2> Money Activity </h2>
-							<ResponsiveContainer width="100%" height={300}>
+							<ResponsiveContainer
+								width="100%"
+								height={300}
+								className={classes.RespGraph}
+							>
 								<RadarChart
 									outerRadius={90}
 									data={this.props.categoryFrequency}
@@ -207,35 +216,6 @@ class HomePage extends Component {
 				</Row>
 			</Container>
 		);
-	}
-}
-
-// Auxaliary method to extract type of money transaction from a given month
-function getMoneyFromMonth(data, month, transactionType) {
-	let totalGasto = 0;
-	let totalRecebido = 0;
-
-	if (transactionType === "r") {
-		data.map((e) => {
-			if (e.post.month === month && e.post.amount >= 0) {
-				totalRecebido += Number(e.post.amount);
-			}
-			// Special argument for getting the total amount for the year
-			else if (month === "all" && e.post.amount >= 0) {
-				totalRecebido += Number(e.post.amount);
-			}
-		});
-
-		return totalRecebido;
-	} else {
-		data.map((e) => {
-			if (e.post.month === month && e.post.amount < 0) {
-				totalGasto += Number(e.post.amount);
-			} else if (month === "all" && e.post.amount < 0) {
-				totalGasto += Number(e.post.amount);
-			}
-		});
-		return -totalGasto;
 	}
 }
 

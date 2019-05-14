@@ -31,7 +31,7 @@ var db;
 MongoClient.connect(dbUri.uri, { useNewUrlParser: true }, (err, client) => {
 	if (err) return console.log(err);
 
-	db = client.db("fcc-test-db"); // whatever the database name is
+	db = client.db("fcc-test-db");
 
 	app.listen(port, () => console.log(`Listening on port ${port}`));
 });

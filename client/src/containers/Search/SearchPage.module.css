@@ -1,7 +1,7 @@
 .SearchResult {
 	display: flex;
 	flex-flow: column wrap;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
 	background-color: rgb(41, 150, 61);
 	width: 100%;

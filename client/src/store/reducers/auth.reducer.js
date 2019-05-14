@@ -93,27 +93,22 @@ const authReducer = (state = initialState, action) => {
 // Parses the error message from Firebase into a user friendly message
 //
 function parseErrorMessage(errorMsg) {
-	let prettyErrorMsg;
 	switch (errorMsg) {
 		case "EMAIL_EXISTS":
-			return (prettyErrorMsg =
-				"This email adress is already connected to an account");
+			return "This email address is already connected to an account";
 
 		case "WEAK_PASSWORD : Password should be at least 6 characters":
-			return (prettyErrorMsg =
-				"Password should be at least 6 characters");
+			return "Password should be at least 6 characters";
 		case "INVALID_PASSWORD":
-			return (prettyErrorMsg = "Invalid Password");
+			return "Invalid Password";
 		case "EMAIL_NOT_FOUND":
-			return (prettyErrorMsg =
-				"This email adress is not registred to a valid account");
+			return "This email address is not registred to a valid account";
 		case "MISSING_PASSWORD":
-			return (prettyErrorMsg = "You forgot to write the password");
+			return "You forgot to write the password";
 		case "TOO_MANY_ATTEMPTS_TRY_LATER : Too many unsuccessful login attempts. Please include reCaptcha verification or try again later":
-			return (prettyErrorMsg =
-				"Too many unsuccessful login attempts, try again later");
+			return "Too many unsuccessful login attempts, try again later";
 		default:
-			return (prettyErrorMsg = null);
+			return null;
 	}
 }
 

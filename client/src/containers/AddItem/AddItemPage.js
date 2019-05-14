@@ -154,7 +154,13 @@ class AddItemPage extends React.Component {
 			);
 		});
 		return (
-			<Container style={{ marginTop: "40px", marginBottom: "40px" }}>
+			<Container
+				style={{
+					marginTop: "4rem",
+					marginBottom: "4rem",
+					fontSize: "1.8rem",
+				}}
+			>
 				{this.state.show ? (
 					<Modal show={this.state.show} clicked={this.hideModal}>
 						<h2>
@@ -183,23 +189,26 @@ class AddItemPage extends React.Component {
 				) : null}
 
 				<Form onSubmit={this.submitHandler}>
+					<span
+						style={{
+							color: "blue",
+							float: "right",
+							cursor: "pointer",
+						}}
+						onClick={this.changeTransactionType}
+						href={"#"}
+					>
+						switch to{" "}
+						{this.state.transactionType === "income"
+							? "expense"
+							: "income"}
+					</span>
+					<h2 style={{ fontSize: "2.4rem" }}>
+						<i className="fas fa-plus-square" />{" "}
+						{this.state.transactionType.toUpperCase()}{" "}
+					</h2>
+					{errorsList}
 					<Form.Group>
-						<a
-							style={{ color: "blue", float: "right" }}
-							onClick={this.changeTransactionType}
-							href={"#"}
-						>
-							switch to{" "}
-							{this.state.transactionType === "income"
-								? "expense"
-								: "income"}
-						</a>
-						<h2>
-							<i className="fas fa-plus-square" />{" "}
-							{this.state.transactionType.toUpperCase()}{" "}
-						</h2>
-						{errorsList}
-
 						<Form.Label htmlFor="name"> Name * </Form.Label>
 						<Form.Control
 							name="name"
@@ -209,35 +218,40 @@ class AddItemPage extends React.Component {
 							placeholder="Action name here..."
 							onChange={this.onChangeHandle}
 						/>
+					</Form.Group>
+					<Form.Group controlId="addForm">
+						<Form.Label>Category * </Form.Label>
+						<Form.Control
+							as="select"
+							required
+							value={this.state.category}
+							name="category"
+							onChange={this.onChangeHandle}
+							style={{
+								fontSize: "1.5rem",
+								height: "3.5rem",
+							}}
+						>
+							<option defaultValue>Choose...</option>
+							{OPTIONS.map((opt) => {
+								return <option key={opt}> {opt} </option>;
+							})}
+						</Form.Control>
+					</Form.Group>
 
-						<Form.Group controlId="addForm">
-							<Form.Label>Category * </Form.Label>
-							<Form.Control
-								as="select"
-								required
-								value={this.state.category}
-								name="category"
-								onChange={this.onChangeHandle}
-							>
-								<option defaultValue>Choose...</option>
-								{OPTIONS.map((opt) => {
-									return <option key={opt}> {opt} </option>;
-								})}
-							</Form.Control>
-						</Form.Group>
+					<Form.Group>
 						<Form.Label htmlFor="datepicker">Date *</Form.Label>
-						<Form.Group>
-							<DatePicker
-								placeholderText="Click to select a date"
-								name="datepicker"
-								required
-								withPortal
-								className={classes.DatePicker}
-								selected={this.state.startDate}
-								onChange={this.changeDateHandler}
-							/>
-						</Form.Group>
-
+						<DatePicker
+							placeholderText="Click to select a date"
+							name="datepicker"
+							required
+							withPortal
+							className={classes.DatePicker}
+							selected={this.state.startDate}
+							onChange={this.changeDateHandler}
+						/>
+					</Form.Group>
+					<Form.Group>
 						<Form.Label htmlFor="desc">Description</Form.Label>
 						<Form.Control
 							name="desc"
@@ -246,7 +260,8 @@ class AddItemPage extends React.Component {
 							placeholder="Description here..."
 							onChange={this.onChangeHandle}
 						/>
-
+					</Form.Group>
+					<Form.Group>
 						<Form.Label htmlFor="amount">Amount * </Form.Label>
 						<Form.Control
 							name="amount"
