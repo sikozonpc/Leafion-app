@@ -68,7 +68,9 @@ export const fetchSettings = () => {
 		const data = {
 			monthlyIncome: localStorage.getItem("monthlyIncome"),
 			monthlyExpense: localStorage.getItem("monthlyExpense"),
-			currency: localStorage.getItem("currency"),
+			currency: localStorage.getItem("currency")
+				? localStorage.getItem("currency")
+				: "€",
 		};
 
 		if (data) dispatch(fetchSettingsSuccess(data));
