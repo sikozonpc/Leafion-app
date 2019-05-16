@@ -45,3 +45,14 @@
 .User:hover {
 	color: #111;
 }
+
+.UserContainer {
+	text-decoration: none;
+	margin-left: 2rem;
+}
+
+@media only screen and (max-width: 992px) {
+	.UserContainer {
+		display: none;
+	}
+}

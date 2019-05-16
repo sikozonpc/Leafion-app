@@ -4,6 +4,7 @@ const initialState = {
 	currency: "€",
 	monthlyIncome: null,
 	monthlyExpense: null,
+	IVA: null,
 	error: null,
 	loading: false,
 };

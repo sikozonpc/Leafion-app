@@ -7,6 +7,9 @@ const button = (props) => {
 	if (props.variant === "outline-green") {
 		variant = "ButtonOutline";
 	}
+	if (props.variant === "outline-green--test-acc") {
+		variant = "ButtonOutlineTestAcc";
+	}
 	let button = (
 		<button
 			className={classes[variant]}

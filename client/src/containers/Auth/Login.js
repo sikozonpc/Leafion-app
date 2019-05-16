@@ -27,9 +27,7 @@ class Login extends Component {
 	onSubmitHandler = (event) => {
 		event.preventDefault();
 		this.props.setUserNameByEmail(this.state.email);
-
 		this.props.onAuth(this.state.email, this.state.password);
-
 		this.props.onInitItems(this.state.email);
 	};
 

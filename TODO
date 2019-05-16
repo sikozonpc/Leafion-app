@@ -4,7 +4,7 @@ Dashboard:
   ✔ Create in a section for adding variables like the salary and transportation @done(19-05-12 12:37)
   ✔ @high Change the data names to ENGLISH @done(19-03-23 22:19)
   ✔ @high Create a accesbile adding form (easier),(SPENDIGNS OR EXPENSE ONLY); @done(19-03-24 11:12)
-    ☐ With categories that have icons (make feature to create them too)
+    ✘ With categories that have icons (make feature to create them too) @cancelled(19-05-16 11:07)
     ✔ See video: https://play.google.com/store/apps/details?id=com.mhriley.spendingtracker&hl=pt_PT @done(19-04-22 20:11)
   ✔ CASH FLOW : For the HomePage add a new PIE CHART for viewign the most used category @done(19-04-22 20:11)
   ✔ IDENTIFY SPENDIGN PATTERNS GRAPH @done(19-04-05 21:58)
@@ -26,7 +26,6 @@ Dashboard:
   ✔ REQUIRED TO BE AUTH ON AUTH ACTION CREATOR @done(19-05-07 16:41)
   ✔ Have the settings working!! @done(19-05-03 13:38)
   ✔ Refetch items when an item is added or removed @done(19-04-26 15:30)
-  ☐ Responsiveness for navbar
   ✔ Responsiveness @done(19-05-14 14:59)
   ✔ Finish Home page @done(19-04-28 12:54)
   ✔ Create a global Button component @done(19-04-26 14:40)
@@ -35,9 +34,11 @@ Dashboard:
   ✔ Rework the dashboard @done(19-04-26 13:18)
   ✔ Rework forms, Popup @done(19-04-26 15:49)
   ✔ Remove legacy CSS and Imports @done(19-05-14 15:01)
-  ☐ How to use
   ✔ about, contact me page @done(19-05-06 15:34)
   ✔ Welcome page on creating account @done(19-05-06 13:38)
   ✘ Make the remaning todo on the app @cancelled(19-05-14 15:01)
-  ☐ Create test account and populate with data
+  ✔ Create test account and populate with data @done(19-05-16 11:06)
   ✔ Finish dashboard detailed data component @done(19-05-14 15:01)
+  ☐ How to use
+  ✔ Responsiveness for navbar @done(19-05-16 11:25)
+  ☐ Add IVA to the settings

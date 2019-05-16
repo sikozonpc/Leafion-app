@@ -44,13 +44,7 @@ const navbar = (props) => {
 			</Form>
 			{/* User name and avatar  */}
 			{props.name ? (
-				<Link
-					to="/settings"
-					style={{
-						textDecoration: "none",
-						marginLeft: "2rem",
-					}}
-				>
+				<Link to="/settings" className={classes.UserContainer}>
 					<span
 						style={{
 							fontWeight: "bold",

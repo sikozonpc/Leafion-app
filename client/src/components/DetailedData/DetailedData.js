@@ -62,7 +62,11 @@ const detailedData = (props) => {
 				Balance:{" "}
 				<strong>
 					{totalEarned} - {totalSpendingsAbs} ={" "}
-					<b style={{ color: total > 0 ? "green" : "red" }}>
+					<b
+						style={{
+							color: parseFloat(total) > 0 ? "green" : "red",
+						}}
+					>
 						{total} {currency}
 					</b>
 				</strong>

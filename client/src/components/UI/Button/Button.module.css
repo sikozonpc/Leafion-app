@@ -39,6 +39,7 @@
 	background-color: transparent;
 	color: #555;
 }
+
 .ButtonOutline:hover {
 	border-color: transparent;
 	background: #30a37d;
@@ -47,4 +48,26 @@
 
 .ButtonOutline:focus {
 	box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
+}
+.ButtonOutlineTestAcc {
+	display: inline-block;
+	border: 1px solid var(--color-primary-dark);
+	cursor: pointer;
+
+	padding: 6px 1.2rem;
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 1.5;
+	border-radius: 0.25rem;
+	margin: 0;
+	margin-left: 2.4rem;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+		border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	background-color: transparent;
+	color: #555;
+}
+.ButtonOutlineTestAcc:hover {
+	border-color: transparent;
+	background: #30a37d;
+	color: #fff;
 }
