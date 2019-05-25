@@ -12,6 +12,7 @@ const layout = (props) => {
 				setSearchResult={props.setSearchResult}
 				name={props.name}
 				isAuth={props.isAuth}
+				activateWalletMode={props.activateWalletMode}
 			/>
 
 			<div className="content-app">{props.children}</div>

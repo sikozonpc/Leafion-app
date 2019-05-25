@@ -11,6 +11,13 @@ const navbar = (props) => {
 			<Nav className="ml-auto">
 				<Link
 					className={["nav-link", classes.Link].join(" ")}
+					to="/wallet"
+					onClick={props.activateWalletMode}
+				>
+					Wallet
+				</Link>
+				<Link
+					className={["nav-link", classes.Link].join(" ")}
 					to="/items"
 				>
 					Dashboard

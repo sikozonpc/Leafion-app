@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/index";
 
@@ -7,6 +7,7 @@ import Spinner from "../components/UI/PacmanSpinner/PacmanSpinner";
 import Layout from "./Layout/Layout";
 import RouterContent from "../components/RouterContent/RouterContent";
 import WelcomeTutorial from "../components/WelcomeTutorial/WelcomeTutorial";
+import Wallet from "./Walltet/Wallet";
 
 //
 // Container of the structure of the application and state.
@@ -46,6 +47,10 @@ class App extends Component {
 		this.setState({ [name]: value });
 	};
 
+	activateWalletMode = () => {
+		this.props.activateWalletMode();
+	};
+
 	render() {
 		// Because I am using router for the pages the Content section is dynamically added by it
 		let routerContent = this.props.items ? (
@@ -63,14 +68,22 @@ class App extends Component {
 				name={this.props.name}
 				isAuth={this.props.isAuth}
 				tutorial={this.props.tutorial}
+				activateWalletMode={this.props.activateWalletMode}
 			>
 				{routerContent}
 			</Layout>
 		);
 		if (this.props.tutorial) {
 			display = (
-				<WelcomeTutorial endTutorial={this.props.onEndTutorial} />
+				<>
+					<Route path="/wallet" component={Wallet} />
+					<WelcomeTutorial endTutorial={this.props.onEndTutorial} />
+				</>
 			);
+		}
+
+		if (this.props.walletModeOn) {
+			display = <Wallet userName={this.props.name} />;
 		}
 
 		return <Router>{display}</Router>;
@@ -86,6 +99,7 @@ const mapStateToProps = (state) => {
 		items: state.appData.items,
 		name: state.auth.name,
 		tutorial: state.auth.tutorial,
+		walletModeOn: state.wallet.walletModeOn,
 	};
 };
 
@@ -99,6 +113,7 @@ const mapDispatchToProps = (dispatch) => {
 		onFetchSettingsFromLocalStorage: () =>
 			dispatch(actions.fetchSettings()),
 		onEndTutorial: () => dispatch(actions.endTutorial()),
+		activateWalletMode: () => dispatch(actions.activateWalletMode()),
 	};
 };
 

@@ -32,6 +32,7 @@ const routerContent = (props) => {
 				<Route path="/about" component={About} exact />
 				<Route path="/howtouse" component={HowToUse} exact />
 				<Route path="/contact" component={Contact} exact />
+
 				<Route
 					path="/items"
 					render={() => (
