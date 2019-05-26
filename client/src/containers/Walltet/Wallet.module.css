@@ -2,6 +2,7 @@
 	background-color: #f0f0f0;
 	color: #111;
 	font-size: 3rem;
+	width: 100%;
 }
 .container {
 	display: flex;

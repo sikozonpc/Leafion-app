@@ -2,6 +2,7 @@ import { ActionTypes } from "../actions/actionTypes";
 
 const initialState = {
 	walletModeOn: false,
+	balance: 0,
 };
 
 const walletReducer = (state = initialState, action) => {

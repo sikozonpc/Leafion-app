@@ -5,6 +5,8 @@ import {
 	Route,
 	Redirect,
 } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions/index";
 
 import Layout from "./Layout/Layout";
 import WalletView from "./WalletView/WalletView";
@@ -19,7 +21,13 @@ class Wallet extends Component {
 						<Switch>
 							<Route
 								path="/wallet"
-								component={WalletView}
+								render={() => (
+									<WalletView
+										deactivateWalletMode={
+											this.props.deactivateWalletMode
+										}
+									/>
+								)}
 								exact
 							/>
 							<Route path="/additemcart" component={AddItem} />
@@ -33,4 +41,19 @@ class Wallet extends Component {
 	}
 }
 
-export default Wallet;
+const mapStateToProps = (state) => {
+	return {
+		balance: state.wallet.balance,
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		deactivateWalletMode: () => dispatch(actions.deactivateWalletMode()),
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Wallet);

@@ -1,0 +1,11 @@
+.brand {
+	color: #3ec094 !important;
+	font-size: 30px;
+}
+.container {
+	text-align: center;
+	height: 60px;
+	background-color: #f7f7f7;
+	width: 100%;
+	box-shadow: 0.1px 1px 4px 0 #e7eeef;
+}

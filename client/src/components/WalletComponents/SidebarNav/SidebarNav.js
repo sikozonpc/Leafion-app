@@ -12,7 +12,9 @@ const sidebarNav = ({ items, userName }) => {
 				activeClassName={classes["nav-item__active"]}
 				key={item.name}
 			>
-				<span className={classes.itemcontainer}>{item.name}</span>
+				<div className={classes["nav-item--background"]}>
+					<span>{item.name}</span>
+				</div>
 			</NavLink>
 		);
 	});
