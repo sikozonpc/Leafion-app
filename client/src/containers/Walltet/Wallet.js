@@ -11,13 +11,17 @@ import * as actions from "../../store/actions/index";
 import Layout from "./Layout/Layout";
 import WalletView from "./WalletView/WalletView";
 import AddItem from "./AddItem/AddItem";
+import Account from "./Account/Account";
 
 class Wallet extends Component {
 	render() {
 		return (
 			<>
 				<Router>
-					<Layout userName={this.props.userName}>
+					<Layout
+						userName={this.props.userName}
+						deactivateWalletMode={this.props.deactivateWalletMode}
+					>
 						<Switch>
 							<Route
 								path="/wallet"
@@ -31,6 +35,7 @@ class Wallet extends Component {
 								exact
 							/>
 							<Route path="/additemcart" component={AddItem} />
+							<Route path="/account" component={Account} />
 							{/* Redirect UNKOWN PAGES TO / */}
 							<Redirect to="/" />
 						</Switch>

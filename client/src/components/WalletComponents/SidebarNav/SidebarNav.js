@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import classes from "./SidebarNav.module.css";
 
-const sidebarNav = ({ items, userName }) => {
+const sidebarNav = ({ items, userName, deactivateWalletMode }) => {
 	const navItems = items.map((item) => {
 		return (
 			<NavLink
@@ -13,11 +13,34 @@ const sidebarNav = ({ items, userName }) => {
 				key={item.name}
 			>
 				<div className={classes["nav-item--background"]}>
-					<span>{item.name}</span>
+					<span>
+						{" "}
+						<i className={item.icon} /> {"  "}
+						<p>{item.name}</p>
+					</span>
 				</div>
 			</NavLink>
 		);
 	});
+
+	// Hard coded exit option
+	navItems.push(
+		<NavLink
+			to="/back"
+			key="back"
+			className={classes["nav-item"]}
+			activeClassName={classes["nav-item__active"]}
+			style={{ marginTop: "30px" }}
+			onClick={deactivateWalletMode}
+		>
+			<div className={classes["nav-item--background"]}>
+				<span>
+					<i className="fas fa-sign-out-alt" /> {"  "}
+					<p>Back</p>
+				</span>
+			</div>
+		</NavLink>
+	);
 
 	return (
 		<nav className={classes.nav}>

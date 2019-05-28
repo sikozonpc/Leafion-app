@@ -8,11 +8,16 @@ const layout = (props) => {
 		<div className={classes.container}>
 			<SideNav
 				items={[
-					{ name: "Wallet", to: "/wallet" },
-					{ name: "Add item", to: "/additemcart" },
-					{ name: "Account info", to: "/account" },
+					{ name: "Wallet", to: "/wallet", icon: "fas fa-wallet" },
+					{
+						name: "Add",
+						to: "/additemcart",
+						icon: "far fa-plus-square",
+					},
+					{ name: "Account", to: "/account", icon: "fas fa-user" },
 				]}
 				userName={props.userName}
+				deactivateWalletMode={props.deactivateWalletMode}
 			/>
 			<div className={classes.walletpage}>{props.children}</div>
 		</div>
