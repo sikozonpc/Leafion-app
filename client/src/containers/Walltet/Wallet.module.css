@@ -8,3 +8,98 @@
 	display: flex;
 	flex-flow: row;
 }
+
+/****** WALLET VIEW STYLES *****/
+
+.alert {
+	margin-top: 2rem;
+	font-size: 1.8rem;
+}
+
+/* Money Tab */
+.walletview {
+	height: 45vh;
+	background-color: #fff;
+}
+.walletview h3,
+.add-form h3 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 2.4rem;
+	line-height: 4rem;
+	text-align: center;
+	padding: 3rem 0;
+
+	color: #000;
+}
+.walletview--money {
+	margin: auto;
+	width: 18.7rem;
+	height: 7rem;
+	padding: 1rem;
+	text-align: center;
+	background: rgba(56, 211, 159, 0.16);
+}
+.walletview--money span {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 41px;
+
+	color: #000;
+}
+
+.walletview p {
+	padding: 3rem;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 2rem;
+	line-height: 3.3rem;
+	text-align: center;
+
+	color: #333;
+}
+
+/* shopping cart tab */
+.shopping-cart {
+	padding: 3rem 2rem;
+}
+.shopping-cart h3 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 2.4rem;
+	line-height: 4rem;
+	color: #000;
+}
+
+/* Add form */
+.add-form {
+	padding: 3rem 10rem;
+	background-color: #fff;
+	height: 90vh;
+	display: flex;
+	flex-flow: column;
+}
+.add-form h3 {
+	color: #3ec094;
+	text-align: left;
+	font-size: 2.8rem;
+	text-transform: uppercase;
+}
+.add-form label,
+.add-form input {
+	max-width: 40rem;
+}
+.add-form button {
+	margin: 2rem 0;
+	width: 10rem;
+}
+
+@media only screen and (max-width: 650px) {
+	.walletview {
+		height: 30vh;
+	}
+	.walletview p {
+		display: none;
+	}
+}

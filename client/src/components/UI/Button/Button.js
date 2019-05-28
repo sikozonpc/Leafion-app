@@ -2,31 +2,33 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./Button.module.css";
 
-const button = (props) => {
-	let variant = "Button";
-	if (props.variant === "outline-green") {
+const button = ({
+	variant = "Button",
+	clickEvent,
+	required,
+	children,
+	link,
+	toLink,
+}) => {
+	if (variant === "outline-green") {
 		variant = "ButtonOutline";
 	}
-	if (props.variant === "outline-green--test-acc") {
+	if (variant === "outline-green--test-acc") {
 		variant = "ButtonOutlineTestAcc";
 	}
 	let button = (
 		<button
 			className={classes[variant]}
-			onClick={props.clickEvent}
-			required={props.required}
+			onClick={clickEvent}
+			required={required}
 		>
-			{props.children}
+			{children}
 		</button>
 	);
-	if (props.link) {
+	if (link) {
 		button = (
-			<Link
-				className={classes[variant]}
-				onClick={props.clickEvent}
-				to={props.toLink}
-			>
-				{props.children}
+			<Link className={classes[variant]} onClick={clickEvent} to={toLink}>
+				{children}
 			</Link>
 		);
 	}

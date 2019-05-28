@@ -11,4 +11,9 @@ export {
 } from "./auth";
 
 export { saveChanges, fetchSettings } from "./settings";
-export { activateWalletMode, deactivateWalletMode } from "./wallet";
+export {
+	activateWalletMode,
+	deactivateWalletMode,
+	addItemWallet,
+	removeItemWallet,
+} from "./wallet";
