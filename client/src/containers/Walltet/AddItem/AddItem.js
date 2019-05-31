@@ -17,22 +17,18 @@ const addItem = (props) => {
 		</Alert>
 	) : null;
 
-	// TODO: Explore useEffect hook and use it to validate the code;
 	// TODO: Then make the connections to the database, firebase to store all data;
-	/*
-	let error = false;
-
-		// Validation
-		// I don't validate the name cause it can be empty
-		if (item.price === 0) {
-			error = true; 
-		}
-	*/
 
 	return (
 		<div className={classes.walletpage}>
 			<TopBar deactivateWalletMode={props.deactivateWalletMode} />
-			<form className={classes["add-form"]}>
+			<form
+				className={classes["add-form"]}
+				onSubmit={(event) => {
+					changeClicked(true);
+					props.addItem(event, { name: name, price: price });
+				}}
+			>
 				<h3>
 					<i className="fas fa-cart-plus" /> Add item
 				</h3>
@@ -53,14 +49,7 @@ const addItem = (props) => {
 					onChange={(e) => changePrice(e.target.value)}
 				/>
 
-				<Button
-					clickEvent={(event) => {
-						changeClicked(true);
-						props.addItem(event, { name: name, price: price });
-					}}
-				>
-					Add
-				</Button>
+				<Button>Add</Button>
 				{message}
 			</form>
 		</div>

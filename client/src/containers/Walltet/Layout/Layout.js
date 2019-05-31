@@ -14,6 +14,7 @@ const layout = (props) => {
 						to: "/additemcart",
 						icon: "far fa-plus-square",
 					},
+					{ name: "Cart", to: "/cart", icon: "fas fa-shopping-cart" },
 					{ name: "Account", to: "/account", icon: "fas fa-user" },
 				]}
 				userName={props.userName}

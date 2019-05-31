@@ -13,6 +13,7 @@ import Layout from "./Layout/Layout";
 import WalletView from "./WalletView/WalletView";
 import AddItem from "./AddItem/AddItem";
 import Account from "./Account/Account";
+import Cart from "./Cart/Cart";
 
 class Wallet extends Component {
 	addItemHandler = (event, item) => {
@@ -41,18 +42,23 @@ class Wallet extends Component {
 											this.props.deactivateWalletMode
 										}
 										balance={this.props.balance}
-										items={this.props.items}
 									/>
 								)}
 								exact
 							/>
 							<Route
-								path="/additemcart"
+								path="/cart"
 								render={() => (
-									<AddItem
-										addItem={this.addItemHandler}
+									<Cart
+										items={this.props.items}
 										removeItem={this.removeItemHandler}
 									/>
+								)}
+							/>
+							<Route
+								path="/additemcart"
+								render={() => (
+									<AddItem addItem={this.addItemHandler} />
 								)}
 							/>
 							<Route path="/account" component={Account} />

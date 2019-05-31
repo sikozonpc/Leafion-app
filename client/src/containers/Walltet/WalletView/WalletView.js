@@ -8,11 +8,6 @@ import classes from "../Wallet.module.css";
 
 const walletView = (props) => {
 	const bal = formatMoney(props.balance);
-	const itemsList = props.items.map((item) => (
-		<li>
-			{item.name} | {item.price}{" "}
-		</li>
-	));
 
 	return (
 		<div className={classes.walletpage}>
@@ -28,13 +23,10 @@ const walletView = (props) => {
 					or add the items you plan to purchase
 				</p>
 			</div>
-			<div className={classes["shopping-cart"]}>
-				<h3>Shopping Cart</h3>
-				{/* Add logic */}
+			<div className={classes.btn}>
 				<Button link toLink="/additemcart">
 					Add
 				</Button>
-				<ul className={classes["shopping-cart--list"]}>{itemsList}</ul>
 			</div>
 		</div>
 	);

@@ -15,6 +15,24 @@
 	margin-top: 2rem;
 	font-size: 1.8rem;
 }
+.remove {
+	position: absolute;
+	top: 0%;
+	right: 0%;
+
+	background-color: rgb(243, 94, 94);
+	height: 100%;
+	width: 20%;
+	cursor: pointer;
+}
+.remove > i {
+	font-size: 2.5rem;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
 
 /* Money Tab */
 .walletview {
@@ -60,6 +78,11 @@
 	color: #333;
 }
 
+.btn {
+	margin: 5rem auto;
+	text-align: center;
+}
+
 /* shopping cart tab */
 .shopping-cart {
 	padding: 3rem 2rem;
@@ -70,6 +93,46 @@
 	font-size: 2.4rem;
 	line-height: 4rem;
 	color: #000;
+	text-align: center;
+}
+
+.shopping-cart--item {
+	position: relative;
+	font-size: 2rem;
+	display: flex;
+	flex-flow: column;
+	width: 300px;
+	color: #333;
+	margin: 2rem 0;
+	padding: 1rem;
+	border-radius: 5px;
+	background-color: #fff;
+}
+.shopping-cart--item__content {
+	padding: 1.5rem 1rem;
+}
+.shopping-cart--item__content--name {
+	color: #111;
+	font-size: 1.8rem;
+}
+.shopping-cart--item__content--price {
+	color: #333;
+	font-weight: bolder;
+	font-size: 2.4rem;
+}
+
+.shopping-cart--list {
+	margin: auto;
+	padding: 0;
+	margin-top: 2rem;
+	list-style: none;
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	overflow-y: scroll;
+	max-height: 60vh;
+	max-width: 350px;
 }
 
 /* Add form */
@@ -90,8 +153,16 @@
 .add-form input {
 	max-width: 40rem;
 }
+.add-form label {
+	font-size: 2rem;
+}
+.add-form input {
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding: 1rem;
+	margin-bottom: 2rem;
+}
 .add-form button {
-	margin: 2rem 0;
 	width: 10rem;
 }
 
@@ -101,5 +172,11 @@
 	}
 	.walletview p {
 		display: none;
+	}
+	.add-form {
+		padding: 3rem;
+	}
+	.shopping-cart--item {
+		width: 200px;
 	}
 }

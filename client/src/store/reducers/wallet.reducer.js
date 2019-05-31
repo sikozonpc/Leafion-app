@@ -22,7 +22,7 @@ const walletReducer = (state = initialState, action) => {
 	}
 
 	if (action.type === ActionTypes.ADD_ITEM_WALLET) {
-		const newBal = state.balance + parseFloat(action.item.price);
+		const newBal = state.balance - parseFloat(action.item.price);
 		const newItems = state.items.concat(action.item);
 
 		return {
@@ -33,7 +33,7 @@ const walletReducer = (state = initialState, action) => {
 	}
 
 	if (action.type === ActionTypes.REMOVE_ITEM_WALLET) {
-		const newBal = state.balance - parseFloat(action.item.price);
+		const newBal = state.balance + parseFloat(action.item.price);
 		const newItems = state.items.filter((item) => {
 			return (
 				item.name !== action.item.name &&
