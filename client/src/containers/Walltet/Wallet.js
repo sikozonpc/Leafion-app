@@ -16,13 +16,26 @@ import Account from "./Account/Account";
 import Cart from "./Cart/Cart";
 
 class Wallet extends Component {
+	componentDidMount() {
+		// Fetches the balance from database and stores it to the Store
+		this.props.fetchBalance();
+	}
+
 	addItemHandler = (event, item) => {
 		event.preventDefault();
 		this.props.addItemWallet(item);
+		// Re-fetch the updated balance from localstate
+		this.props.fetchBalance();
 	};
 	removeItemHandler = (event, item) => {
 		event.preventDefault();
 		this.props.removeItemWallet(item);
+	};
+
+	onAddFunds = (ammount) => {
+		this.props.addFunds(ammount);
+		// Re-fetch the updated balance from localstate
+		this.props.fetchBalance();
 	};
 
 	render() {
@@ -42,6 +55,7 @@ class Wallet extends Component {
 											this.props.deactivateWalletMode
 										}
 										balance={this.props.balance}
+										addFunds={this.onAddFunds}
 									/>
 								)}
 								exact
@@ -84,6 +98,8 @@ const mapDispatchToProps = (dispatch) => {
 		deactivateWalletMode: () => dispatch(actions.deactivateWalletMode()),
 		addItemWallet: (item) => dispatch(actions.addItemWallet(item)),
 		removeItemWallet: (item) => dispatch(actions.removeItemWallet(item)),
+		fetchBalance: () => dispatch(actions.fetchBalance()),
+		addFunds: (ammount) => dispatch(actions.addFunds(ammount)),
 	};
 };
 

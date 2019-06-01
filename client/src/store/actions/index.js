@@ -16,4 +16,6 @@ export {
 	deactivateWalletMode,
 	addItemWallet,
 	removeItemWallet,
+	fetchBalance,
+	addFunds,
 } from "./wallet";

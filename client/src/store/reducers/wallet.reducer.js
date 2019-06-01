@@ -21,14 +21,10 @@ const walletReducer = (state = initialState, action) => {
 		};
 	}
 
-	if (action.type === ActionTypes.ADD_ITEM_WALLET) {
-		const newBal = state.balance - parseFloat(action.item.price);
-		const newItems = state.items.concat(action.item);
-
+	if (action.type === ActionTypes.ADD_ITEM_WALLET_SUCCESS) {
 		return {
 			...state,
-			balance: newBal,
-			items: newItems,
+			items: state.items.concat(action.item),
 		};
 	}
 
@@ -45,6 +41,13 @@ const walletReducer = (state = initialState, action) => {
 			...state,
 			balance: newBal,
 			items: newItems,
+		};
+	}
+
+	if (action.type === ActionTypes.FETCH_BAL_SUCCESS) {
+		return {
+			...state,
+			balance: action.bal,
 		};
 	}
 

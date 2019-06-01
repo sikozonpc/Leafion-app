@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import TopBar from "../../../components/WalletComponents/TopBar/TopBar";
 import Button from "../../../components/UI/Button/Button";
@@ -8,6 +8,7 @@ import classes from "../Wallet.module.css";
 
 const walletView = (props) => {
 	const bal = formatMoney(props.balance);
+	const [funds, changeFunds] = useState(0);
 
 	return (
 		<div className={classes.walletpage}>
@@ -16,6 +17,19 @@ const walletView = (props) => {
 				<h3>Wallet Balance</h3>
 				<div className={classes["walletview--money"]}>
 					<span>{bal} €</span>
+				</div>
+				<div>
+					<input
+						type="number"
+						placeholder="Funds to add..."
+						onChange={(e) => changeFunds(e.target.value)}
+					/>
+					<Button
+						clickEvent={() => props.addFunds(funds)}
+						variant="outline-green"
+					>
+						Add
+					</Button>
 				</div>
 				<p>
 					Add the items you are purchasing when your are shopping{" "}

@@ -17,8 +17,6 @@ const addItem = (props) => {
 		</Alert>
 	) : null;
 
-	// TODO: Then make the connections to the database, firebase to store all data;
-
 	return (
 		<div className={classes.walletpage}>
 			<TopBar deactivateWalletMode={props.deactivateWalletMode} />
